@@ -29,7 +29,7 @@ export default function Application() {
     }, []);
     return (
         <Wrapper>
-            <SEO pageTitle={"Home Dark"} />
+            <SEO pageTitle={"DevArno"} />
 
             <div className="yellow">
                 <SwitchDark />
