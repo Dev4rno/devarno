@@ -1,0 +1,47 @@
+{
+    "name": "tunis",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "build": "next build",
+        "go": "bash src/scripts/go.sh",
+        "test": "bash src/scripts/test.sh",
+        "jest": "clear && jest --verbose --detectOpenHandles --watchAll",
+        "cy": "cypress open",
+        "tree": "clear && echo '\n\nYour local branches\n\n' && git branch",
+        "prep": "bash src/scripts/prep.sh",
+        "push": "bash src/scripts/push.sh",
+        "move": "bash src/scripts/move.sh",
+        "dl": "clear && git branch -D ",
+        "dr": "clear && git push origin --delete ",
+        "kill": "clear && lsof -t -i:3000 | xargs kill -9",
+        "spy": "clear && next info",
+        "l": "clear && git branch",
+        "r": "clear && git branch -r",
+        "fill": "bash src/scripts/fill.sh"
+    },
+    "dependencies": {
+        "@emailjs/browser": "^3.9.1",
+        "aos": "^2.3.4",
+        "bootstrap": "^5.2.2",
+        "eslint": "8.27.0",
+        "eslint-config-next": "13.0.2",
+        "flag-icons": "^6.6.6",
+        "next": "13.0.2",
+        "react": "18.2.0",
+        "react-animated-cursor": "^2.5.2",
+        "react-dom": "18.2.0",
+        "react-modal": "^3.16.1",
+        "react-slick": "^0.29.0",
+        "react-tabs": "^5.1.0",
+        "react-toastify": "^9.1.1",
+        "sass": "^1.56.0",
+        "slick-carousel": "^1.8.1",
+        "typewriter-effect": "^2.19.0"
+    },
+    "devDependencies": {
+        "@types/node": "18.11.18",
+        "@types/react": "18.0.26",
+        "typescript": "4.9.4"
+    }
+}
