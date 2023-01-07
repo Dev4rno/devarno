@@ -1,12 +1,12 @@
-import { ModalEight } from "@/content/Portfolio/modal/templates/ModalEight";
-import { ModalFive } from "@/content/Portfolio/modal/templates/ModalFive";
-import { ModalFour } from "@/content/Portfolio/modal/templates/ModalFour";
-import { ModalNine } from "@/content/Portfolio/modal/templates/ModalNine";
-import { ModalOne } from "@/content/Portfolio/modal/templates/ModalOne";
-import { ModalSeven } from "@/content/Portfolio/modal/templates/ModalSeven";
-import { ModalSix } from "@/content/Portfolio/modal/templates/ModalSix";
-import { ModalThree } from "@/content/Portfolio/modal/templates/ModalThree";
-import { ModalTwo } from "@/content/Portfolio/modal/templates/ModalTwo";
+import { ModalEight } from "@/content/components/Portfolio/modal/templates/ModalEight";
+import { ModalFive } from "@/content/components/Portfolio/modal/templates/ModalFive";
+import { ModalFour } from "@/content/components/Portfolio/modal/templates/ModalFour";
+import { ModalNine } from "@/content/components/Portfolio/modal/templates/ModalNine";
+import { ModalOne } from "@/content/components/Portfolio/modal/templates/ModalOne";
+import { ModalSeven } from "@/content/components/Portfolio/modal/templates/ModalSeven";
+import { ModalSix } from "@/content/components/Portfolio/modal/templates/ModalSix";
+import { ModalThree } from "@/content/components/Portfolio/modal/templates/ModalThree";
+import { ModalTwo } from "@/content/components/Portfolio/modal/templates/ModalTwo";
 
 // export const ModalConfig = {
 //     1: ModalOne,

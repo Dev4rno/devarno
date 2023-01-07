@@ -1,5 +1,5 @@
-import ModalMain from "@/content/Portfolio/modal/ModalMain";
-import { PortfolioData } from "@/strings";
+import { PortfolioData } from "@/content";
+import { ModalMain } from "@/content/components/Portfolio/modal/ModalMain";
 import Image from "next/image";
 import { useState } from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
@@ -202,5 +202,3 @@ export const Portfolio = () => {
         </>
     );
 };
-
-export default Portfolio;

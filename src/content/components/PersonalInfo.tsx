@@ -1,4 +1,4 @@
-import { capitalise } from "../utils";
+import { capitalise } from "@/utils";
 
 const personalInfoContent = [
     { meta: "name", metaInfo: "Alessandro Arno", hasColor: "" },
@@ -32,7 +32,7 @@ const personalInfoContent = [
     },
 ];
 
-const PersonalInfo = () => {
+export const PersonalInfo = () => {
     return (
         <ul className="about-list list-unstyled open-sans-font">
             {personalInfoContent.map((val, i) => (
@@ -48,5 +48,3 @@ const PersonalInfo = () => {
         </ul>
     );
 };
-
-export default PersonalInfo;

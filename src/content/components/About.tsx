@@ -1,8 +1,10 @@
-import Achievements from "@/content/Achievements";
-import Education from "@/content/Education";
-import Experience from "@/content/Experience";
-import PersonalInfo from "@/content/PersonalInfo";
-import Skills from "@/content/Skills";
+import {
+    Achievements,
+    Education,
+    Experience,
+    PersonalInfo,
+    Skills,
+} from "@/content/components";
 import cv from "@/public/assets/img/cv.webp";
 
 export const AboutMain = () => {

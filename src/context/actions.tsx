@@ -1,4 +1,4 @@
-import { blogsData } from "@/strings";
+import { blogsData } from "@/content";
 import { useState } from "react";
 
 export const AllBlogData = () => {
