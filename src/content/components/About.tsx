@@ -37,14 +37,6 @@ export const AboutMain = () => {
                             </div>
                             {/* End personal info */}
 
-                            <div className="col-12 mt-1">
-                                <a className="button" href={cv as any} download>
-                                    <span className="button-text">
-                                        Download CV
-                                    </span>
-                                    <span className="button-icon fa fa-download"></span>
-                                </a>
-                            </div>
                             {/* End download button */}
                         </div>
                     </div>
@@ -55,6 +47,13 @@ export const AboutMain = () => {
                         <Achievements />
                     </div>
                     {/* Achievements Ends */}
+
+                    <div className="col-12 mt-1">
+                        <a className="button" href={cv as any} download>
+                            <span className="button-text">Download CV</span>
+                            <span className="button-icon fa fa-download"></span>
+                        </a>
+                    </div>
                 </div>
                 {/* End .row */}
 
