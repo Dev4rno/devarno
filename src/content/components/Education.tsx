@@ -1,6 +1,6 @@
 const educationContent = [
     {
-        year: "2022 - Current",
+        year: "2022 - Present",
         degree: "CS50 Introduction to Computer Science",
         institute: "Harvard University",
         details: `Overview of C, Python, SQL, HTML, CSS, and JavaScript with a final project`,

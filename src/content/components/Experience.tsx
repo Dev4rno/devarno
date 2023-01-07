@@ -11,7 +11,7 @@ const experienceContent = [
         position: "Front End Lead",
         compnayName: "Nocodelytics",
         details:
-            "Providing simple Webflow analytics to track users and get insights that help grow your business.",
+            "Providing simple Webflow analytics and insights that help businesses grow.",
     },
     {
         year: "2021 - 2022",
