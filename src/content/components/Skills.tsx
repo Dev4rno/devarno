@@ -151,11 +151,10 @@ const skills: Skill[] = [
 
 export const Skills: FunctionComponent = (props): JSX.Element => (
     <>
+        <h3 className="text-uppercase pb-4 pb-sm-5 mb-3 mb-sm-0 text-center custom-title ft-wt-600">Skills</h3>
         {skills.map(({ type, name, pct, img }, i) => (
             <div className="col-6 col-md-3 mb-3 mb-sm-5" key={i}>
                 <div className={`c100 p${pct}`}>
-                    {/* <span>{pct}%</span> */}
-
                     <div className="slice">
                         <div className="bar"></div>
                         <div className="fill"></div>
@@ -182,16 +181,10 @@ export const Skills: FunctionComponent = (props): JSX.Element => (
                         />
                     </div>
                 </div>
-                <h6
-                    className="open-sans-font text-center mt-2 mt-sm-4"
-                    style={{ letterSpacing: 1 }}
-                >
+                <h6 className="open-sans-font text-center mt-2 mt-sm-4" style={{ letterSpacing: 1 }}>
                     {name}
                 </h6>
-                <p
-                    className="open-sans-font text-center"
-                    style={{ fontSize: 12, color: "#ffb400", letterSpacing: 1 }}
-                >
+                <p className="open-sans-font text-center" style={{ fontSize: 12, color: "#ffb400", letterSpacing: 1 }}>
                     <i>{type}</i>
                 </p>
             </div>

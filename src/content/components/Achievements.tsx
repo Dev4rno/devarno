@@ -17,7 +17,7 @@ const HighlightsGrid = (
         sx={{ display: { xs: "flex", sm: "none" } }}
     >
         {highlights.map((val, index) => (
-            <Grid item xs={6} key={index} display="flex" alignItems="center" justifyContent="center">
+            <Grid sx={{ py: 2 }} item xs={6} key={index} display="flex" alignItems="center" justifyContent="center">
                 <Box
                     key={index}
                     style={{

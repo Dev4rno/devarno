@@ -15,7 +15,7 @@ const personalInfoContent = [
         ),
         color: "",
     },
-    { name: "Freelance", value: "Available", color: "greenyellow" },
+    { name: "Freelance", value: "Available", color: "#7FFF00" },
     { name: "Location", value: "London" },
     { name: "Phone", value: "+44 (0)7474 294190" },
     { name: "Email", value: "alex@devarno.com" },
@@ -52,7 +52,7 @@ export const PersonalInfo = () => {
                             <Typography variant="h6" sx={{ color: appColors.primary }}>
                                 {x.name}
                             </Typography>
-                            <Typography variant="h6" sx={{ color: x.color }}>
+                            <Typography variant="h6" fontWeight={300} sx={{ color: x.color }}>
                                 {x.value}
                             </Typography>
                         </Stack>
@@ -64,7 +64,9 @@ export const PersonalInfo = () => {
                             <Typography variant="h6" sx={{ color: appColors.primary }}>
                                 {x.name}
                             </Typography>
-                            <Typography variant="h6">{x.value}</Typography>
+                            <Typography fontWeight={300} variant="h6">
+                                {x.value}
+                            </Typography>
                         </Stack>
                     ))}
                 </Box>
