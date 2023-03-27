@@ -1,44 +1,17 @@
 import { Achievements, Education, Experience, PersonalInfo, Skills } from "@/content/components";
-import cv from "@/public/assets/img/cv.webp";
+import { Stack } from "@mui/material";
+import { ResumeButton } from "./ResumeButton";
 
 export const AboutMain = () => {
     return (
-        <section className="main-content ">
+        <section className="main-content">
             <div className="container">
                 <div className="row">
-                    {/* Personal Info Starts */}
-
-                    <div className="col-xl-6 col-lg-5 col-12">
-                        <div className="row">
-                            <div className="col-12">
-                                <h3 className="text-uppercase custom-title mb-0 ft-wt-600">Details</h3>
-                            </div>
-
-                            {/* <div className="col-12 d-block d-sm-none">
-                                <Image
-                                    src={heroImgMobile}
-                                    className="img-fluid main-img-mobile"
-                                    alt="about avatar"
-                                />
-                            </div> */}
-                            {/* image for mobile menu */}
-
-                            <div className="col-12">
-                                <PersonalInfo />
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="col-xl-6 col-lg-7 col-12 mt-5 mt-lg-0">
+                    <Stack spacing={6}>
+                        <PersonalInfo />
                         <Achievements />
-                    </div>
-
-                    <div className="col-12 mt-1">
-                        <a className="button" href={cv as any} download>
-                            <span className="button-text">Download CV</span>
-                            <span className="button-icon fa fa-download"></span>
-                        </a>
-                    </div>
+                        <ResumeButton />
+                    </Stack>
                 </div>
 
                 <hr className="separator" />
@@ -55,17 +28,12 @@ export const AboutMain = () => {
                 <hr className="separator mt-1" />
 
                 <div className="row">
-                    <div className="col-12">
-                        <h3 className="text-uppercase pb-5 mb-0 text-start text-sm-center custom-title ft-wt-600">
-                            Experience <span>&</span> Education
-                        </h3>
-                    </div>
-                    <div className="col-lg-6 m-15px-tb">
+                    <div className="col-lg-6">
                         <div className="resume-box">
                             <Experience />
                         </div>
                     </div>
-                    <div className="col-lg-6 m-15px-tb">
+                    <div className="col-lg-6">
                         <div className="resume-box">
                             <Education />
                         </div>
