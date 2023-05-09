@@ -2,7 +2,7 @@ import { PortfolioData } from "@/content";
 import { ModalMain } from "@/content/components/Portfolio/modal/ModalMain";
 import Image from "next/image";
 import { useState } from "react";
-import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import { TabPanel, Tabs } from "react-tabs";
 
 export const Portfolio = () => {
     const [getModal, setGetModal] = useState(false);
@@ -17,39 +17,26 @@ export const Portfolio = () => {
         <>
             <div className="portfolio-main">
                 <Tabs>
-                    <TabList className="portfolio-tab-list" data-aos="fade-up">
+                    {/* <TabList className="portfolio-tab-list" data-aos="fade-up">
                         <Tab>ALL</Tab>
                         <Tab>LOGO</Tab>
                         <Tab>VIDEO</Tab>
                         <Tab>GRAPHIC DESIGN</Tab>
                         <Tab>MOCKUP</Tab>
-                    </TabList>
+                    </TabList> */}
 
                     <div className="container">
                         <TabPanel>
                             <div className="tab-container">
                                 {PortfolioData.map((item) => {
-                                    const { id, type, image, delayAnimation } =
-                                        item;
+                                    const { id, type, image, delayAnimation } = item;
 
                                     return (
-                                        <div
-                                            key={id}
-                                            data-aos="fade-right"
-                                            data-aos-delay={delayAnimation}
-                                        >
-                                            <div
-                                                className="tab-content"
-                                                onClick={() => handleModal(id)}
-                                            >
-                                                <Image
-                                                    src={image}
-                                                    alt="portfolio project demo"
-                                                />
+                                        <div key={id} data-aos="fade-right" data-aos-delay={delayAnimation}>
+                                            <div className="tab-content" onClick={() => handleModal(id)}>
+                                                <Image src={image} alt="portfolio project demo" />
                                                 <h3>
-                                                    <span className="conent-title">
-                                                        {type}
-                                                    </span>
+                                                    <span className="conent-title">{type}</span>
                                                 </h3>
                                             </div>
                                         </div>
@@ -60,29 +47,14 @@ export const Portfolio = () => {
 
                         <TabPanel>
                             <div className="tab-container">
-                                {PortfolioData.filter((item) =>
-                                    item.tag.includes("logo")
-                                ).map((item) => {
-                                    const { id, type, image, delayAnimation } =
-                                        item;
+                                {PortfolioData.filter((item) => item.tag.includes("logo")).map((item) => {
+                                    const { id, type, image, delayAnimation } = item;
                                     return (
-                                        <div
-                                            key={id}
-                                            data-aos="fade-right"
-                                            data-aos-delay={delayAnimation}
-                                        >
-                                            <div
-                                                className="tab-content"
-                                                onClick={() => handleModal(id)}
-                                            >
-                                                <Image
-                                                    src={image}
-                                                    alt="portfolio project demo"
-                                                />
+                                        <div key={id} data-aos="fade-right" data-aos-delay={delayAnimation}>
+                                            <div className="tab-content" onClick={() => handleModal(id)}>
+                                                <Image src={image} alt="portfolio project demo" />
                                                 <h3>
-                                                    <span className="conent-title">
-                                                        {type}
-                                                    </span>
+                                                    <span className="conent-title">{type}</span>
                                                 </h3>
                                             </div>
                                             {/* {getModal && <Modal props={modalId} />} */}
@@ -94,29 +66,14 @@ export const Portfolio = () => {
 
                         <TabPanel>
                             <div className="tab-container">
-                                {PortfolioData.filter((item) =>
-                                    item.tag.includes("video")
-                                ).map((item) => {
-                                    const { id, type, image, delayAnimation } =
-                                        item;
+                                {PortfolioData.filter((item) => item.tag.includes("video")).map((item) => {
+                                    const { id, type, image, delayAnimation } = item;
                                     return (
-                                        <div
-                                            key={id}
-                                            data-aos="fade-right"
-                                            data-aos-delay={delayAnimation}
-                                        >
-                                            <div
-                                                className="tab-content"
-                                                onClick={() => handleModal(id)}
-                                            >
-                                                <Image
-                                                    src={image}
-                                                    alt="portfolio project demo"
-                                                />
+                                        <div key={id} data-aos="fade-right" data-aos-delay={delayAnimation}>
+                                            <div className="tab-content" onClick={() => handleModal(id)}>
+                                                <Image src={image} alt="portfolio project demo" />
                                                 <h3>
-                                                    <span className="conent-title">
-                                                        {type}
-                                                    </span>
+                                                    <span className="conent-title">{type}</span>
                                                 </h3>
                                             </div>
                                             {/* {getModal && <Modal props={modalId} />} */}
@@ -128,29 +85,14 @@ export const Portfolio = () => {
 
                         <TabPanel>
                             <div className="tab-container">
-                                {PortfolioData.filter((item) =>
-                                    item.tag.includes("graphic design")
-                                ).map((item) => {
-                                    const { id, type, image, delayAnimation } =
-                                        item;
+                                {PortfolioData.filter((item) => item.tag.includes("graphic design")).map((item) => {
+                                    const { id, type, image, delayAnimation } = item;
                                     return (
-                                        <div
-                                            key={id}
-                                            data-aos="fade-right"
-                                            data-aos-delay={delayAnimation}
-                                        >
-                                            <div
-                                                className="tab-content"
-                                                onClick={() => handleModal(id)}
-                                            >
-                                                <Image
-                                                    src={image}
-                                                    alt="portfolio project demo"
-                                                />
+                                        <div key={id} data-aos="fade-right" data-aos-delay={delayAnimation}>
+                                            <div className="tab-content" onClick={() => handleModal(id)}>
+                                                <Image src={image} alt="portfolio project demo" />
                                                 <h3>
-                                                    <span className="conent-title">
-                                                        {type}
-                                                    </span>
+                                                    <span className="conent-title">{type}</span>
                                                 </h3>
                                             </div>
                                             {/* {getModal && <Modal props={modalId} />} */}
@@ -162,29 +104,14 @@ export const Portfolio = () => {
 
                         <TabPanel>
                             <div className="tab-container">
-                                {PortfolioData.filter((item) =>
-                                    item.tag.includes("mockup")
-                                ).map((item) => {
-                                    const { id, type, image, delayAnimation } =
-                                        item;
+                                {PortfolioData.filter((item) => item.tag.includes("mockup")).map((item) => {
+                                    const { id, type, image, delayAnimation } = item;
                                     return (
-                                        <div
-                                            key={id}
-                                            data-aos="fade-right"
-                                            data-aos-delay={delayAnimation}
-                                        >
-                                            <div
-                                                className="tab-content"
-                                                onClick={() => handleModal(id)}
-                                            >
-                                                <Image
-                                                    src={image}
-                                                    alt="portfolio project demo"
-                                                />
+                                        <div key={id} data-aos="fade-right" data-aos-delay={delayAnimation}>
+                                            <div className="tab-content" onClick={() => handleModal(id)}>
+                                                <Image src={image} alt="portfolio project demo" />
                                                 <h3>
-                                                    <span className="conent-title">
-                                                        {type}
-                                                    </span>
+                                                    <span className="conent-title">{type}</span>
                                                 </h3>
                                             </div>
                                             {/* {getModal && <Modal props={modalId} />} */}
@@ -196,9 +123,7 @@ export const Portfolio = () => {
                     </div>
                 </Tabs>
             </div>
-            {getModal && (
-                <ModalMain modalId={modalId} setGetModal={setGetModal} />
-            )}{" "}
+            {getModal && <ModalMain modalId={modalId} setGetModal={setGetModal} />}{" "}
         </>
     );
 };

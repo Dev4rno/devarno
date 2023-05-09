@@ -1,15 +1,4 @@
-import {
-    AboutMain,
-    Address,
-    Blog,
-    Contact,
-    Hero,
-    Portfolio,
-    SEO,
-    Social,
-    SwitchDark,
-    Wrapper,
-} from "@/content";
+import { AboutMain, Address, Contact, Hero, SEO, Social, SwitchDark, Wrapper } from "@/content";
 import React from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
@@ -95,7 +84,13 @@ export default function Application() {
                                 <span className="title-bg">works</span>
                             </div>
                             {/* End title */}
-                            <Portfolio />
+                            {/* <Portfolio /> */}
+                            <div style={{ height: "100vh" }}>
+                                <h5 style={{ textAlign: "center", marginTop: 50 }}>
+                                    This page is currently under construction.
+                                </h5>
+                                <h5 style={{ textAlign: "center", marginTop: 50 }}>Please come back soon!</h5>
+                            </div>
                         </TabPanel>
                         {/* Portfolio Content Ends */}
 
@@ -111,11 +106,7 @@ export default function Application() {
                                 </h1>
                                 <span className="title-bg">contact</span>
                             </div>
-                            <div
-                                className="container"
-                                data-aos="fade-up"
-                                data-aos-duration="1200"
-                            >
+                            <div className="container" data-aos="fade-up" data-aos-duration="1200">
                                 <div className="row">
                                     {/*  Left Side Starts */}
                                     <div className="col-12 col-lg-4">
@@ -123,11 +114,8 @@ export default function Application() {
                                             {"Don't"} be shy !
                                         </h3>
                                         <p className="open-sans-font mb-4">
-                                            Feel free to get in touch with me. I
-                                            am always open to discussing new
-                                            projects, creative ideas or
-                                            opportunities to be part of your
-                                            visions.
+                                            Feel free to get in touch with me. I am always open to discussing new
+                                            projects, creative ideas or opportunities to be part of your visions.
                                         </p>
                                         <Address />
                                         {/* End Address */}
@@ -160,17 +148,17 @@ export default function Application() {
                                 </h1>
                                 <span className="title-bg">posts</span>
                             </div>
-                            <div
-                                className="container"
-                                data-aos="fade-up"
-                                data-aos-duration="1200"
-                            >
-                                {/*  Articles Starts  */}
+                            <div style={{ height: "100vh" }}>
+                                <h5 style={{ textAlign: "center", marginTop: 50 }}>
+                                    This page is currently under construction.
+                                </h5>
+                                <h5 style={{ textAlign: "center", marginTop: 50 }}>Please come back soon!</h5>
+                            </div>
+                            {/* <div className="container" data-aos="fade-up" data-aos-duration="1200">
                                 <div className="row pb-50">
                                     <Blog />
                                 </div>
-                                {/* Articles Ends */}
-                            </div>
+                            </div> */}
                         </TabPanel>
                         {/* Blog Content Ends */}
                     </div>
