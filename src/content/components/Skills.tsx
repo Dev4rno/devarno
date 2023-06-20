@@ -49,6 +49,13 @@ const skills: Skill[] = [
         img: "https://moldoweb.com/wp-content/uploads/2022/03/6202fcdee5ee8636a145a41b_1234.png",
     },
     {
+        href: "https://aws.amazon.com/cdk/",
+        type: SkillTypes.operation,
+        name: "AWS CDK",
+        pct: 28,
+        img: "https://www.npmjs.com/npm-avatar/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdmF0YXJVUkwiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci9hY2M3M2RiNTFjNmE3NzIxYTIzNDAzNTQ0OWQ4MzgwOT9zaXplPTQ5NiZkZWZhdWx0PXJldHJvIn0.xgNJFrB8Tz89BFgDaybQOp1e54UfUv7VeqayL_Piddg",
+    },
+    {
         href: "https://fastapi.tiangolo.com/lo/",
         type: SkillTypes.framework,
         name: "FastAPI",
@@ -139,13 +146,13 @@ const skills: Skill[] = [
         pct: 65,
         img: "https://mui.com/static/logo.png",
     },
-    {
-        href: "https://www.figma.com/",
-        type: SkillTypes.app,
-        name: "Figma",
-        pct: 25,
-        img: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg",
-    },
+    // {
+    //     href: "https://www.figma.com/",
+    //     type: SkillTypes.app,
+    //     name: "Figma",
+    //     pct: 25,
+    //     img: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg",
+    // },
     {
         href: "https://getbootstrap.com/",
         type: SkillTypes.library,
