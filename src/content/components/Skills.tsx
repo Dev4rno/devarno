@@ -52,7 +52,7 @@ const skills: Skill[] = [
         href: "https://aws.amazon.com/cdk/",
         type: SkillTypes.operation,
         name: "AWS CDK",
-        pct: 28,
+        pct: 21,
         img: "https://www.npmjs.com/npm-avatar/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdmF0YXJVUkwiOiJodHRwczovL3MuZ3JhdmF0YXIuY29tL2F2YXRhci9hY2M3M2RiNTFjNmE3NzIxYTIzNDAzNTQ0OWQ4MzgwOT9zaXplPTQ5NiZkZWZhdWx0PXJldHJvIn0.xgNJFrB8Tz89BFgDaybQOp1e54UfUv7VeqayL_Piddg",
     },
     {
@@ -210,7 +210,7 @@ const skills: Skill[] = [
         img: "https://cdn.icon-icons.com/icons2/1495/PNG/512/wireshark_103123.png",
     },
     {
-        href: "",
+        href: "https://www.mathworks.com/products/matlab.html",
         type: SkillTypes.app,
         name: "MATLAB",
         pct: 40,
