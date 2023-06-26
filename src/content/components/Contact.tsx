@@ -1,60 +1,67 @@
-import emailjs from "@emailjs/browser";
-import { useRef } from "react";
+import { sendEmail } from "@/src/context";
+import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export const Contact = () => {
-    const form = useRef();
+interface FormData {
+    name: string;
+    email: string;
+    subject: string;
+    message: string;
+}
 
-    const sendEmail = (e) => {
+const initState: FormData = {
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+};
+
+export const Contact = () => {
+    const [formData, setFormData] = useState<FormData>(initState);
+    const { name, email, subject, message } = formData;
+
+    const onChange = (e) => setFormData((x) => ({ ...x, [e.target.name]: e.target.value }));
+
+    const onSubmit = async (e) => {
         e.preventDefault();
-        emailjs
-            .sendForm(
-                "service_n4mkhz9",
-                "template_ugoztxr",
-                form.current,
-                "user_vYmDSd9PwIuRXUQEDjYwN"
-            )
-            .then(
-                (result) => {
-                    console.log(result);
-                    toast.success("Message Sent Successfully!", {
-                        position: "top-right",
-                        autoClose: 2000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                    });
-                    //   document.getElementById("myForm").reset();
-                },
-                (error) => {
-                    toast.error("Ops Message Not Sent!", {
-                        position: "top-right",
-                        autoClose: 2000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                    });
-                }
-            );
+        const res = await sendEmail(formData);
+
+        if (res.err) {
+            toast.error(res.err, {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
+
+        if (res.msg) {
+            setFormData(initState);
+            toast.success(res.msg, {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+        }
     };
 
     return (
         <>
-            <form
-                id="myForm"
-                className="contactform"
-                ref={form}
-                onSubmit={sendEmail}
-            >
+            <form id="myForm" className="contactform" onSubmit={onSubmit}>
                 <div className="row">
                     <div className="col-12 col-md-6">
                         <div className="form-group">
                             <input
+                                value={name}
+                                onChange={onChange}
                                 type="text"
                                 name="name"
                                 placeholder="YOUR NAME"
@@ -68,7 +75,9 @@ export const Contact = () => {
                         <div className="form-group">
                             <input
                                 type="email"
-                                name="user_email"
+                                value={email}
+                                onChange={onChange}
+                                name="email"
                                 placeholder="YOUR EMAIL"
                                 required
                             />
@@ -80,6 +89,8 @@ export const Contact = () => {
                         <div className="form-group">
                             <input
                                 type="text"
+                                value={subject}
+                                onChange={onChange}
                                 name="subject"
                                 placeholder="YOUR SUBJECT"
                                 required
@@ -92,6 +103,8 @@ export const Contact = () => {
                         <div className="form-group">
                             <textarea
                                 name="message"
+                                value={message}
+                                onChange={onChange}
                                 placeholder="YOUR MESSAGE"
                                 required
                             ></textarea>

@@ -84,7 +84,7 @@ const skills: Skill[] = [
         img: "https://logodownload.org/wp-content/uploads/2022/04/javascript-logo-4.png",
     },
     {
-        href: "https://www.typescriptlang.org/docs/",
+        href: "https://www.typescriptlang.org/",
         type: SkillTypes.language,
         name: "TypeScript",
         pct: 70,

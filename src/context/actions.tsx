@@ -19,3 +19,19 @@ export const AllBlogData = () => {
         handleBlogsData,
     };
 };
+
+export const sendEmail = async (formData): Promise<any> => {
+    try {
+        const res = await fetch(`http://localhost:3000/api`, {
+            method: "POST",
+            body: JSON.stringify(formData),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        });
+        const data = await res.json();
+        return data;
+    } catch (error) {
+        console.error(error);
+    }
+};

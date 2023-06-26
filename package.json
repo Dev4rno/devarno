@@ -25,6 +25,7 @@
         "@emotion/react": "^11.10.6",
         "@emotion/styled": "^11.10.6",
         "@mui/material": "^5.11.14",
+        "@sendgrid/mail": "^7.7.0",
         "aos": "^2.3.4",
         "bootstrap": "^5.2.2",
         "eslint": "8.27.0",
@@ -40,6 +41,7 @@
         "react-tabs": "^5.1.0",
         "react-toastify": "^9.1.1",
         "sass": "^1.56.0",
+        "short-unique-id": "^4.4.4",
         "slick-carousel": "^1.8.1",
         "typewriter-effect": "^2.19.0"
     },
