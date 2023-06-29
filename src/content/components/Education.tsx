@@ -1,6 +1,13 @@
 import { appColors } from "@/src/utils";
 
-const educationContent = [
+interface Education {
+    year: string;
+    degree: string;
+    school: string;
+    details: string;
+}
+
+const educationContent: Education[] = [
     {
         year: "2022 - Present",
         degree: "CS50 Introduction to Computer Science",
