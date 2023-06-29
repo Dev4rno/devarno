@@ -1,6 +1,6 @@
 import EmailClient from "@sendgrid/mail";
 
-EmailClient.setApiKey("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");
+EmailClient.setApiKey(process.env.EMAIL_SERVER_PASSWORD);
 
 export interface I_Email {
     subject: string;
