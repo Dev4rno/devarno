@@ -24,11 +24,9 @@ prep() {
     next build;
     git add .;
     git commit -m "$msg";
-    clear;
     ready;
 }
 
-clear;
 echo "Commit Message:";
 read msg;
 
