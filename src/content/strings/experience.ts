@@ -10,7 +10,7 @@ export const experiences: Experience[] = [
         year: "Aug 2023 - Present",
         position: "Systems Verification Consultant",
         company: "GE Aerospace",
-        details: `Accelerating the development and analysis of verification artefacts for the Remote Data Concentrator for the Boeing 777X, the world's largest and most efficient twin-engine jet, unmatched in every aspect of performance.`,
+        details: `Deploying automated solutions to accelerate the development and analysis of verification artefacts for the Boeing 777X Remote Data Concentrator, and supporting the delivery of the world's largest and most efficient twin-engine jet, unmatched in every aspect of performance.`,
     },
     {
         year: "Aug 2022 - Present",
