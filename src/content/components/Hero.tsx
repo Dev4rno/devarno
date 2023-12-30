@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import Typewriter from "typewriter-effect/dist/core";
 
 const content = {
-    imgMain: "/assets/img/hero/hero-main.png",
+    imgMain: "/assets/img/hero/hero-main-2.png",
     imgMobile: heroImgMobile,
     name: "Alex",
     title: "Systems Engineer",
@@ -28,7 +28,6 @@ const content = {
             astronomer, a tennis fanatic, a competitive swimmer, a lifeguard and a pretty good chef.
         </>
     ),
-
     button: "more about me",
 };
 
@@ -37,27 +36,20 @@ export const Hero = ({ setIndex }) => {
     useEffect(() => {
         if (document) {
             var el = document.getElementById("tw");
-
-            var typewriter = new Typewriter(el, {
-                loop: true,
-            });
-
+            var typewriter = new Typewriter(el, { loop: true });
             typewriter
                 .typeString("Systems Engineer")
                 .pauseFor(2400)
                 .deleteChars(8)
-                .typeString("Developer")
+                .typeString("Consultant")
                 .pauseFor(2800)
-                .deleteChars(9)
+                .deleteChars(10)
                 .typeString("Architect")
                 .pauseFor(2400)
-                .deleteChars(8)
-                .typeString("nalyst")
-                .pauseFor(2750)
-                .deleteChars(7)
-                .typeString("Verifier")
-                .pauseFor(3000)
-                .deleteAll()
+                .deleteChars(17)
+                .typeString("Automation Architect")
+                .pauseFor(2500)
+                .deleteChars(20)
                 .typeString("Entrepreneur")
                 .pauseFor(5000)
                 .start();
@@ -69,32 +61,20 @@ export const Hero = ({ setIndex }) => {
             <div className="row home-details-container align-items-center">
                 <div
                     className="col-lg-4 bg position-fixed d-none d-lg-block"
-                    style={{
-                        backgroundImage: `url(${content.imgMain})`,
-                    }}
+                    style={{ backgroundImage: `url(${content.imgMain})` }}
                 ></div>
                 <div className="col-12 col-lg-10 offset-lg-3 home-details">
                     <div>
                         <Image
+                            alt="hero man"
                             src={content.imgMobile}
                             className="img-fluid main-img-mobile d-sm-block d-lg-none"
-                            alt="hero man"
                         />
                         <h1 className="text-uppercase hero-heading poppins-font p-0">
                             Hi, I{"'"}m {content.name}.
                         </h1>
                         <div className="typewriter" id="tw" />
-                        <div
-                            className="open-sans-font hero-description"
-                            // style={{
-                            //     fontSize: 16,
-                            //     marginBottom: 20,
-                            //     fontWeight: "lighter",
-                            //     letterSpacing: 0.8,
-                            // }}
-                        >
-                            {content.description}
-                        </div>
+                        <div className="open-sans-font hero-description">{content.description}</div>
                         <div className="hero-button">
                             <button className="button" onClick={setAboutPage}>
                                 <span className="button-text">{content.button}</span>
@@ -104,7 +84,6 @@ export const Hero = ({ setIndex }) => {
                     </div>
                 </div>
             </div>
-            {/* End home-details-container */}
         </>
     );
 };

@@ -9,7 +9,6 @@ export const ModalOne = ({ modalId, setGetModal }) => {
             <div></div>
             <div className="modal__content">
                 {PortfolioData.filter((item) => item.id === modalId).map((item) => {
-                    console.log({ item });
                     return (
                         <div key={item.id} data-aos="fade">
                             <h2 className="heading mb-2">{item.type}</h2>
