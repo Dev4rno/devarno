@@ -13,6 +13,7 @@ function MyApp({ Component, pageProps }) {
         Aos.init({
             duration: 1200,
         });
+        // document.querySelector("body").classList.remove("rtl");
     }, []);
     return (
         <>

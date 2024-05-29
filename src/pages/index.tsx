@@ -1,28 +1,23 @@
-import { AboutMain, Address, Contact, Hero, SEO, Social, SwitchDark, Wrapper } from "@/content";
+import { AboutMain, Address, Blog, Contact, Hero, SEO, Social, SwitchDark, Wrapper } from "@/components";
 import React from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 const menuItem = [
-    { icon: "fa-home", menuName: "Home" },
-    { icon: "fa-user", menuName: "About" },
-    { icon: "fa-briefcase", menuName: "Portfolio" },
-    { icon: "fa-envelope-open", menuName: "Contact" },
-    { icon: "fa-comments", menuName: "Blog" },
+    { icon: "fa-home", name: "Home" },
+    { icon: "fa-user", name: "About" },
+    { icon: "fa-briefcase", name: "Portfolio" },
+    { icon: "fa-envelope-open", name: "Contact" },
+    { icon: "fa-comments", name: "Blog" },
 ];
 
-export default function Application() {
+export default function Page() {
     const [index, setIndex] = React.useState(0);
-    React.useEffect(() => {
-        document.querySelector("body").classList.remove("rtl");
-    }, []);
     return (
         <Wrapper>
-            <SEO pageTitle={`DevArno | ${menuItem[index].menuName}`} />
-
+            <SEO pageTitle={`DevArno | ${menuItem[index].name}`} />
             <div className="yellow">
                 <SwitchDark />
-                {/* End Switcher */}
                 <Tabs
                     onSelect={(i, l, e) => {
                         setIndex(i);
@@ -31,32 +26,29 @@ export default function Application() {
                 >
                     <div className="header">
                         <TabList className="icon-menu revealator-slideup revealator-once revealator-delay1">
-                            {menuItem.map((item) => (
-                                <Tab className="icon-box" key={item.menuName}>
-                                    <i className={`fa ${item.icon}`}></i>
-                                    <h2>{item.menuName}</h2>
+                            {menuItem.map((x) => (
+                                <Tab className="icon-box" key={x.name}>
+                                    <i className={`fa ${x.icon}`}></i>
+                                    <h2>{x.name}</h2>
                                 </Tab>
                             ))}
                         </TabList>
                     </div>
-                    {/* End Menu Content */}
 
                     <div className="tab-panel_list">
-                        {/* Hero Content Starts */}
+                        {/* HERO */}
                         <TabPanel className="home ">
                             <div
-                                className="container-fluid main-container container-home p-0 g-0"
                                 data-aos="fade-up"
                                 data-aos-duration="1200"
-                                // style={{ paddingBottom: 200 }}
+                                className="container-fluid main-container container-home p-0 g-0"
                             >
                                 <div className="color-block d-none d-lg-block"></div>
                                 <Hero setIndex={setIndex} />
                             </div>
                         </TabPanel>
-                        {/* Hero Content Ends */}
 
-                        {/* About Content Starts */}
+                        {/* ABOUT */}
                         <TabPanel className="about">
                             <div data-aos="fade-up" data-aos-duration="1200">
                                 <div className="title-section text-start text-sm-center">
@@ -65,36 +57,26 @@ export default function Application() {
                                     </h1>
                                     <span className="title-bg">Resume</span>
                                 </div>
-                                {/* End title */}
                                 <AboutMain />
                             </div>
                         </TabPanel>
-                        {/* About Content Ends */}
 
-                        {/* Portfolio Content Starts */}
-                        <TabPanel className="portfolio professional">
+                        {/* PORTFOLIO */}
+                        {/* <TabPanel className="portfolio professional">
                             <div
-                                className="title-section text-start text-sm-center"
                                 data-aos="fade-up"
                                 data-aos-duration="1200"
+                                className="title-section text-start text-sm-center"
                             >
                                 <h1>
                                     my <span>portfolio</span>
                                 </h1>
                                 <span className="title-bg">works</span>
                             </div>
-                            {/* End title */}
-                            {/* <Portfolio /> */}
-                            <div style={{ height: "100vh" }}>
-                                <h5 style={{ textAlign: "center", marginTop: 50 }}>
-                                    This page is currently under construction.
-                                </h5>
-                                <h5 style={{ textAlign: "center", marginTop: 50 }}>Please come back soon!</h5>
-                            </div>
-                        </TabPanel>
-                        {/* Portfolio Content Ends */}
+                            <Portfolio />
+                        </TabPanel> */}
 
-                        {/* Contact Content Starts */}
+                        {/* CONTACT */}
                         <TabPanel className="contact">
                             <div
                                 className="title-section text-start text-sm-center"
@@ -108,7 +90,6 @@ export default function Application() {
                             </div>
                             <div className="container" data-aos="fade-up" data-aos-duration="1200">
                                 <div className="row">
-                                    {/*  Left Side Starts */}
                                     <div className="col-12 col-lg-4">
                                         <h3 className="text-uppercase custom-title mb-0 ft-wt-600 pb-3">
                                             {"Don't"} be shy !
@@ -118,49 +99,38 @@ export default function Application() {
                                             projects, creative ideas or opportunities to be part of your visions.
                                         </p>
                                         <Address />
-                                        {/* End Address */}
-
                                         <Social />
-                                        {/* End Social */}
                                     </div>
-                                    {/* Left Side Ends */}
-
-                                    {/*  Contact Form Starts  */}
                                     <div className="col-12 col-lg-8">
                                         <Contact />
                                     </div>
-                                    {/*  Contact Form Ends */}
                                 </div>
                             </div>
-                            {/* End .container */}
                         </TabPanel>
-                        {/* Contact Content Ends */}
 
-                        {/* Blog Content Starts */}
+                        {/* BLOG */}
                         <TabPanel className="blog">
                             <div
-                                className="title-section text-start text-sm-center "
                                 data-aos="fade-up"
                                 data-aos-duration="1200"
+                                className="title-section text-start text-sm-center "
                             >
                                 <h1>
                                     my <span>blog</span>
                                 </h1>
                                 <span className="title-bg">posts</span>
                             </div>
-                            <div style={{ height: "100vh" }}>
-                                <h5 style={{ textAlign: "center", marginTop: 50 }}>
-                                    This page is currently under construction.
-                                </h5>
-                                <h5 style={{ textAlign: "center", marginTop: 50 }}>Please come back soon!</h5>
-                            </div>
-                            {/* <div className="container" data-aos="fade-up" data-aos-duration="1200">
+                            <div
+                                className="container"
+                                data-aos="fade-up"
+                                data-aos-duration="1200"
+                                style={{ height: "100vh" }}
+                            >
                                 <div className="row pb-50">
                                     <Blog />
                                 </div>
-                            </div> */}
+                            </div>
                         </TabPanel>
-                        {/* Blog Content Ends */}
                     </div>
                 </Tabs>
             </div>

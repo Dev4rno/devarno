@@ -1,5 +1,5 @@
-import { blogsData } from "@/content";
 import { useState } from "react";
+import { blogsData } from "../strings";
 
 export const AllBlogData = () => {
     const [singleData, setSingleData] = useState({});
