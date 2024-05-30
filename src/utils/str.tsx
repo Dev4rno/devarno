@@ -1,6 +1,6 @@
 import ShortUniqueID from "short-unique-id";
 import Typewriter from "typewriter-effect/dist/core";
-import { blogPosts } from "../blog";
+
 import { appColors } from "./css";
 
 export const capitalise = (sentence: string) => {
@@ -34,9 +34,6 @@ export const startHeroTypewriter = (document: Document) => {
         .pauseFor(5000)
         .start();
 };
-
-export const getBlogPost = (slug: string) => blogPosts.filter((x) => x.slug === slug)[0];
-
 export const highlightWord = (word: string): JSX.Element => (
     <i>
         <span style={{ color: appColors.primary }}>{word}</span>

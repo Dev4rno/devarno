@@ -6,7 +6,7 @@ import "/node_modules/flag-icons/css/flag-icons.min.css";
 const menuItem = [
     { icon: "fa-home", name: "Home" },
     { icon: "fa-user", name: "About" },
-    { icon: "fa-briefcase", name: "Portfolio" },
+    // { icon: "fa-briefcase", name: "Portfolio" },
     { icon: "fa-envelope-open", name: "Contact" },
     { icon: "fa-comments", name: "Blog" },
 ];
@@ -79,16 +79,21 @@ export default function Page() {
                         {/* CONTACT */}
                         <TabPanel className="contact">
                             <div
-                                className="title-section text-start text-sm-center"
                                 data-aos="fade-up"
                                 data-aos-duration="1200"
+                                className="title-section text-start text-sm-center"
                             >
                                 <h1>
                                     get in <span>touch</span>
                                 </h1>
                                 <span className="title-bg">contact</span>
                             </div>
-                            <div className="container" data-aos="fade-up" data-aos-duration="1200">
+                            <div
+                                className="container"
+                                style={{ height: "100vh" }}
+                                data-aos="fade-up"
+                                data-aos-duration="1200"
+                            >
                                 <div className="row">
                                     <div className="col-12 col-lg-4">
                                         <h3 className="text-uppercase custom-title mb-0 ft-wt-600 pb-3">
