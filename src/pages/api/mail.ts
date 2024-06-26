@@ -1,11 +1,7 @@
+import mailjet from "@/src/lib/mailjet";
 import { clientEnquiryEmail } from "@/src/strings";
 import { NextApiRequest, NextApiResponse } from "next";
-import { Client, LibraryResponse, SendEmailV3_1 } from "node-mailjet";
-
-const mailjet = new Client({
-    apiKey: process.env.MJ_APIKEY_PUBLIC,
-    apiSecret: process.env.MJ_APIKEY_PRIVATE,
-});
+import { LibraryResponse, SendEmailV3_1 } from "node-mailjet";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === "POST") {
