@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useAppState } from "../context";
 import { heroContent } from "../strings";
 import { appColors } from "../utils";
-import { ResumeButton } from "./ResumeButton";
 
 export const AboutMain = () => {
     const {
@@ -59,7 +58,7 @@ export const AboutMain = () => {
                 <div className="row">
                     <Stack spacing={6}>
                         <PersonalInfo />
-                        <ResumeButton />
+                        {/* <ResumeButton /> */}
                     </Stack>
                 </div>
                 <hr className="separator" />
