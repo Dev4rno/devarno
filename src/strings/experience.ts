@@ -7,7 +7,7 @@ interface Experience {
 
 export const experiences: Experience[] = [
     {
-        year: "Aug'23 - Present",
+        year: "Aug'23 - Jun'24",
         position: "Systems Verification Consultant",
         company: "GE Aerospace",
         details:
@@ -18,7 +18,7 @@ export const experiences: Experience[] = [
         position: "Founder & Consultant",
         company: "DevArno",
         details:
-            "Started a software consultancy with a strong dedication to creating intuitive, dynamic applications that require complex functionality and clean, maintainable software. DevArno is built on extensive proficiency in Python and significant experience with frontend frameworks across multiple digital products. Applying DevOps methodologies procured from diverse startup experiences, along with a self-taught mastery of RESTful API frameworks and NoSQL databases, DevArno engineers intuitive concepts into robust, scalable, and autonomous applications.",
+            "DevArno is a software consultancy built on extensive proficiency in Python and significant experience with frontend frameworks across multiple digital products. Applying DevOps methodologies procured from diverse startup experiences, along with a self-taught mastery of RESTful API frameworks and NoSQL databases, DevArno engineers intuitive concepts into robust, scalable, and autonomous applications.",
     },
     {
         year: "Aug'22 - Jan'23",
@@ -39,7 +39,7 @@ export const experiences: Experience[] = [
         position: "Avionics Systems Engineer",
         company: "GE Aviation Systems",
         details:
-            "Defined Input Requirement Files (IRFs) to call specific templates from a Resource Database (RDb) for unit testing, ensuring accurate transmission of network protocols in the 777X Remote Data Concentrator. Additionally, led the development of a Problem Report and Change Request metrics dashboard for Boeing, enabling the efficient tracking of technical debt.",
+            "Defined Input Requirement Files (IRFs) to call specific templates from a Resource Database (RDb) for unit testing, ensuring accurate transmission of network protocols in the 777X Remote Data Concentrator. Additionally, led the development of a Problem Report and Change Request metrics dashboard for Boeing, facilitating a visual representation of planned workloads and technical debt.",
     },
     {
         year: "Sep'18 - Mar'19",
