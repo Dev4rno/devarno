@@ -1,9 +1,10 @@
 import { Box } from "@mui/material";
+import { ReactNode } from "react";
 import { ToastContainer } from "react-toastify";
 
-export const Wrapper = ({ children }) => {
+export const Wrapper = ({ children }: { children: ReactNode }) => {
     return (
-        <Box p={2}>
+        <Box>
             {children}
             <ToastContainer />
         </Box>

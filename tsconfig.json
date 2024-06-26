@@ -11,9 +11,10 @@
             //   "cypress",
             "node"
         ],
+        "typeRoots": ["./src"],
         "allowJs": true,
         "skipLibCheck": true,
-        "strict": false,
+        "strict": true,
         "forceConsistentCasingInFileNames": true,
         "noEmit": true,
         "esModuleInterop": true,
@@ -24,6 +25,6 @@
         "jsx": "preserve",
         "incremental": true
     },
-    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+    "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/src/*.ts"],
     "exclude": ["node_modules"]
 }

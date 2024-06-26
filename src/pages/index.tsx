@@ -1,6 +1,12 @@
-import { AboutMain, Address, Blog, Contact, Hero, SEO, Social, SwitchDark, Wrapper } from "@/components";
+import { AboutMain, Address, Blog, ContactForm, Hero, SEO, SwitchDark, Wrapper } from "@/components";
+import { Box } from "@mui/material";
+import fs from "fs";
+import matter from "gray-matter";
+import { GetStaticProps } from "next";
+import { join } from "path";
 import React from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import { BlogPost } from "../types";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 const menuItem = [
@@ -11,7 +17,26 @@ const menuItem = [
     { icon: "fa-comments", name: "Blog" },
 ];
 
-export default function Page() {
+export const getStaticProps: GetStaticProps = async () => {
+    const dirPath = join(process.cwd(), "_posts");
+    const filenames = fs.readdirSync(dirPath);
+    const posts = filenames.map((filename) => {
+        const filePath = join(dirPath, filename);
+        const fileContents = fs.readFileSync(filePath, "utf8");
+        const { data } = matter(fileContents);
+        return {
+            slug: filename.replace(/\.md$/, ""),
+            data,
+        };
+    });
+    return {
+        props: {
+            posts,
+        },
+    };
+};
+
+export default function Page({ posts }: { posts: { slug: string; data: BlogPost }[] }) {
     const [index, setIndex] = React.useState(0);
     return (
         <Wrapper>
@@ -51,7 +76,7 @@ export default function Page() {
                         {/* ABOUT */}
                         <TabPanel className="about">
                             <div data-aos="fade-up" data-aos-duration="1200">
-                                <div className="title-section text-start text-sm-center">
+                                <div className="title-section text-center text-sm-center">
                                     <h1>
                                         ABOUT <span>ME</span>
                                     </h1>
@@ -78,39 +103,39 @@ export default function Page() {
 
                         {/* CONTACT */}
                         <TabPanel className="contact">
-                            <div
-                                data-aos="fade-up"
-                                data-aos-duration="1200"
-                                className="title-section text-start text-sm-center"
-                            >
-                                <h1>
-                                    get in <span>touch</span>
-                                </h1>
-                                <span className="title-bg">contact</span>
-                            </div>
-                            <div
-                                className="container"
-                                style={{ height: "100vh" }}
-                                data-aos="fade-up"
-                                data-aos-duration="1200"
-                            >
-                                <div className="row">
-                                    <div className="col-12 col-lg-4">
-                                        <h3 className="text-uppercase custom-title mb-0 ft-wt-600 pb-3">
-                                            {"Don't"} be shy !
-                                        </h3>
-                                        <p className="open-sans-font mb-4">
-                                            Feel free to get in touch with me. I am always open to discussing new
-                                            projects, creative ideas or opportunities to be part of your visions.
-                                        </p>
-                                        <Address />
-                                        <Social />
-                                    </div>
-                                    <div className="col-12 col-lg-8">
-                                        <Contact />
-                                    </div>
+                            <div data-aos="fade-up" data-aos-duration="1200">
+                                <div className="title-section text-center text-sm-center">
+                                    <h1>
+                                        get in <span>touch</span>
+                                    </h1>
+                                    <span className="title-bg">contact</span>
                                 </div>
                             </div>
+                            <Box px={4}>
+                                <div
+                                    className="container"
+                                    // style={{ height: "100vh" }}
+                                    data-aos="fade-up"
+                                    data-aos-duration="1200"
+                                >
+                                    <div className="row">
+                                        <div className="col-12 col-lg-4">
+                                            <h3 className="text-uppercase custom-title mb-0 ft-wt-600 pb-3">
+                                                {"Don't"} be shy !
+                                            </h3>
+                                            <p className="open-sans-font mb-4">
+                                                Feel free to get in touch with me. I am always open to discussing new
+                                                projects, creative ideas or opportunities to be part of your visions.
+                                            </p>
+                                            <Address />
+                                            {/* <Social /> */}
+                                        </div>
+                                        <div className="col-12 col-lg-8">
+                                            <ContactForm />
+                                        </div>
+                                    </div>
+                                </div>
+                            </Box>
                         </TabPanel>
 
                         {/* BLOG */}
@@ -132,7 +157,7 @@ export default function Page() {
                                 style={{ height: "100vh" }}
                             >
                                 <div className="row pb-50">
-                                    <Blog />
+                                    <Blog posts={posts} />
                                 </div>
                             </div>
                         </TabPanel>

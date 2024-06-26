@@ -1,37 +1,22 @@
-import { useState } from "react";
-import { blogsData } from "../strings";
+import api, { baseURL } from "../lib/axios";
 
-export const AllBlogData = () => {
-    const [singleData, setSingleData] = useState({});
-    const [isOpen, setIsOpen] = useState(false);
-
-    const handleBlogsData = (id) => {
-        const find = blogsData.find((item) => item?.id === id);
-        setSingleData(find);
-        setIsOpen(true);
-    };
-
-    return {
-        singleData,
-        isOpen,
-        setIsOpen,
-        blogsData,
-        handleBlogsData,
-    };
-};
-
-export const sendEmail = async (formData): Promise<any> => {
+export const sendEmail = async (formData: any): Promise<any> => {
     try {
-        const res = await fetch(`http://localhost:3000/api`, {
-            method: "POST",
-            body: JSON.stringify(formData),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-        const data = await res.json();
-        return data;
+        const res = await api.post(`${baseURL}/mail`, JSON.stringify(formData));
+        return res.data;
+        // await fetch("http://localhost:3000/api/mail", {
+        //     method: "POST",
+        //     body: JSON.stringify(formData),
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        // })
+        //     .then((jsonData) => jsonData.json())
+        //     .then((data) => {
+        //         return data;
+        //     });
     } catch (error) {
-        console.error(error);
+        console.error("Error sending email:", error);
+        throw error;
     }
 };

@@ -1,3 +1,5 @@
+export type AppState = {};
+
 export type BlogSectionType = "subtitle" | "image" | "paragraph";
 
 export interface BlogSection {
@@ -8,11 +10,37 @@ export interface BlogSection {
 }
 
 export interface BlogPost {
+    author: {
+        name: string;
+        avatar: string;
+    };
     titlePlain: string;
-    titleColoured: string;
-    subtitle: string;
+    titleColor: string;
+    excerpt: string;
+    intro: string;
+    cardImg: string;
+    coverImg: string;
+    date: string;
     slug: string;
     tags: string[];
     date: string;
-    sections: BlogSection[];
+}
+
+export interface Author {
+    name: string;
+    picture: string;
+}
+
+export interface Post {
+    slug: string;
+    title: string;
+    date: string;
+    coverImage: string;
+    author: Author;
+    excerpt: string;
+    ogImage: {
+        url: string;
+    };
+    content: string;
+    preview?: boolean;
 }

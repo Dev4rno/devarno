@@ -452,7 +452,7 @@ body.light .header ul.icon-menu li.icon-box:hover i {
     margin: 0 auto;
     width: 100%;
     position: relative;
-    padding: 80px 0;
+    padding: 60px 0;
 }
 
 .title-section h1 {
@@ -692,7 +692,7 @@ body.light .header ul.icon-menu li.icon-box:hover i {
 }
 
 .home .home-details .typewriter {
-    font-size: 36px;
+    font-size: 28px;
 }
 
 .home .home-details .hero-description {
@@ -1209,6 +1209,111 @@ body.light .contact .custom-span-contact a {
 }
 
 /* Latest Posts */
+.blog-post-md {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: "Arial", sans-serif;
+    line-height: 1.6;
+}
+
+.blog-post-md h1,
+.blog-post-md h2,
+.blog-post-md h3,
+.blog-post-md h4,
+.blog-post-md h5,
+.blog-post-md h6 {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    line-height: 1.25;
+    font-weight: bold;
+}
+
+.blog-post-md p {
+    margin-bottom: 1em;
+    font-size: 1.1rem; /* Default font size */
+}
+
+.blog-post-md a {
+    color: #ffb400;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+.blog-post-md a:hover {
+    color: #ff8c00;
+}
+
+.blog-post-md ul,
+.blog-post-md ol {
+    padding-left: 1.5em;
+    margin-bottom: 1em;
+}
+
+.blog-post-md ul li,
+.blog-post-md ol li {
+    margin-bottom: 0.5em;
+}
+
+.blog-post-md blockquote {
+    margin: 1.5em 0;
+    padding: 0.5em 1.5em;
+    border-left: 5px solid #ffb400;
+    background: #f9f9f9;
+}
+
+.blog-post-md img {
+    display: block;
+    margin: 36px auto 0 auto;
+    max-width: 80%;
+}
+
+.blog-post-md figcaption {
+    text-align: center;
+    font-size: 0.9em;
+    color: #b3b3b3; /* Adjust color as necessary */
+    margin-top: 0.5em;
+}
+
+.blog-post-md.dark-mode figcaption {
+    color: #8d8d8d; /* Adjust color for dark mode */
+}
+
+.blog-post-md code {
+    background: #f4f4f4;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: "Courier New", monospace;
+}
+
+.blog-post-md pre {
+    background: #f4f4f4;
+    padding: 1em;
+    overflow-x: auto;
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .blog-post-md {
+        padding: 15px;
+    }
+
+    .blog-post-md h1 {
+        font-size: 1.75em;
+    }
+
+    .blog-post-md h2 {
+        font-size: 1.5em;
+    }
+
+    .blog-post-md h3 {
+        font-size: 1.25em;
+    }
+
+    .blog-post-md p {
+        font-size: 0.9rem; /* Smaller font size for mobile */
+    }
+}
 
 .blog .post-container {
     display: block;
@@ -1410,9 +1515,9 @@ body.light .contact .custom-span-contact a {
 
     .main-img-mobile {
         border-radius: 50%;
-        width: 270px;
-        height: 270px;
-        border: 4px solid #252525;
+        width: 220px;
+        height: 220px;
+        border: 1px solid #252525;
         margin: 0 auto 25px;
         display: block;
     }
@@ -1425,7 +1530,6 @@ body.light .contact .custom-span-contact a {
     }
 
     .home .home-details .typewriter {
-        text-align: center;
         font-size: 28px;
     }
 
@@ -1648,7 +1752,6 @@ body.light .contact .custom-span-contact a {
 
     .home .home-details .typewriter {
         font-size: 24px;
-        text-align: center;
     }
 
     .home .home-details .hero-description {
@@ -1705,10 +1808,6 @@ body.light .contact .custom-span-contact a {
         padding-top: 0;
     }
 
-    .main-img-mobile {
-        width: 230px;
-        height: 230px;
-    }
     .title-section {
         padding-left: 15px;
         padding-right: 15px;
@@ -2120,4 +2219,54 @@ button:focus {
 
 .light .green {
     color: #2bc42b;
+}
+
+.scroll-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed; /* Fixed position to keep it at the bottom */
+    bottom: 20px; /* Adjust as needed */
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffb400;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    z-index: 1000; /* Ensure it is above other elements */
+}
+
+.scroll-text {
+    margin-bottom: 10px;
+    animation: fadeInOut 2s infinite;
+}
+
+.scroll-icon .arrow-down {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 15px solid #ffb400;
+    animation: bounce 2s infinite;
+}
+
+@keyframes fadeInOut {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
 }

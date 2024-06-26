@@ -1,5 +1,6 @@
 import { experiences } from "@/strings";
 import { appColors } from "@/utils";
+import { Typography } from "@mui/material";
 
 export const Experience = () => {
     return (
@@ -12,7 +13,7 @@ export const Experience = () => {
                             <span style={{ color: appColors.primary }}>{val.position}</span>
                             <span className="place open-sans-font">{val.company}</span>
                         </h5>
-                        <p className="open-sans-font">{val.details}</p>
+                        <Typography variant="subtitle1">{val.details}</Typography>
                         <span
                             className="time open-sans-font text-uppercase"
                             style={{ marginTop: 12, border: `1px solid ${appColors.primary}` }}

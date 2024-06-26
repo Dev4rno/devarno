@@ -3,16 +3,16 @@ import { PortfolioData } from "@/strings";
 import Image from "next/image";
 import { useState } from "react";
 import { TabPanel, Tabs } from "react-tabs";
-import ModalMain from "./modal/ModalMain";
+// import ModalMain from "./modal/ModalMain";
 
 export const Portfolio = () => {
     const [getModal, setGetModal] = useState(false);
     const [modalId, setModalId] = useState(1);
 
-    const handleModal = (id) => {
-        setGetModal(true);
-        setModalId(id);
-    };
+    // const handleModal = (id) => {
+    //     setGetModal(true);
+    //     setModalId(id);
+    // };
 
     return (
         <>
@@ -34,7 +34,10 @@ export const Portfolio = () => {
 
                                     return (
                                         <div key={id} data-aos="fade-right" data-aos-delay={delayAnimation}>
-                                            <div className="tab-content" onClick={() => handleModal(id)}>
+                                            <div
+                                                className="tab-content"
+                                                // onClick={() => handleModal(id)}
+                                            >
                                                 <Image src={image} alt="portfolio project demo" />
                                                 <h3>
                                                     <span className="conent-title">{type}</span>
@@ -52,7 +55,10 @@ export const Portfolio = () => {
                                     const { id, type, image, delayAnimation } = item;
                                     return (
                                         <div key={id} data-aos="fade-right" data-aos-delay={delayAnimation}>
-                                            <div className="tab-content" onClick={() => handleModal(id)}>
+                                            <div
+                                                className="tab-content"
+                                                // onClick={() => handleModal(id)}
+                                            >
                                                 <Image src={image} alt="portfolio project demo" />
                                                 <h3>
                                                     <span className="conent-title">{type}</span>
@@ -71,7 +77,10 @@ export const Portfolio = () => {
                                     const { id, type, image, delayAnimation } = item;
                                     return (
                                         <div key={id} data-aos="fade-right" data-aos-delay={delayAnimation}>
-                                            <div className="tab-content" onClick={() => handleModal(id)}>
+                                            <div
+                                                className="tab-content"
+                                                // onClick={() => handleModal(id)}
+                                            >
                                                 <Image src={image} alt="portfolio project demo" />
                                                 <h3>
                                                     <span className="conent-title">{type}</span>
@@ -90,7 +99,10 @@ export const Portfolio = () => {
                                     const { id, type, image, delayAnimation } = item;
                                     return (
                                         <div key={id} data-aos="fade-right" data-aos-delay={delayAnimation}>
-                                            <div className="tab-content" onClick={() => handleModal(id)}>
+                                            <div
+                                                className="tab-content"
+                                                // onClick={() => handleModal(id)}
+                                            >
                                                 <Image src={image} alt="portfolio project demo" />
                                                 <h3>
                                                     <span className="conent-title">{type}</span>
@@ -109,7 +121,10 @@ export const Portfolio = () => {
                                     const { id, type, image, delayAnimation } = item;
                                     return (
                                         <div key={id} data-aos="fade-right" data-aos-delay={delayAnimation}>
-                                            <div className="tab-content" onClick={() => handleModal(id)}>
+                                            <div
+                                                className="tab-content"
+                                                // onClick={() => handleModal(id)}
+                                            >
                                                 <Image src={image} alt="portfolio project demo" />
                                                 <h3>
                                                     <span className="conent-title">{type}</span>
@@ -124,7 +139,7 @@ export const Portfolio = () => {
                     </div>
                 </Tabs>
             </div>
-            {getModal && <ModalMain modalId={modalId} setGetModal={setGetModal} />}{" "}
+            {/* {getModal && <ModalMain modalId={modalId} setGetModal={setGetModal} />}{" "} */}
         </>
     );
 };

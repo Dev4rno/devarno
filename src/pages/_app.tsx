@@ -1,4 +1,3 @@
-import { AppStateProvider } from "@/context";
 import "@/styles/index.scss";
 import Aos from "aos";
 import dynamic from "next/dynamic";
@@ -8,7 +7,10 @@ const AnimatedCursor: any = dynamic(() => import("react-animated-cursor"), {
     ssr: false,
 });
 
-function MyApp({ Component, pageProps }) {
+import { AppStateProvider } from "@/src/context";
+import type { AppProps } from "next/app";
+
+export default function ApplicationPage({ Component, pageProps: { session, ...pageProps } }: AppProps) {
     useEffect(() => {
         Aos.init({
             duration: 1200,
@@ -31,5 +33,3 @@ function MyApp({ Component, pageProps }) {
         </>
     );
 }
-
-export default MyApp;

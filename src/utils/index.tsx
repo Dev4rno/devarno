@@ -1,14 +1,20 @@
-export const handleSwitchValue = (value) => {
-    if (value) {
-        localStorage.setItem("theme-color", "dark");
-        document.querySelector("body").classList.add("dark");
-        document.querySelector("body").classList.remove("light");
-    } else {
-        localStorage.setItem("theme-color", "light");
-        document.querySelector("body").classList.add("light");
-        document.querySelector("body").classList.remove("dark");
-    }
-};
-
 export * from "./css";
 export * from "./str";
+
+export const handleSwitchValue = (value: any) => {
+    if (typeof document !== "undefined" && value) {
+        localStorage.setItem("theme-color", "dark");
+        const bodyElement = document.querySelector("body");
+        if (bodyElement) {
+            bodyElement.classList.add("dark");
+            bodyElement.classList.remove("light");
+        }
+    } else {
+        localStorage.setItem("theme-color", "light");
+        const bodyElement = document.querySelector("body");
+        if (bodyElement) {
+            bodyElement.classList.add("light");
+            bodyElement.classList.remove("dark");
+        }
+    }
+};
