@@ -78,32 +78,29 @@ import { clientEnquiryEmail } from "@/src/strings";
 import { NextApiRequest, NextApiResponse } from "next";
 import { LibraryResponse, SendEmailV3_1 } from "node-mailjet";
 
-const setCors = (res: NextApiResponse) => {
+const setCors = (req: NextApiRequest, res: NextApiResponse) => {
     res.setHeader("Access-Control-Allow-Credentials", "true");
-    res.setHeader("Access-Control-Allow-Origin", "https://www.devarno.com"); // Ensure this matches your client origin
+    res.setHeader("Access-Control-Allow-Origin", "*"); // Allow all origins for testing
     res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS,PATCH,DELETE,POST,PUT");
     res.setHeader(
         "Access-Control-Allow-Headers",
         "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
     );
-};
-
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    setCors(res);
-
     if (req.method === "OPTIONS") {
         res.status(200).end();
-        return;
+        return true; // Stop further processing for OPTIONS request
     }
+    return false;
+};
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    if (setCors(req, res)) return; // Stop further processing for OPTIONS request
 
     console.log("Incoming request:", req.method, req.body);
 
     if (req.method === "POST") {
         try {
-            // Deconstruct client details
             const { name, email, subject, message } = req.body;
 
-            // Construct target enquiry (Client > DevArno)
             const targetEnquiryData: SendEmailV3_1.Body = {
                 Messages: [
                     {
@@ -120,17 +117,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 ],
             };
 
-            // Send target enquiry (Client > DevArno)
             const targetEnquiryResult: LibraryResponse<SendEmailV3_1.Response> = await mailjet
                 .post("send", { version: "v3.1" })
                 .request(targetEnquiryData);
 
             console.log("Target Enquiry Result:", targetEnquiryResult);
 
-            // Get target enquiry result
             const targetEnquiryResultBody = targetEnquiryResult.body.Messages[0];
 
-            // Construct author response (DevArno > Client)
             const authorResponseData: SendEmailV3_1.Body = {
                 Messages: [
                     {
@@ -143,17 +137,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 ],
             };
 
-            // Send author response (DevArno > Client)
             const authorResponseResult: LibraryResponse<SendEmailV3_1.Response> = await mailjet
                 .post("send", { version: "v3.1" })
                 .request(authorResponseData);
 
             console.log("Author Response Result:", authorResponseResult);
 
-            // Get author response result
             const authorResponseResultBody = authorResponseResult.body.Messages[0];
 
-            // Handle results
             if (targetEnquiryResultBody.Status === "success" && authorResponseResultBody.Status === "success") {
                 res.status(200).json({ msg: "Enquiry sent successfully!" });
             } else {
@@ -164,7 +155,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             res.status(500).json({ err: "Enquiry could not be sent, please try again later" });
         }
     } else {
-        // Respond with 405 Method Not Allowed for non-POST requests
         res.setHeader("Allow", ["POST"]);
         res.status(405).end(`Method ${req.method} Not Allowed`);
     }
