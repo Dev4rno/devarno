@@ -1,9 +1,10 @@
+import { Box } from "@mui/material";
 import Link from "next/link";
 import { BlogPost } from "../types";
 
 export const Blog = ({ posts }: { posts: { slug: string; data: BlogPost }[] }) => {
     return (
-        <div className="row" id="modal">
+        <Box sx={{ p: 3 }}>
             {posts.map((post, i) => {
                 const { titleColor, titlePlain, cardImg, excerpt, intro } = post.data;
                 return (
@@ -29,6 +30,6 @@ export const Blog = ({ posts }: { posts: { slug: string; data: BlogPost }[] }) =
                     </Link>
                 );
             })}
-        </div>
+        </Box>
     );
 };

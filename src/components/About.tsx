@@ -10,7 +10,6 @@ export const AboutMain = () => {
     const {
         appState: { isDark },
     } = useAppState();
-
     return (
         <section className="main-content">
             <div className="container">

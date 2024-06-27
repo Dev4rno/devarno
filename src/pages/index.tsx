@@ -140,25 +140,14 @@ export default function Page({ posts }: { posts: { slug: string; data: BlogPost 
 
                         {/* BLOG */}
                         <TabPanel className="blog">
-                            <div
-                                data-aos="fade-up"
-                                data-aos-duration="1200"
-                                className="title-section text-start text-sm-center "
-                            >
-                                <h1>
-                                    my <span>blog</span>
-                                </h1>
-                                <span className="title-bg">posts</span>
-                            </div>
-                            <div
-                                className="container"
-                                data-aos="fade-up"
-                                data-aos-duration="1200"
-                                style={{ height: "100vh" }}
-                            >
-                                <div className="row pb-50">
-                                    <Blog posts={posts} />
+                            <div data-aos="fade-up" data-aos-duration="1200">
+                                <div className="title-section text-center text-sm-center">
+                                    <h1>
+                                        MY <span>BLOG</span>
+                                    </h1>
+                                    <span className="title-bg">Posts</span>
                                 </div>
+                                <Blog posts={posts} />
                             </div>
                         </TabPanel>
                     </div>
