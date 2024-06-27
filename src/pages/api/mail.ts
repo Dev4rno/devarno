@@ -81,7 +81,7 @@ import { LibraryResponse, SendEmailV3_1 } from "node-mailjet";
 
 const setCors = (res: NextApiResponse) => {
     res.setHeader("Access-Control-Allow-Credentials", "true");
-    res.setHeader("Access-Control-Allow-Origin", "*"); // Change this to a specific origin if needed
+    res.setHeader("Access-Control-Allow-Origin", "https://www.devarno.com"); // Change this to a specific origin if needed
     res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS,PATCH,DELETE,POST,PUT");
     res.setHeader(
         "Access-Control-Allow-Headers",
@@ -91,6 +91,8 @@ const setCors = (res: NextApiResponse) => {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     setCors(res);
+
+    console.log("Incoming request:", req.method, req.body);
 
     try {
         if (req.method === "POST") {
@@ -139,6 +141,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             const authorResponseResult: LibraryResponse<SendEmailV3_1.Response> = await mailjet
                 .post("send", { version: "v3.1" })
                 .request(authorResponseData);
+
+            console.log({
+                authorResponseResult,
+                targetEnquiryResult,
+            });
 
             // Get author response result
             const authorResponseResultBody = authorResponseResult.body.Messages[0];
