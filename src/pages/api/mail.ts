@@ -81,7 +81,7 @@ import { LibraryResponse, SendEmailV3_1 } from "node-mailjet";
 
 const setCors = (res: NextApiResponse) => {
     res.setHeader("Access-Control-Allow-Credentials", "true");
-    res.setHeader("Access-Control-Allow-Origin", "https://www.devarno.com"); // Change this to a specific origin if needed
+    res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS,PATCH,DELETE,POST,PUT");
     res.setHeader(
         "Access-Control-Allow-Headers",
