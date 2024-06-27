@@ -64,19 +64,19 @@ In the realm of software development, the term 'integration' takes on a signific
 
 Harvesting for olive oil is a time-honoured tradition within my family, deeply rooted in Sicilian agriculture. The cultivation of olives in Sicily dates back thousands of years, with olive trees thriving in the region's favourable climate and fertile soil. The landscape, characterised by hillsides and coastal areas, provides an ideal environment for olive groves.
 
-![All hands on deck in Calamona - Steve Ginepri](/assets/img/blog/sicilian-bytes-family.jpg)
+![All hands on deck in Calamona - @finestfiasco](/assets/img/blog/sicilian-bytes-family.jpg)
 
 In the autumn, as the harvest season arrives, families and communities in Sicily unite in a collective effort to pick olives from the trees, employing various methods that mirror the approaches a programmer takes with their codebase. Much like the traditional **Brucatura**, where olives are meticulously harvested by hand, preserving both the fruit and the delicate twigs (_ramoscelli_), the programmer delicately tends to their code, refining it with precision. This method, similar to manual code refinement, ensures the highest quality but demands significant time and labor investment.
 
-![An hour of work - Steve Ginepri](/assets/img/blog/sicilian-bytes-haul.jpg)
+![An hour of work - @finestfiasco](/assets/img/blog/sicilian-bytes-haul.jpg)
 
 On larger and more complex codebases, programmers may adopt the **Bacchiatura** technique. Using either a stick (_bastone_), a cane (_canna_) or a mechanical olive beater (_oliviero_), they beat through the branches, allowing mature issues or inefficiencies to fall away. This method, similar to addressing code concerns systematically, proves effective when the manual collection is impractical due to the scale of the project. It streamlines the process, but the impact may be less nuanced than the handcrafted approach.
 
-![Olivieri in action - Steve Ginepri](/assets/img/blog/sicilian-bytes-olivieri.jpg)
+![Olivieri in action - @finestfiasco](/assets/img/blog/sicilian-bytes-olivieri.jpg)
 
 For the ambitious and forward-thinking, the **Scuotitura** method aligns with using machines to shake (scuotere) the olive tree, causing a cascade of olives to descend. In programming terms, this parallels the use of automated tools or methodologies to induce a systematic review and evolution of the codebase. While more commonly embraced by large-scale commercial growers, the long-term efficiency and cost-effectiveness of this approach reflects the strategic use of automation in code maintenance.
 
-![Lost in the trees on a scorching Sicilian afternoon - Steve Ginepri](/assets/img/blog/sicilian-bytes-me.jpg)
+![Lost in the trees on a scorching Sicilian afternoon - @finestfiasco](/assets/img/blog/sicilian-bytes-me.jpg)
 
 In both olive harvesting and coding practices, the chosen method reflects a balance between craftsmanship and efficiency. Whether meticulously harvesting by hand, systematically addressing issues, or embracing automation, the overarching goal is a continual refinement and enhancement, preserving the essence of quality and tradition while adapting to the evolving landscape. Pruning unnecessary branches and refining code ensures a robust foundation, creating a legacy that lasts.
 
