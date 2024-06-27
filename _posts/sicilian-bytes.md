@@ -4,7 +4,7 @@ titlePlain: "Bytes"
 excerpt: "Cooking Up Success in Programming"
 cardImg: "/assets/img/blog/sicilian-bytes-bear.jpeg"
 coverImg: "/assets/img/blog/sicilian-bytes-olives.png"
-date: "2020-03-16T05:35:07.322Z"
+date: "2024-05-20T19:35:07.322Z"
 tags: ["cuisine", "coding", "programming", "cooking", "sicily"]
 intro: "Embarking on a coding journey is like stepping into a kitchen filled with diverse ingredients."
 author:
