@@ -22,8 +22,14 @@
 
 import axios from "axios";
 
+// Base URL
+const DEV_URL = "http://localhost:3000/api";
+const PROD_URL = "https://devarno.com/api";
+
+export const baseURL = process.env.NODE_ENV === "production" ? PROD_URL : DEV_URL;
+
 const api = axios.create({
-    baseURL: process.env.NODE_ENV === "production" ? "https://devarno.com/api" : "http://localhost:3000/api",
+    baseURL,
     headers: {
         "Content-Type": "application/json",
     },
