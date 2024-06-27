@@ -19,14 +19,9 @@
 // });
 
 // export default api;
-
 import axios from "axios";
 
-// Base URL
-const DEV_URL = "http://localhost:3000/api";
-const PROD_URL = "https://devarno.com/api";
-
-export const baseURL = process.env.NODE_ENV === "production" ? PROD_URL : DEV_URL;
+const baseURL = "https://www.devarno.com/api"; // Use the same base URL
 
 const api = axios.create({
     baseURL,

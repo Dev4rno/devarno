@@ -78,7 +78,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 const setCors = (req: NextApiRequest, res: NextApiResponse) => {
     res.setHeader("Access-Control-Allow-Credentials", "true");
-    res.setHeader("Access-Control-Allow-Origin", "*"); // Allow all origins for testing
+    res.setHeader("Access-Control-Allow-Origin", req.headers.origin || "*"); // Allow the actual origin of the request
     res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS,PATCH,DELETE,POST,PUT");
     res.setHeader(
         "Access-Control-Allow-Headers",
@@ -86,7 +86,7 @@ const setCors = (req: NextApiRequest, res: NextApiResponse) => {
     );
     if (req.method === "OPTIONS") {
         res.status(200).end();
-        return true; // Stop further processing for OPTIONS request
+        return true;
     }
     return false;
 };
