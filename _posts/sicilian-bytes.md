@@ -20,7 +20,7 @@ From coding involtini to savouring the richness of olive harvesting in Sicily, j
 
 ### Coding Involtini: The Art of Wrapping Logic
 
-Involtini is a wonderfully versatile dish with deep roots in Sicilian cuisine. From beef and pork toaubergine and swordfish, involtini can be enjoyed in a myriad of ways, reflecting the versatilityinherent in Sicilian culinary traditions.
+Involtini is a wonderfully versatile dish with deep roots in Sicilian cuisine. From beef and pork to aubergine and swordfish, involtini can be enjoyed in a myriad of ways, reflecting the versatility inherent in Sicilian culinary traditions.
 
 Within the Arnò family, involtini are more than just a dish - they are a cherished tradition that bring the entire family together for holidays and special occasions, adding a touch of Sicily to every bite. Just the aroma of cooking involtini evokes a sense of comfort that I find difficult to describe.
 
@@ -74,7 +74,7 @@ On larger and more complex codebases, programmers may adopt the **Bacchiatura** 
 
 ![Olivieri in action - @finestfiasco](/assets/img/blog/sicilian-bytes-olivieri.jpg)
 
-For the ambitious and forward-thinking, the **Scuotitura** method aligns with using machines to shake (scuotere) the olive tree, causing a cascade of olives to descend. In programming terms, this parallels the use of automated tools or methodologies to induce a systematic review and evolution of the codebase. While more commonly embraced by large-scale commercial growers, the long-term efficiency and cost-effectiveness of this approach reflects the strategic use of automation in code maintenance.
+For the ambitious and forward-thinking, the **Scuotitura** method aligns with using machines to shake (_scuotere_) the olive tree, causing a cascade of olives to descend. In programming terms, this parallels the use of automated tools or methodologies to induce a systematic review and evolution of the codebase. While more commonly embraced by large-scale commercial growers, the long-term efficiency and cost-effectiveness of this approach reflects the strategic use of automation in code maintenance.
 
 ![Lost in the trees on a scorching Sicilian afternoon - @finestfiasco](/assets/img/blog/sicilian-bytes-me.jpg)
 
