@@ -1,11 +1,11 @@
-import { AboutMain, Address, Blog, ContactForm, Hero, SEO, SwitchDark, Wrapper } from "@/components";
-import { Box } from "@mui/material";
+import { AboutMain, Blog, HeaderBlock, Hero, SEO, SwitchDark, Wrapper } from "@/src/components";
 import fs from "fs";
 import matter from "gray-matter";
 import { GetStaticProps } from "next";
 import { join } from "path";
 import React from "react";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
+import { GetInTouch } from "../components/GetInTouch";
 import { BlogPost } from "../types";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 
@@ -24,16 +24,9 @@ export const getStaticProps: GetStaticProps = async () => {
         const filePath = join(dirPath, filename);
         const fileContents = fs.readFileSync(filePath, "utf8");
         const { data } = matter(fileContents);
-        return {
-            slug: filename.replace(/\.md$/, ""),
-            data,
-        };
+        return { slug: filename.replace(/\.md$/, ""), data };
     });
-    return {
-        props: {
-            posts,
-        },
-    };
+    return { props: { posts } };
 };
 
 export default function Page({ posts }: { posts: { slug: string; data: BlogPost }[] }) {
@@ -62,7 +55,7 @@ export default function Page({ posts }: { posts: { slug: string; data: BlogPost 
 
                     <div className="tab-panel_list">
                         {/* HERO */}
-                        <TabPanel className="home ">
+                        <TabPanel className="home">
                             <div
                                 data-aos="fade-up"
                                 data-aos-duration="1200"
@@ -76,12 +69,7 @@ export default function Page({ posts }: { posts: { slug: string; data: BlogPost 
                         {/* ABOUT */}
                         <TabPanel className="about">
                             <div data-aos="fade-up" data-aos-duration="1200">
-                                <div className="title-section text-center text-sm-center">
-                                    <h1>
-                                        ABOUT <span>ME</span>
-                                    </h1>
-                                    <span className="title-bg">Resume</span>
-                                </div>
+                                <HeaderBlock plainText="about" colorText="me" bgText="resumé" />
                                 <AboutMain />
                             </div>
                         </TabPanel>
@@ -101,52 +89,18 @@ export default function Page({ posts }: { posts: { slug: string; data: BlogPost 
                             <Portfolio />
                         </TabPanel> */}
 
-                        {/* CONTACT */}
+                        {/* GET IN TOUCH */}
                         <TabPanel className="contact">
                             <div data-aos="fade-up" data-aos-duration="1200">
-                                <div className="title-section text-center text-sm-center">
-                                    <h1>
-                                        get in <span>touch</span>
-                                    </h1>
-                                    <span className="title-bg">contact</span>
-                                </div>
+                                <HeaderBlock plainText="get in" colorText="touch" bgText="contact" />
+                                <GetInTouch />
                             </div>
-                            <Box px={4}>
-                                <div
-                                    className="container"
-                                    // style={{ height: "100vh" }}
-                                    data-aos="fade-up"
-                                    data-aos-duration="1200"
-                                >
-                                    <div className="row">
-                                        <div className="col-12 col-lg-4">
-                                            <h3 className="text-uppercase custom-title mb-0 ft-wt-600 pb-3">
-                                                {"Don't"} be shy !
-                                            </h3>
-                                            <p className="open-sans-font mb-4">
-                                                Feel free to get in touch with me. I am always open to discussing new
-                                                projects, creative ideas or opportunities to be part of your visions.
-                                            </p>
-                                            <Address />
-                                            {/* <Social /> */}
-                                        </div>
-                                        <div className="col-12 col-lg-8">
-                                            <ContactForm />
-                                        </div>
-                                    </div>
-                                </div>
-                            </Box>
                         </TabPanel>
 
                         {/* BLOG */}
                         <TabPanel className="blog">
                             <div data-aos="fade-up" data-aos-duration="1200">
-                                <div className="title-section text-center text-sm-center">
-                                    <h1>
-                                        MY <span>BLOG</span>
-                                    </h1>
-                                    <span className="title-bg">Posts</span>
-                                </div>
+                                <HeaderBlock plainText="my" colorText="blog" bgText="posts" />
                                 <Blog posts={posts} />
                             </div>
                         </TabPanel>

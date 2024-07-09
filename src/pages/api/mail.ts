@@ -3,14 +3,20 @@ import { clientEnquiryEmail } from "@/src/strings";
 import { NextApiRequest, NextApiResponse } from "next";
 import { LibraryResponse, SendEmailV3_1 } from "node-mailjet";
 
+// ◉=●=○=◌=◍=◎=⦿=⦾=⦻=⦽=⦼=⦿=⦾=⦻=⦽=⦼=◉=●=○=◌=◍=◎=⦿=⦾=⦻=⦽=⦼=⦿=⦾=⦻=⦽=⦼
+
 const setCors = (req: NextApiRequest, res: NextApiResponse) => {
-    res.setHeader("Access-Control-Allow-Credentials", "true");
-    res.setHeader("Access-Control-Allow-Origin", req.headers.origin || "*"); // Allow the actual origin of the request
-    res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS,PATCH,DELETE,POST,PUT");
-    res.setHeader(
-        "Access-Control-Allow-Headers",
-        "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
-    );
+    // Define headers
+    const headers: { [key: string]: string } = {
+        "Access-Control-Allow-Credentials": "true",
+        "Access-Control-Allow-Origin": req.headers.origin || "*",
+        "Access-Control-Allow-Methods": "GET,OPTIONS,PATCH,DELETE,POST,PUT",
+        "Access-Control-Allow-Headers":
+            "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
+    };
+    // Assign headers
+    Object.keys(headers).map((x: string) => res.setHeader(x, headers[x]));
+    // Handle OPTIONS
     if (req.method === "OPTIONS") {
         res.status(200).end();
         return true;
@@ -18,16 +24,16 @@ const setCors = (req: NextApiRequest, res: NextApiResponse) => {
     return false;
 };
 
+// ◉=●=○=◌=◍=◎=⦿=⦾=⦻=⦽=⦼=⦿=⦾=⦻=⦽=⦼=◉=●=○=◌=◍=◎=⦿=⦾=⦻=⦽=⦼=⦿=⦾=⦻=⦽=⦼
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (setCors(req, res)) return; // Stop further processing for OPTIONS request
-
-    console.log("Incoming request:", req.method, req.body); // Log the request
-
     if (req.method === "POST") {
         try {
+            // Deconstruct request body
             const { name, email, subject, message } = req.body;
-
-            const targetEnquiryData: SendEmailV3_1.Body = {
+            // Send developer basic enquiry
+            const developerEmailData: SendEmailV3_1.Body = {
                 Messages: [
                     {
                         From: { Email: "alex@devarno.com", Name: "DevArno" },
@@ -42,16 +48,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     },
                 ],
             };
-
-            const targetEnquiryResult: LibraryResponse<SendEmailV3_1.Response> = await mailjet
+            // Await developer email result
+            const developerEmailResult: LibraryResponse<SendEmailV3_1.Response> = await mailjet
                 .post("send", { version: "v3.1" })
-                .request(targetEnquiryData);
-
-            console.log("Target Enquiry Result:", targetEnquiryResult); // Log the response
-
-            const targetEnquiryResultBody = targetEnquiryResult.body.Messages[0];
-
-            const authorResponseData: SendEmailV3_1.Body = {
+                .request(developerEmailData);
+            // Extract developer email result data
+            const developerEmailResultBody = developerEmailResult.body.Messages[0];
+            // Send enquiry author confirmation email
+            const confirmationEmailData: SendEmailV3_1.Body = {
                 Messages: [
                     {
                         From: { Email: "alex@devarno.com", Name: "DevArno" },
@@ -62,16 +66,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                     },
                 ],
             };
-
-            const authorResponseResult: LibraryResponse<SendEmailV3_1.Response> = await mailjet
+            // Await confirmation email result
+            const confirmationEmailResult: LibraryResponse<SendEmailV3_1.Response> = await mailjet
                 .post("send", { version: "v3.1" })
-                .request(authorResponseData);
-
-            console.log("Author Response Result:", authorResponseResult); // Log the response
-
-            const authorResponseResultBody = authorResponseResult.body.Messages[0];
-
-            if (targetEnquiryResultBody.Status === "success" && authorResponseResultBody.Status === "success") {
+                .request(confirmationEmailData);
+            // Extract developer email result data
+            const confirmationEmailResultBody = confirmationEmailResult.body.Messages[0];
+            // Handle results
+            if (developerEmailResultBody.Status === "success" && confirmationEmailResultBody.Status === "success") {
                 res.status(200).json({ msg: "Enquiry sent successfully!" });
             } else {
                 res.status(500).json({ err: "Something went wrong" });

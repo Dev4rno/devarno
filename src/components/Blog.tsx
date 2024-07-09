@@ -4,7 +4,7 @@ import { BlogPost } from "../types";
 
 export const Blog = ({ posts }: { posts: { slug: string; data: BlogPost }[] }) => {
     return (
-        <Box sx={{ p: 3 }}>
+        <Box sx={{ px: 3, height: "100vh" }}>
             {posts.map((post, i) => {
                 const { titleColor, titlePlain, cardImg, excerpt, intro } = post.data;
                 return (
@@ -16,7 +16,6 @@ export const Blog = ({ posts }: { posts: { slug: string; data: BlogPost }[] }) =
                                         <img src={cardImg} className="img-fluid" alt="post.title" />
                                     </div>
                                 </div>
-                                {/* End .thumb */}
                                 <div className="post-content">
                                     <div className="entry-header">
                                         <h3>{`${titleColor} ${titlePlain}: ${excerpt}`}</h3>

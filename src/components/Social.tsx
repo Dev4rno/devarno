@@ -12,7 +12,8 @@ const SocialShare = [
 ];
 
 export const Social = () => {
-    return (
+    // TODO: Unblock when socials fixed
+    return true ? null : (
         <ul className="social list-unstyled pt-1 mb-5">
             {SocialShare.map((val, i) => (
                 <li key={i}>

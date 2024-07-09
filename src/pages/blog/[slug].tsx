@@ -1,8 +1,6 @@
-import { SEO, SwitchDark, Wrapper } from "@/src/components";
-import BlogPostHeader from "@/src/components/BlogPostHeader";
+import { HeaderBlock, PostBanner, SEO, SwitchDark, Wrapper } from "@/src/components";
 import { useAppState } from "@/src/context";
 import { appColors } from "@/src/utils";
-import { Avatar, Stack, Typography } from "@mui/material";
 import fs from "fs";
 import matter from "gray-matter";
 import { GetStaticPaths, GetStaticProps } from "next";
@@ -11,15 +9,17 @@ import ReactMarkdown, { Components } from "react-markdown";
 import remarkHtml from "remark-html";
 import { BlogPost } from "../../types";
 
+const POSTS_DIR = "_posts";
+
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const filePath = join(process.cwd(), "_posts", `${params?.slug}.md`);
+    const filePath = join(process.cwd(), POSTS_DIR, `${params?.slug}.md`);
     const fileContents = fs.readFileSync(filePath, "utf8");
     const { data, content } = matter(fileContents);
     return { props: { content, data } };
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-    const dirPath = join(process.cwd(), "_posts");
+    const dirPath = join(process.cwd(), POSTS_DIR);
     const filenames = fs.readdirSync(dirPath);
     const paths = filenames.map((name) => ({ params: { slug: name.replace(/\.md$/, "") } }));
     return { paths, fallback: false };
@@ -30,10 +30,10 @@ const MarkdownComponents: Components = {
         return (
             <figure style={{ textAlign: "center" }}>
                 <img
+                    {...props}
                     src={src}
                     alt={alt}
                     style={{
-                        maxWidth: "80%",
                         borderRadius: "1rem",
                         boxShadow: appColors.darkBoxShadow,
                     }}
@@ -54,33 +54,26 @@ export default function Page({ content, data }: { content: string; data: BlogPos
             <div className="yellow">
                 <SwitchDark />
                 <div data-aos="fade-up" data-aos-duration="1200">
-                    <div className="title-section text-center text-sm-center">
-                        <h1>
-                            {data.titleColor} <span>{data.titlePlain}</span>
-                        </h1>
-                        <span className="title-bg">Blog</span>
-                    </div>
-                    <BlogPostHeader
-                        titleColor={data.titleColor}
-                        titlePlain={data.titlePlain}
+                    <HeaderBlock plainText={data.titlePlain} colorText={data.titleColor} bgText="devarno" />
+                    <PostBanner
+                        tags={data.tags}
+                        date={data.date}
+                        isDark={isDark}
                         excerpt={data.excerpt}
                         coverImg={data.coverImg}
-                        date={data.date}
-                        author={data.author}
-                        isDark={isDark}
                     />
                     <ReactMarkdown
-                        className={`blog-post-md ${isDark ? "dark-mode" : ""}`}
                         remarkPlugins={[remarkHtml]}
                         components={MarkdownComponents}
+                        className={`blog-post-md ${isDark ? "dark-mode" : ""}`}
                     >
                         {content}
                     </ReactMarkdown>
-                    <Stack sx={{ display: "flex", alignItems: "center", mb: 5 }}>
-                        <Avatar src={data.author.avatar} alt={data.author.name} sx={{ width: 64, height: 64 }} />
-                        <Typography variant="body1">{data.author.name}</Typography>
-                        <Typography variant="body1">{new Date(data.date).toLocaleDateString()}</Typography>
-                    </Stack>
+                    {/* <PostFooter
+                        avatar={data.author.avatar}
+                        name={data.author.name}
+                        date={new Date(data.date).toUTCString()}
+                    /> */}
                 </div>
             </div>
         </Wrapper>

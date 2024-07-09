@@ -1265,7 +1265,7 @@ body.light .contact .custom-span-contact a {
 .blog-post-md img {
     display: block;
     margin: 36px auto 0 auto;
-    max-width: 80%;
+    // max-width: 80%;
 }
 
 .blog-post-md figcaption {
@@ -1311,7 +1311,7 @@ body.light .contact .custom-span-contact a {
     }
 
     .blog-post-md p {
-        font-size: 0.9rem; /* Smaller font size for mobile */
+        font-size: 1rem; /* Smaller font size for mobile */
     }
 }
 
