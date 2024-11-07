@@ -11,7 +11,7 @@ export const AboutMain = () => {
         appState: { isDark },
     } = useAppState();
     return (
-        <section className="main-content">
+        <section>
             <div className="container">
                 <Box
                     mb={4}

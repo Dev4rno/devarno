@@ -44,3 +44,5 @@ export interface Post {
     content: string;
     preview?: boolean;
 }
+
+type NavSectionTitle = "home" | "about" | "contact" | "blog" | "support";

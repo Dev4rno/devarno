@@ -1,7 +1,7 @@
-import lightImage from "@/public/assets/img/sun.png";
-// import { handleSwitchValue } from "@/utils";
+import lightImage from "@/public/assets/img/brand/logo-transparent.png";
+import { Box } from "@mui/material";
 import Image from "next/image";
-
+import { useEffect } from "react";
 import { useAppState } from "../context";
 import { handleSwitchValue } from "../utils";
 
@@ -20,17 +20,41 @@ export const SwitchDark = () => {
         }
     };
 
+    useEffect(() => {
+        const logo = document.getElementById("logo") as HTMLImageElement;
+        let rotation = 0;
+
+        const rotateLogo = () => {
+            rotation += 90;
+            logo.style.transition = "transform 0.15s ease-in-out";
+            logo.style.transform = `rotate(${rotation}deg)`;
+        };
+
+        if (logo) {
+            logo.addEventListener("click", rotateLogo);
+        }
+
+        return () => {
+            if (logo) logo.removeEventListener("click", rotateLogo);
+        };
+    }, []);
+
     return (
-        <label className={`theme-switcher-label d-flex  ${isDark ? "active" : ""}`}>
-            <input type="checkbox" onClick={handleLabelClick} className="theme-switcher" />
-            <div className="switch-handle">
-                <span className="light-text">
-                    <Image src={lightImage} alt="swicher" className="filter_1" priority />
-                </span>
-                <span className="dark-text">
-                    <i className="fa fa-moon-o" aria-hidden="true"></i>
-                </span>
-            </div>
-        </label>
+        <div onClick={handleLabelClick} className={`theme-switcher-label${isDark ? " dark-mode" : ""}`}>
+            <Box
+                sx={{
+                    height: { xs: 40, sm: 45, md: 50, lg: 55, xl: 60 },
+                    width: { xs: 40, sm: 45, md: 50, lg: 55, xl: 60 },
+                }}
+            >
+                <Image
+                    fill
+                    style={{ objectFit: "cover", objectPosition: "center" }}
+                    src={lightImage}
+                    alt="theme-switcher"
+                    id="logo"
+                />
+            </Box>
+        </div>
     );
 };

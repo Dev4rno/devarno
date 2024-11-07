@@ -1,5 +1,4 @@
 import { Box } from "@mui/material";
-import { Address } from "./Address";
 import { ContactForm } from "./ContactForm";
 import { Social } from "./Social";
 
@@ -14,7 +13,7 @@ export const GetInTouch = () => {
                             Feel free to get in touch with me. I am always open to discussing new projects, creative
                             ideas or opportunities to be part of your visions.
                         </p>
-                        <Address />
+                        {/* <Address /> */}
                         <Social />
                     </div>
                     <div className="col-12 col-lg-8">

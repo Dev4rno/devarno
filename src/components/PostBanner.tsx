@@ -55,9 +55,9 @@ export const PostBanner: React.FC<PropTypes> = ({ excerpt, coverImg, tags }) => 
                     {excerpt}
                 </Typography>
                 <Stack direction="row" spacing={1}>
-                    <Link passHref href="/">
+                    <Link passHref href="/?tab=blog">
                         <Chip
-                            label="<back_to_devarno/>"
+                            label="<return_to_blog/>"
                             variant="filled"
                             color="warning"
                             sx={{

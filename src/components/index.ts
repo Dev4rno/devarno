@@ -9,6 +9,7 @@ export * from "./HeaderBlock";
 export * from "./Hero";
 export * from "./Hero2";
 export * from "./Layout";
+export * from "./Navbar";
 export * from "./PersonalInfo";
 export * from "./Portfolio";
 export * from "./PostBanner";

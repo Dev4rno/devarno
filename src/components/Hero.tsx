@@ -33,7 +33,10 @@ export const Hero = ({ setIndex }: { setIndex: (x: number) => void }) => {
                             <Typography
                                 variant="h4"
                                 fontFamily="monospace"
-                                sx={{ color: appColors.primary, textAlign: { xs: "center", sm: "center", md: "left" } }}
+                                sx={{
+                                    color: appColors[isDark ? "textDark" : "textLight"],
+                                    textAlign: { xs: "center", sm: "center", md: "left" },
+                                }}
                             >
                                 Hi, I{"'"}m {heroContent.name}.
                             </Typography>
@@ -41,7 +44,10 @@ export const Hero = ({ setIndex }: { setIndex: (x: number) => void }) => {
                                 id="tw"
                                 className="typewriter"
                                 fontFamily="monospace"
-                                sx={{ textAlign: { xs: "center", sm: "center", md: "left" } }}
+                                sx={{
+                                    textAlign: { xs: "center", sm: "center", md: "left" },
+                                    color: appColors[isDark ? "textDark" : "textLight"],
+                                }}
                             />
                         </Stack>
                         <Box display={{ xs: "none", sm: "none", md: "block" }}>
