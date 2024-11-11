@@ -47,7 +47,7 @@ export const DonationTierModal = ({
                         "&:focus": {
                             outline: "none",
                         },
-                        p: 6,
+                        p: 3,
                         top: "50%",
                         border: `3px solid rgba(${
                             !isDark ? "255, 210, 107" : "211, 211, 211"
@@ -58,7 +58,7 @@ export const DonationTierModal = ({
                         width: { xs: "90%", sm: "80%" },
                         height: "fit-content",
                         borderRadius: 2,
-                        pt: 2,
+                        pt: 1,
                         bgcolor:
                             appColors[`cardBg${isDark ? "Light" : "Dark"}`],
                     }}
@@ -96,8 +96,11 @@ export const DonationTierModal = ({
                             id="modal-modal-description"
                             lineHeight={1.4}
                             sx={{
-                                textAlign: "justify",
-                                textJustify: "inter-word",
+                                textAlign: { sm: undefined, md: "justify" },
+                                textJustify: {
+                                    sm: undefined,
+                                    md: "inter-word",
+                                },
                                 wordSpacing: -2,
                                 color: !isDark
                                     ? appColors.textLight
@@ -140,8 +143,14 @@ export const DonationTierModal = ({
                                         <Typography
                                             variant="body1"
                                             sx={{
-                                                textAlign: "justify",
-                                                textJustify: "inter-word",
+                                                textAlign: {
+                                                    sm: undefined,
+                                                    md: "justify",
+                                                },
+                                                textJustify: {
+                                                    sm: undefined,
+                                                    md: "inter-word",
+                                                },
                                                 wordSpacing: -2,
                                                 color: !isDark
                                                     ? appColors.textLight
@@ -333,8 +342,14 @@ export const Donations = ({ isDark }: { isDark: boolean }) => {
                                 <Typography
                                     sx={{
                                         fontSize: { xs: "1.1rem" },
-                                        textAlign: "justify",
-                                        textJustify: "inter-character",
+                                        textAlign: {
+                                            sm: undefined,
+                                            md: "justify",
+                                        },
+                                        textJustify: {
+                                            sm: undefined,
+                                            md: "inter-character",
+                                        },
                                         color: appColors[
                                             isDark ? "textDark" : "textLight"
                                         ],
@@ -477,10 +492,14 @@ export const Donations = ({ isDark }: { isDark: boolean }) => {
                                                                 xs: "1rem",
                                                                 sm: "1rem",
                                                             },
-                                                            textAlign:
-                                                                "justify",
-                                                            textJustify:
-                                                                "inter-word",
+                                                            textAlign: {
+                                                                sm: undefined,
+                                                                md: "justify",
+                                                            },
+                                                            textJustify: {
+                                                                sm: undefined,
+                                                                md: "inter-word",
+                                                            },
                                                             wordSpacing: -2,
                                                             color: !isDark
                                                                 ? appColors.textLight
