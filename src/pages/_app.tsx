@@ -10,22 +10,22 @@ const AnimatedCursor: any = dynamic(() => import("react-animated-cursor"), {
 import { AppStateProvider } from "@/src/context";
 import type { AppProps } from "next/app";
 
-export default function ApplicationPage({ Component, pageProps: { session, ...pageProps } }: AppProps) {
+export default function ApplicationPage({
+    Component,
+    pageProps: { session, ...pageProps },
+}: AppProps) {
     useEffect(() => {
-        Aos.init({
-            duration: 1200,
-        });
-        // document.querySelector("body").classList.remove("rtl");
+        Aos.init({ duration: 1200 });
     }, []);
     return (
         <>
             <AnimatedCursor
                 innerSize={8}
                 outerSize={44}
-                color="255, 160, 1"
                 outerAlpha={0.3}
                 innerScale={0.7}
                 outerScale={1.2}
+                color="255, 160, 1"
             />
             <AppStateProvider>
                 <Component {...pageProps} />

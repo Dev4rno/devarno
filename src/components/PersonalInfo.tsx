@@ -10,7 +10,7 @@ interface ContentBlock {
 
 const content: ContentBlock[] = [
     { name: "name", value: "Alessandro Arno" },
-    { name: "age", value: "28 years" },
+    { name: "age", value: "28y/o" },
     {
         name: "nationalities",
         value: (
@@ -28,9 +28,8 @@ const content: ContentBlock[] = [
         ),
         color: "",
     },
-    { name: "availability", value: "Part-Time / Contract", color: "#7FFF00" },
+    { name: "availability", value: "Contract/PT", color: "#7FFF00" },
     { name: "location", value: "London, UK" },
-    { name: "phone", value: "07474 294190" },
     { name: "email", value: "alex@devarno.com" },
     {
         name: "languages",
@@ -52,9 +51,10 @@ const content: ContentBlock[] = [
         ),
         color: "",
     },
+    { name: "influence", value: "30+ stakeholders" },
     {
-        name: "proficiencies",
-        value: "30+",
+        name: "stack",
+        value: "40+ libraries",
     },
 ];
 
@@ -63,8 +63,7 @@ export const PersonalInfo = () => {
     const { isDark } = appState;
     return (
         <Stack>
-            <h3 className="text-uppercase text-center custom-title ft-wt-600">Details</h3>
-            <Grid container spacing={{ xs: 3, md: 3 }} px={{ xs: 8 }}>
+            <Grid container spacing={{ xs: 3, md: 3 }} px={{ xs: 4 }}>
                 {content.map((block) => (
                     <Grid
                         item
@@ -81,12 +80,18 @@ export const PersonalInfo = () => {
                             sx={{
                                 p: 1,
                                 height: "100%",
-                                width: "95%",
+                                width: "100%",
                                 bgcolor: isDark ? "inherit" : "#262626",
-                                boxShadow: isDark ? appColors.lightBoxShadow : appColors.darkBoxShadow,
+                                boxShadow: isDark
+                                    ? appColors.lightBoxShadow
+                                    : appColors.darkBoxShadow,
                             }}
                         >
-                            <Stack display="flex" alignItems="center" justifyContent="center">
+                            <Stack
+                                display="flex"
+                                alignItems="center"
+                                justifyContent="center"
+                            >
                                 <Typography
                                     style={{ color: appColors.primary }}
                                     variant="subtitle1"
@@ -98,7 +103,12 @@ export const PersonalInfo = () => {
                                     <Typography
                                         variant="subtitle1"
                                         fontFamily="monospace"
-                                        sx={{ color: isDark ? appColors.lightText : appColors.darkText }}
+                                        sx={{
+                                            color: isDark
+                                                ? appColors.lightText
+                                                : appColors.darkText,
+                                            fontSize: { xs: 18 },
+                                        }}
                                     >
                                         {block.value}
                                     </Typography>

@@ -23,6 +23,7 @@ interface PanelHeader {
     plainText: string;
     colorText: string;
     bgText: string;
+    caption?: string;
 }
 
 interface NavElement {
@@ -31,14 +32,25 @@ interface NavElement {
     header?: PanelHeader;
 }
 
-export const Navbar = ({ index, setIndex, navItems, router, posts, isDark }: PropTypes) => {
+export const Navbar = ({
+    index,
+    setIndex,
+    navItems,
+    router,
+    posts,
+    isDark,
+}: PropTypes) => {
     const navElements: NavElement[] = [
         { name: "home", element: <Hero setIndex={setIndex} /> },
-        { name: "about", element: <AboutMain />, header: { plainText: "about", colorText: "me", bgText: "resumé" } },
         {
-            name: "contact",
-            element: <GetInTouch />,
-            header: { plainText: "get in", colorText: "touch", bgText: "contact" },
+            name: "about",
+            element: <AboutMain />,
+            header: {
+                plainText: "about",
+                colorText: "me",
+                bgText: "resumé",
+                caption: "core system specifications",
+            },
         },
         {
             name: "blog",
@@ -46,9 +58,22 @@ export const Navbar = ({ index, setIndex, navItems, router, posts, isDark }: Pro
             header: { plainText: "my", colorText: "blog", bgText: "posts" },
         },
         {
+            name: "contact",
+            element: <GetInTouch isDark={isDark} />,
+            header: {
+                plainText: "get in",
+                colorText: "touch",
+                bgText: "contact",
+            },
+        },
+        {
             name: "support",
             element: <Donations isDark={isDark} />,
-            header: { plainText: "my", colorText: "journey", bgText: "support" },
+            header: {
+                plainText: "your",
+                colorText: "support",
+                bgText: "growth",
+            },
         },
     ];
     return (
@@ -74,15 +99,24 @@ export const Navbar = ({ index, setIndex, navItems, router, posts, isDark }: Pro
             <div className="tab-panel_list">
                 {navElements.map(({ name, element, header }, i) => {
                     const isHero = name === "home";
-                    const className = isHero ? "container-fluid main-container container-home p-0 g-0" : undefined;
-                    const colorStripe = isHero ? <div className="color-block d-none d-lg-block" /> : null;
+                    const className = isHero
+                        ? "container-fluid main-container container-home p-0 g-0"
+                        : undefined;
+                    const colorStripe = isHero ? (
+                        <div className="color-block d-none d-lg-block" />
+                    ) : null;
                     const containerProps = {
                         "data-aos": "fade-up",
                         "data-aos-duration": "1200",
                         className,
                     };
                     const headerBlock = header ? (
-                        <HeaderBlock plainText={header.plainText} colorText={header.colorText} bgText={header.bgText} />
+                        <HeaderBlock
+                            plainText={header.plainText}
+                            colorText={header.colorText}
+                            bgText={header.bgText}
+                            caption={header.caption}
+                        />
                     ) : null;
                     return (
                         <TabPanel key={`panel-${i + 1}`} className={name}>

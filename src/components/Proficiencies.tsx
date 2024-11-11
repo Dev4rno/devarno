@@ -2,14 +2,20 @@ import { proficiencies } from "@/strings";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { FunctionComponent, ReactElement } from "react";
+import { HeaderBlock } from "./HeaderBlock";
 
 export const Proficiencies: FunctionComponent = (props): ReactElement => (
     <>
-        <h3 className="text-uppercase pb-4 pb-sm-5 mb-3 mb-sm-0 text-center custom-title ft-wt-600">Proficiencies</h3>
+        <HeaderBlock
+            plainText="my"
+            colorText="stack"
+            bgText="software"
+            caption="what I love working with"
+        />
         {proficiencies
             .sort((a, b) => b.pct - a.pct)
             .map(({ type, name, pct, img, href }, i) => (
-                <div className="col-6 col-md-3 mb-3 mb-sm-5" key={i}>
+                <div className="col-4 col-md-3 mb-3 mb-sm-5" key={i}>
                     <Link
                         style={{ textDecoration: "none", color: "inherit" }}
                         href={href}
@@ -33,7 +39,11 @@ export const Proficiencies: FunctionComponent = (props): ReactElement => (
                                     src={img}
                                     alt={`Skill${i}`}
                                     whileHover={{ scale: 1.1 }}
-                                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                                    transition={{
+                                        type: "spring",
+                                        stiffness: 400,
+                                        damping: 15,
+                                    }}
                                     style={{
                                         height: 58,
                                         width: "auto",
@@ -45,7 +55,11 @@ export const Proficiencies: FunctionComponent = (props): ReactElement => (
                         </div>
                         <motion.h6
                             whileHover={{ scale: 1.05 }}
-                            transition={{ type: "spring", stiffness: 500, damping: 20 }}
+                            transition={{
+                                type: "spring",
+                                stiffness: 500,
+                                damping: 20,
+                            }}
                             className="open-sans-font text-center mt-2 mt-sm-4 mb-1"
                             style={{ letterSpacing: 1.5 }}
                         >
@@ -53,7 +67,11 @@ export const Proficiencies: FunctionComponent = (props): ReactElement => (
                         </motion.h6>
                         <p
                             className="open-sans-font text-center"
-                            style={{ fontSize: 13, color: "#ffb400", letterSpacing: 1 }}
+                            style={{
+                                fontSize: 13,
+                                color: "#ffb400",
+                                letterSpacing: 1,
+                            }}
                         >
                             {type}
                         </p>

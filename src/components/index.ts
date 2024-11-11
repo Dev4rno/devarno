@@ -7,7 +7,6 @@ export * from "./ContactForm";
 export * from "./Experience";
 export * from "./HeaderBlock";
 export * from "./Hero";
-export * from "./Hero2";
 export * from "./Layout";
 export * from "./Navbar";
 export * from "./PersonalInfo";

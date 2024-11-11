@@ -1,6 +1,9 @@
 import { Navbar, SEO, SwitchDark, Wrapper } from "@/src/components";
+import fs from "fs";
+import matter from "gray-matter";
 import { GetStaticProps } from "next";
 import { useRouter } from "next/router";
+import { join } from "path";
 import { useEffect } from "react";
 import { useAppState } from "../context";
 import { navigationItems } from "../strings";
@@ -8,12 +11,31 @@ import { BlogPost } from "../types";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 export const getStaticProps: GetStaticProps = async () => {
-    const res = await fetch(`${process.env.BASE_URL}/api/posts`);
-    const { posts } = await res.json();
-    return { props: { posts } };
+    // const baseUrl = process.env.BASE_URL || "http://localhost:3000";
+    try {
+        // const res = await fetch(`${baseUrl}/api/posts`);
+        // const { posts } = await res.json();
+        const dirPath = join(process.cwd(), "_posts");
+        const filenames = fs.readdirSync(dirPath);
+        const posts = filenames.map((filename) => {
+            const filePath = join(dirPath, filename);
+            const fileContents = fs.readFileSync(filePath, "utf8");
+            const { data } = matter(fileContents);
+            const markdownExt = /\.md$/;
+            return { slug: filename.replace(markdownExt, ""), data };
+        });
+        return { props: { posts } };
+    } catch (error) {
+        console.error("Failed to fetch posts:", error);
+        return { props: { posts: [] } }; // Provide a fallback in case of an error
+    }
 };
 
-export default function Page({ posts }: { posts: { slug: string; data: BlogPost }[] }) {
+export default function Page({
+    posts,
+}: {
+    posts: { slug: string; data: BlogPost }[];
+}) {
     const router = useRouter();
     const {
         appState: { tabIndex, setTabIndex, isDark },
@@ -21,7 +43,9 @@ export default function Page({ posts }: { posts: { slug: string; data: BlogPost 
 
     useEffect(() => {
         const tab = router.query.tab || "home"; // Default to "home"
-        const tabIndex = navigationItems.findIndex((item) => item.name.toLowerCase() === tab);
+        const tabIndex = navigationItems.findIndex(
+            (item) => item.name.toLowerCase() === tab
+        );
         if (tabIndex >= 0) {
             setTabIndex(tabIndex);
         }

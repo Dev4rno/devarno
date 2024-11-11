@@ -40,11 +40,14 @@ export const SwitchDark = () => {
     }, []);
 
     return (
-        <div onClick={handleLabelClick} className={`theme-switcher-label${isDark ? " dark-mode" : ""}`}>
+        <div
+            onClick={handleLabelClick}
+            className={`theme-switcher-label${isDark ? " dark-mode" : ""}`}
+        >
             <Box
                 sx={{
-                    height: { xs: 40, sm: 45, md: 50, lg: 55, xl: 60 },
-                    width: { xs: 40, sm: 45, md: 50, lg: 55, xl: 60 },
+                    height: { xs: 36, sm: 45, md: 50, lg: 55, xl: 60 },
+                    width: { xs: 36, sm: 45, md: 50, lg: 55, xl: 60 },
                 }}
             >
                 <Image

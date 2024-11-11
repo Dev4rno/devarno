@@ -11,7 +11,11 @@ interface PropTypes {
     tags: string[];
 }
 
-export const PostBanner: React.FC<PropTypes> = ({ excerpt, coverImg, tags }) => {
+export const PostBanner: React.FC<PropTypes> = ({
+    excerpt,
+    coverImg,
+    tags,
+}) => {
     return (
         <Box
             sx={{
@@ -22,7 +26,12 @@ export const PostBanner: React.FC<PropTypes> = ({ excerpt, coverImg, tags }) => 
                 boxShadow: appColors.darkBoxShadow,
             }}
         >
-            <Image src={coverImg} alt="post-background" fill style={{ objectFit: "cover" }} />
+            <Image
+                src={coverImg}
+                alt="post-background"
+                fill
+                style={{ objectFit: "cover" }}
+            />
             <Box
                 sx={{
                     position: "absolute",
@@ -30,7 +39,8 @@ export const PostBanner: React.FC<PropTypes> = ({ excerpt, coverImg, tags }) => 
                     left: 0,
                     width: "100%",
                     height: "100%",
-                    background: "linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0.9, 0.9, 0.9))",
+                    background:
+                        "linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0.9, 0.9, 0.9))",
                 }}
             />
             <Box
@@ -50,29 +60,46 @@ export const PostBanner: React.FC<PropTypes> = ({ excerpt, coverImg, tags }) => 
                     variant="h5"
                     fontFamily="monospace"
                     textTransform="lowercase"
+                    textAlign={{ xs: "center", sm: "center", md: "start" }}
                     sx={{ mb: 1, fontSize: { xs: 20, sm: 22, md: 26 } }}
                 >
                     {excerpt}
                 </Typography>
-                <Stack direction="row" spacing={1}>
+                <Stack
+                    mt={{ md: 1, sm: 3, xs: 3 }}
+                    direction="row"
+                    display="flex"
+                    alignItems="center"
+                    justifyContent={{ xs: "center", sm: "center", md: "start" }}
+                    spacing={1}
+                    // border="2px solid red"
+                >
                     <Link passHref href="/?tab=blog">
                         <Chip
-                            label="<return_to_blog/>"
+                            label=" <-return_to_blog/>"
                             variant="filled"
                             color="warning"
                             sx={{
-                                bgcolor: appColors.primary,
-                                color: "#333",
+                                py: 2,
+                                bgcolor: appColors.primaryPastel,
+                                color: appColors.textDark,
                                 fontFamily: "monospace",
+                                fontSize: { xs: 18, sm: 18, md: 16 },
                                 "&:hover": {
-                                    color: "#fff",
-                                    backgroundColor: "transparent",
+                                    color: appColors.primary,
+                                    bgcolor: "transparent",
                                     textDecoration: "underline",
                                 },
                             }}
                         />
                     </Link>
-                    <Stack direction="row" spacing={1}>
+                    <Stack
+                        spacing={1}
+                        direction="row"
+                        display={{ xs: "none", sm: "none", md: "block" }}
+                        bottom={0}
+                        position="relative"
+                    >
                         {tags.map((x, index) => (
                             <Chip
                                 key={index}
@@ -83,6 +110,10 @@ export const PostBanner: React.FC<PropTypes> = ({ excerpt, coverImg, tags }) => 
                                     color: appColors.primary,
                                     border: `1px solid ${appColors.primary}`,
                                     fontFamily: "monospace",
+                                    maxWidth: "150px", // You can adjust this to your desired width
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    whiteSpace: "nowrap",
                                 }}
                             />
                         ))}

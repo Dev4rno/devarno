@@ -3,7 +3,8 @@ import Typewriter from "typewriter-effect/dist/core";
 import { appColors } from "./css";
 
 export const capitalise = (sentence: string) => {
-    const capWord = (word: string) => word.charAt(0).toUpperCase() + word.slice(1);
+    const capWord = (word: string) =>
+        word.charAt(0).toUpperCase() + word.slice(1);
 
     return sentence
         .split(" ")
@@ -45,4 +46,10 @@ export const highlightWord = (word: string): JSX.Element => (
     </i>
 );
 
-export const truncateString = (str: string, num: number) => (str.length > num ? str.slice(0, num) + "..." : str);
+export const truncateString = (str: string, num: number) =>
+    str.length > num ? str.slice(0, num) + "..." : str;
+
+// Return only alpha-numeric characters
+export const alnumOnly = (str: string) => {
+    return str.replace(/[^a-zA-Z0-9]/g, "");
+};
