@@ -1,4 +1,5 @@
 import "@/styles/index.scss";
+import { Analytics } from "@vercel/analytics/react";
 import Aos from "aos";
 import dynamic from "next/dynamic";
 import { useEffect } from "react";
@@ -27,6 +28,7 @@ export default function ApplicationPage({
                 outerScale={1.2}
                 color="255, 160, 1"
             />
+            <Analytics />
             <AppStateProvider>
                 <Component {...pageProps} />
             </AppStateProvider>
