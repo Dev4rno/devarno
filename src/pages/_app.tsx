@@ -28,9 +28,9 @@ export default function ApplicationPage({
                 outerScale={1.2}
                 color="255, 160, 1"
             />
-            <Analytics />
             <AppStateProvider>
                 <Component {...pageProps} />
+                <Analytics />
             </AppStateProvider>
         </>
     );
