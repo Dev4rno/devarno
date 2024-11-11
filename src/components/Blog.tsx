@@ -14,7 +14,7 @@ export const Blog = ({
     posts: { slug: string; data: BlogPost }[];
 }) => {
     return (
-        <Box px={{ xs: 2, sm: 3, md: 4 }} height="100%" pb={6}>
+        <Box px={{ xs: 2, sm: 3, md: 4 }} height={{ xs: "100%", sm: "100vh" }}>
             <div
                 className="container"
                 data-aos="fade-up"
@@ -22,6 +22,7 @@ export const Blog = ({
             >
                 <Grid
                     container
+                    pb={4}
                     spacing={{ xs: 3, sm: 3, md: 4 }}
                     alignItems="center"
                     justifyContent="center"
