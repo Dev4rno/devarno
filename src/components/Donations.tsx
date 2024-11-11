@@ -94,7 +94,6 @@ export const DonationTierModal = ({
                         <Typography
                             variant="body1"
                             id="modal-modal-description"
-                            fontSize={{ xs: "1.1rem", sm: "1.1rem" }}
                             lineHeight={1.4}
                             sx={{
                                 textAlign: "justify",
@@ -113,7 +112,6 @@ export const DonationTierModal = ({
                             fontFamily="monospace"
                             variant="body1"
                             sx={{
-                                fontSize: "1.1rem",
                                 color: !isDark
                                     ? appColors.primaryPastel
                                     : appColors.primaryLight,
@@ -141,10 +139,6 @@ export const DonationTierModal = ({
                                         </span>
                                         <Typography
                                             variant="body1"
-                                            fontSize={{
-                                                xs: "1.1rem",
-                                                sm: "1.1rem",
-                                            }}
                                             sx={{
                                                 textAlign: "justify",
                                                 textJustify: "inter-word",
@@ -295,8 +289,14 @@ export const Donations = ({ isDark }: { isDark: boolean }) => {
                                         variant="body2"
                                         sx={{
                                             fontSize: { xs: "1.1rem" },
-                                            textAlign: "justify",
-                                            textJustify: "inter-character",
+                                            textAlign: {
+                                                sm: undefined,
+                                                md: "justify",
+                                            },
+                                            textJustify: {
+                                                sm: undefined,
+                                                md: "inter-character",
+                                            },
                                             color: appColors[
                                                 isDark
                                                     ? "textDark"
