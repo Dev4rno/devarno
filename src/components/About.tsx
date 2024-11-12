@@ -12,7 +12,6 @@ import { appColors } from "../utils";
 import { Banner } from "./Banner";
 import { ProjectScroller } from "./ProjectScroller";
 import { ProjectSwiper } from "./ProjectSwiper";
-import { SmoothScroll } from "./SmoothScroll";
 
 export const AboutMain = () => {
     const {
@@ -27,13 +26,12 @@ export const AboutMain = () => {
                         alignItems="center"
                         justifyContent="center"
                     >
-                        <SmoothScroll />
                         <Stack
                             spacing={{ xs: 2, sm: 3 }}
                             mb={6}
                             maxWidth="sm"
                             sx={{
-                                px: "2rem",
+                                px: 1,
                                 display: {
                                     xs: "block",
                                     sm: "block",
@@ -50,8 +48,10 @@ export const AboutMain = () => {
                                     <Typography
                                         variant="body2"
                                         sx={{
-                                            fontSize: { xs: "1.1rem" },
-                                            textAlign: "justify",
+                                            textAlign: {
+                                                xs: undefined,
+                                                sm: "justify",
+                                            },
                                             color: appColors[
                                                 isDark
                                                     ? "textDark"
@@ -66,20 +66,24 @@ export const AboutMain = () => {
                         </Stack>
                     </Box>
 
-                    <div className="row">
-                        <Stack spacing={6}>
-                            <PersonalInfo />
-                            {/* <ResumeButton /> */}
-                        </Stack>
-                    </div>
+                    <Box
+                        alignItems="center"
+                        justifyContent="center"
+                        display="flex"
+                        width="100%"
+                    >
+                        <PersonalInfo isDark={isDark} />
+                    </Box>
+                    {/* <ResumeButton /> */}
+
                     <div className="row">
                         <HeaderBlock
+                            isDark={isDark}
                             plainText="my"
                             colorText="work"
                             bgText="projects"
-                            caption="a few projects I've worked on"
+                            caption="highlight past work"
                         />
-                        {/* <Projects /> */}
                         <Box
                             sx={{
                                 display: {
@@ -103,10 +107,10 @@ export const AboutMain = () => {
                             <ProjectSwiper isDark={isDark} />
                         </Box>
                     </div>
-                    <div className="row">
-                        <Proficiencies />
-                    </div>
-                    <hr className="separator mt-1" />
+                    {/* <div className="row"> */}
+                    <Proficiencies isDark={isDark} />
+                    {/* </div> */}
+
                     <div className="row">
                         <div className="col-lg-6">
                             <div className="resume-box">

@@ -49,13 +49,18 @@ export const Navbar = ({
                 plainText: "about",
                 colorText: "me",
                 bgText: "resumé",
-                caption: "core system specifications",
+                caption: "core specs and quirks",
             },
         },
         {
             name: "blog",
             element: <Blog posts={posts} isDark={isDark} />,
-            header: { plainText: "my", colorText: "blog", bgText: "posts" },
+            header: {
+                plainText: "my",
+                colorText: "blog",
+                bgText: "posts",
+                caption: "share insights",
+            },
         },
         {
             name: "contact",
@@ -64,6 +69,7 @@ export const Navbar = ({
                 plainText: "get in",
                 colorText: "touch",
                 bgText: "contact",
+                caption: "say hi",
             },
         },
         {
@@ -73,6 +79,7 @@ export const Navbar = ({
                 plainText: "your",
                 colorText: "support",
                 bgText: "growth",
+                caption: "boost momentum",
             },
         },
     ];
@@ -112,6 +119,7 @@ export const Navbar = ({
                     };
                     const headerBlock = header ? (
                         <HeaderBlock
+                            isDark={isDark}
                             plainText={header.plainText}
                             colorText={header.colorText}
                             bgText={header.bgText}

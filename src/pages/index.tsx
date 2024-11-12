@@ -50,7 +50,6 @@ export default function Page({
             setTabIndex(tabIndex);
         }
     }, [router.query.tab]);
-
     return (
         <Wrapper>
             <SEO pageTitle={`DevArno | ${navigationItems[tabIndex].name}`} />

@@ -1,9 +1,10 @@
 import { accreditations } from "@/strings";
 import { appColors } from "@/utils";
-import { Box, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { FunctionComponent, ReactElement } from "react";
 import { useAppState } from "../context";
 import { Banner } from "./Banner";
+import { ClassMethodText } from "./Typography";
 
 export const Accreditations: FunctionComponent = (props): ReactElement => {
     const {
@@ -11,14 +12,14 @@ export const Accreditations: FunctionComponent = (props): ReactElement => {
     } = useAppState();
     return (
         <>
-            <Box px={4} mb={2}>
-                <Banner
-                    text="accreditations"
+            <Stack spacing={1} mb={2} px={1}>
+                <Banner text="accreditations" isDark={isDark} />
+                <ClassMethodText
                     isDark={isDark}
-                    caption="my academic history"
+                    text="show knowledge unlocked"
                 />
-            </Box>
-            <ul>
+            </Stack>
+            <Box sx={{ p: 1 }}>
                 {accreditations.map((val, i) => (
                     <li
                         key={i}
@@ -28,8 +29,8 @@ export const Accreditations: FunctionComponent = (props): ReactElement => {
                             <span
                                 style={{
                                     color: isDark
-                                        ? "#ff8c00"
-                                        : appColors.primary,
+                                        ? appColors.primary
+                                        : appColors.primaryPastel,
                                 }}
                             >
                                 {val.degree}
@@ -38,7 +39,24 @@ export const Accreditations: FunctionComponent = (props): ReactElement => {
                                 {val.school}
                             </span>
                         </h5>
-                        <Typography variant="subtitle1">
+                        {/* <StretchedText isDark={isDark} variant="subtitle1" >
+                            {val.details}
+                        </StretchedText> */}
+                        <Typography
+                            variant="subtitle1"
+                            sx={{
+                                color: !isDark
+                                    ? appColors.textLight
+                                    : appColors.textDark,
+                                opacity: 0.9,
+                                wordBreak: "break-word",
+                                textAlign: "justify",
+                                textJustify: "inter-character",
+                                hyphens: "auto",
+                                msHyphenateLimitLines: 2,
+                                lineHeight: 1.5,
+                            }}
+                        >
                             {val.details}
                         </Typography>
                         <span
@@ -52,7 +70,7 @@ export const Accreditations: FunctionComponent = (props): ReactElement => {
                         </span>
                     </li>
                 ))}
-            </ul>
+            </Box>
         </>
     );
 };

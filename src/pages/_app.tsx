@@ -19,7 +19,7 @@ export default function ApplicationPage({
         Aos.init({ duration: 1200 });
     }, []);
     return (
-        <>
+        <div className="devarno-application">
             <AnimatedCursor
                 innerSize={8}
                 outerSize={44}
@@ -29,9 +29,10 @@ export default function ApplicationPage({
                 color="255, 160, 1"
             />
             <AppStateProvider>
+                {/* <SmoothScroll /> */}
                 <Component {...pageProps} />
                 <Analytics />
             </AppStateProvider>
-        </>
+        </div>
     );
 }

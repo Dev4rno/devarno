@@ -33,21 +33,21 @@ export interface SupportBlock {
 export const dreamBuilderFundStrings: SupportBlock = {
     blocks: [
         {
-            title: "My Journey",
+            title: "my journey",
             items: [
                 "Welcome to my Indie Hacker journey - a path driven by curiosity, creativity, and a mission to solve real-world challenges. Every project is a spark of inspiration turned into something impactful, with plenty of experimentation along the way. From exploring new tech stacks to reimagining concepts, I’m building tools that aim to make a difference in people’s lives.",
                 "Right now, I'm deep into some exciting projects that fuel my passion and focus. Each one tackles a meaningful problem, and I’m eager to bring them into the world. Your support is what makes it all possible, empowering me to keep pushing forward.",
             ],
         },
         {
-            title: "Your Role",
+            title: "your role",
             items: [
                 "Joining the Dream Builder Fund means becoming part of something greater than just a project launch—you’re fueling creativity, growth, and real impact. Whether it’s a small boost or major support, every contribution helps shape these ideas into tools that people can genuinely benefit from.",
                 "I’ve set up different donation tiers to make it easy for you to join in at a level that works for you. Each tier brings you into this tech adventure with me—not just as a supporter, but as a valued part of the team driving these ideas forward.",
             ],
         },
         {
-            title: "Why It Matters",
+            title: "why it matters",
             items: [
                 "Thank you for being here on this journey. Your support means a lot to me and helps turn ideas into real solutions for real challenges. With each step forward, we’re creating tools that can make a meaningful difference, and having you alongside makes the journey even more rewarding.",
                 "Your generosity keeps this work alive, and I’m excited to keep collaborating with you to build tools that matter. Thank you for being part of this journey—let’s make a lasting impact together. 🚀",
@@ -83,11 +83,11 @@ export const dreamBuilderFundStrings: SupportBlock = {
                 "With your support as an Innovator's Ally, your contribution fuels creativity and productivity. You’re helping to provide the resources that sharpen my skills and keep the wheels of innovation turning seamlessly.",
             examples: [
                 "📄::Monthly Notion subscription::Organizing projects, tasks, and daily notes efficiently in one place.",
-                "📧::AWS SES subscription for email sending::Ensuring reliable communication for newsletters or project updates.",
+                "📧::SES & Mailjet subscriptions::Ensuring reliable communication for newsletters or project updates.",
                 // "☕::A premium coffee blend::Elevating focus and productivity during intense coding sprints.",
                 // "☑️::Digital task management app subscription::Streamlining my workflow and prioritizing tasks.",
-                "🌐::One month of a basic VPN service::Securing my online activities and enhancing privacy.",
-                "📚::Startup marketing strategy resources::Gaining insights and tactics for business growth.",
+                "🌐::Monthly VPN service::Securing my online activities and enhancing privacy.",
+                "📚::Startup marketing resources::Gaining insights and tactics for business growth.",
                 "🖌️::Stock library design asset::Enhancing the visual appeal of my projects.",
             ],
             thanks: "Thank you for standing by my side as an Innovator's Ally! Your support makes a big difference, providing me with the resources that sharpen my skills and keep the gears turning. Every tool, every coffee, every book—all of it is a step forward, thanks to you. I’m beyond grateful to have you along for the journey, cheering on each new idea and helping me bring this vision to life. Thank you for being a part of this story!",

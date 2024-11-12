@@ -1,14 +1,16 @@
-import { Stack, Typography } from "@mui/material";
-import React from "react";
+import { Box, Stack } from "@mui/material";
+import { FC } from "react";
+import { ClassMethodText } from "./Typography";
 
 interface PropTypes {
     plainText: string;
     colorText: string;
     bgText: string;
     caption?: string;
+    isDark: boolean;
 }
 
-export const HeaderBlock: React.FC<PropTypes> = (props) => {
+export const HeaderBlock: FC<PropTypes> = (props) => {
     return (
         <Stack alignItems="center" justifyContent="center">
             <div className="title-section text-center text-sm-center">
@@ -18,15 +20,12 @@ export const HeaderBlock: React.FC<PropTypes> = (props) => {
                 <span className="title-bg">{props.bgText}</span>
             </div>
             {props.caption && (
-                <Typography
-                    variant="caption"
-                    fontSize={{ xs: 14 }}
-                    fontFamily="monospace"
-                    position="relative"
-                    top={-40}
-                >
-                    &rarr;&nbsp;<i>{props.caption}</i>
-                </Typography>
+                <Box sx={{ top: -40, position: "relative" }}>
+                    <ClassMethodText
+                        text={props.caption}
+                        isDark={props.isDark}
+                    />
+                </Box>
             )}
         </Stack>
     );

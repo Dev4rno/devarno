@@ -1,33 +1,50 @@
-import { Box } from "@mui/material";
+import { Box, Stack } from "@mui/material";
+import { appColors } from "../utils";
 import { Banner } from "./Banner";
 import { ContactForm } from "./ContactForm";
-import { Social } from "./Social";
+import { StretchedText } from "./Typography";
+
+const inboxOpen = `
+    My inbox is always open for brainstorming sessions,
+    strange ideas, or anything that needs a bit of coding magic.
+`;
+
+const loveToChat = (
+    <span style={{ color: appColors.primary }}>{" I’d love to chat"}</span>
+);
+
+const question = "Got a project, question, or even just a hunch?";
 
 export const GetInTouch = ({ isDark }: { isDark: boolean }) => {
     return (
-        <Box px={{ xs: 2, sm: 3, md: 4 }} height="100%" pb={4}>
-            <div
-                className="container"
-                data-aos="fade-up"
-                data-aos-duration="1200"
+        <div data-aos="fade-up" data-aos-duration="1200">
+            <Box
+                alignItems="center"
+                justifyContent="center"
+                display="flex"
+                px={2}
+                pb={8}
             >
-                <div className="row">
-                    <div className="col-12 col-lg-4">
+                <Stack
+                    gap={{ md: 2, sm: 4 }}
+                    maxWidth={{ sm: "sm", md: "md" }}
+                    direction={{ sm: "column", md: "row" }}
+                >
+                    <Stack p={1}>
                         <Banner text="dont be shy" isDark={isDark} />
-                        <p className="open-sans-font mb-4 mt-2">
-                            Feel free to get in touch with me.
-                            <br />I am always open to discussing new projects,
-                            creative ideas or opportunities to be part of your
-                            visions.
-                        </p>
-                        {/* <Address /> */}
-                        <Social />
-                    </div>
-                    <div className="col-12 col-lg-8">
+                        <StretchedText isDark={isDark}>
+                            {question}
+                            {loveToChat}.
+                            <br />
+                            <br />
+                            {inboxOpen}
+                        </StretchedText>
+                    </Stack>
+                    <Box pt={{ xs: 3, sm: 1 }}>
                         <ContactForm />
-                    </div>
-                </div>
-            </div>
-        </Box>
+                    </Box>
+                </Stack>
+            </Box>
+        </div>
     );
 };

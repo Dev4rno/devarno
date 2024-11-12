@@ -14,6 +14,8 @@ import {
 import { useState } from "react";
 import { dreamBuilderFundStrings } from "../strings/support";
 import { appColors } from "../utils";
+import { Banner } from "./Banner";
+import { StretchedText } from "./Typography";
 
 export const DonationTierModal = ({
     open,
@@ -55,7 +57,7 @@ export const DonationTierModal = ({
                         left: "50%",
                         position: "absolute",
                         transform: "translate(-50%, -50%)",
-                        width: { xs: "90%", sm: "80%" },
+                        width: { xs: "100%", sm: "80%" },
                         height: "fit-content",
                         borderRadius: 2,
                         pt: 1,
@@ -252,21 +254,13 @@ export const Donations = ({ isDark }: { isDark: boolean }) => {
     };
     return (
         <>
-            {/* <Box
-                width="100%"
-                border="2px solid red"
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-            > */}
             <DonationTierModal
                 isDark={isDark}
                 open={open}
                 handleClose={handleClose}
                 modalData={modalData}
             />
-            {/* </Box> */}
-            <Box px={{ xs: 2, sm: 3, md: 4 }} pb={12}>
+            <Box px={{ xs: 1, sm: 3, md: 4 }} pb={12}>
                 <div
                     className="container"
                     data-aos="fade-up"
@@ -276,45 +270,18 @@ export const Donations = ({ isDark }: { isDark: boolean }) => {
                         {dreamBuilderFundStrings.blocks.map((block, i) => (
                             <Stack spacing={1.5} maxWidth="md" key={i}>
                                 {block.title ? (
-                                    <Typography
-                                        fontFamily="monospace"
-                                        textTransform="lowercase"
-                                        sx={{
-                                            color: appColors[
-                                                isDark
-                                                    ? "primary"
-                                                    : "primaryPastel"
-                                            ],
-                                        }}
-                                        component="h3"
-                                        variant="h5"
-                                    >
-                                        <strong>{block.title}</strong>
-                                    </Typography>
+                                    <Banner
+                                        text={block.title}
+                                        isDark={isDark}
+                                    />
                                 ) : null}
                                 {block.items.map((item, j) => (
-                                    <Typography
-                                        key={j}
-                                        variant="body2"
-                                        sx={{
-                                            fontSize: { xs: "1.1rem" },
-                                            textAlign: {
-                                                sm: undefined,
-                                                md: "justify",
-                                            },
-                                            textJustify: {
-                                                sm: undefined,
-                                                md: "inter-character",
-                                            },
-                                            color: appColors[
-                                                isDark
-                                                    ? "textDark"
-                                                    : "textLight"
-                                            ],
-                                        }}
+                                    <StretchedText
+                                        isDark={isDark}
+                                        key={`stretch-${j + 1}`}
                                     >
-                                        {item}{" "}
-                                    </Typography>
+                                        {item}
+                                    </StretchedText>
                                 ))}
                             </Stack>
                         ))}
@@ -327,42 +294,14 @@ export const Donations = ({ isDark }: { isDark: boolean }) => {
                     >
                         <Stack maxWidth="md">
                             <Stack spacing={1} mb={3}>
-                                <Typography
-                                    variant="h5"
-                                    fontFamily="monospace"
-                                    textTransform="lowercase"
-                                    sx={{
-                                        color: appColors[
-                                            isDark ? "primary" : "primaryPastel"
-                                        ],
-                                    }}
-                                >
-                                    <strong>funding tiers</strong>
-                                </Typography>
-                                <Typography
-                                    sx={{
-                                        fontSize: { xs: "1.1rem" },
-                                        textAlign: {
-                                            sm: undefined,
-                                            md: "justify",
-                                        },
-                                        textJustify: {
-                                            sm: undefined,
-                                            md: "inter-character",
-                                        },
-                                        color: appColors[
-                                            isDark ? "textDark" : "textLight"
-                                        ],
-                                    }}
-                                >
+                                <Banner isDark={isDark} text="funding tiers" />
+                                <StretchedText isDark={isDark}>
                                     The Dream Builder Fund is the easiest way to
                                     support me in bringing real-world solutions
-                                    to life.
-                                    <br />
-                                    Join me on this journey to tackle challenges
-                                    that matter, and to fuel projects that drive
-                                    impact.
-                                </Typography>
+                                    to life. Join me on this journey to tackle
+                                    challenges that matter, and to fuel projects
+                                    that drive impact.
+                                </StretchedText>
                             </Stack>
                             <Grid
                                 container

@@ -8,7 +8,7 @@ interface Accreditation {
 export const accreditations: Accreditation[] = [
     {
         year: "Mar'24 - Present",
-        degree: "AlgoExpert, InfraExpert, SystemsExpert, BlockchainExpert, FrontendExpert, MLExpert",
+        degree: "Algo-Infra-Systems Expert",
         school: "AlgoExpert.com",
         details:
             "A software interview preparation service with many derivative courses, in order to enhance my skills and understanding in systems design, blockchain, front-end development, infrastructure and machine learning.",

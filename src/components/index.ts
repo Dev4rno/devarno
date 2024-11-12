@@ -18,3 +18,4 @@ export * from "./Projects";
 export * from "./Seo";
 export * from "./Social";
 export * from "./Switch";
+export * from "./Typography";

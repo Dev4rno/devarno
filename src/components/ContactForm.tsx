@@ -20,7 +20,8 @@ const initState: FormData = {
 export const ContactForm = () => {
     const [formData, setFormData] = useState<FormData>(initState);
     const { name, email, subject, message } = formData;
-    const onChange = (e: any) => setFormData((x) => ({ ...x, [e.target.name]: e.target.value }));
+    const onChange = (e: any) =>
+        setFormData((x) => ({ ...x, [e.target.name]: e.target.value }));
     const onSubmit = async (e: any) => {
         e.preventDefault();
 

@@ -1,8 +1,9 @@
 import { experiences } from "@/strings";
 import { appColors } from "@/utils";
-import { Box, Typography } from "@mui/material";
+import { Box, Stack, Typography } from "@mui/material";
 import { useAppState } from "../context";
 import { Banner } from "./Banner";
+import { ClassMethodText } from "./Typography";
 
 export const Experience = () => {
     const {
@@ -10,14 +11,11 @@ export const Experience = () => {
     } = useAppState();
     return (
         <>
-            <Box px={4} mb={2}>
-                <Banner
-                    text="experience"
-                    isDark={isDark}
-                    caption="my career timeline"
-                />
-            </Box>
-            <ul>
+            <Stack spacing={1} mb={2} px={1}>
+                <Banner text="experience" isDark={isDark} />
+                <ClassMethodText isDark={isDark} text="show career pathway" />
+            </Stack>
+            <Box sx={{ p: 1 }}>
                 {experiences.map((val, i) => (
                     <li
                         key={i}
@@ -27,8 +25,8 @@ export const Experience = () => {
                             <span
                                 style={{
                                     color: isDark
-                                        ? "#ff8c00"
-                                        : appColors.primary,
+                                        ? appColors.primary
+                                        : appColors.primaryPastel,
                                 }}
                             >
                                 {val.position}
@@ -37,7 +35,23 @@ export const Experience = () => {
                                 {val.company}
                             </span>
                         </h5>
-                        <Typography variant="subtitle1">
+                        {/* <StretchedText isDark={isDark} variant="subtitle1">
+                            {val.details}
+                        </StretchedText> */}
+                        <Typography
+                            variant="subtitle1"
+                            sx={{
+                                color: !isDark
+                                    ? appColors.textLight
+                                    : appColors.textDark,
+                                opacity: 0.9,
+                                wordBreak: "break-word",
+                                textAlign: "justify",
+                                textJustify: "inter-character",
+                                hyphens: "auto",
+                                msHyphenateLimitLines: 2,
+                            }}
+                        >
                             {val.details}
                         </Typography>
                         <span
@@ -51,7 +65,7 @@ export const Experience = () => {
                         </span>
                     </li>
                 ))}
-            </ul>
+            </Box>
         </>
     );
 };

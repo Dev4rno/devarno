@@ -18,11 +18,16 @@ export const Hero = ({ setIndex }: { setIndex: (x: number) => void }) => {
                 style={{
                     backgroundImage: `linear-gradient(to bottom, rgba(255, 193, 7, 0.1), rgba(255, 193, 7, 0.15)), url(${heroContent.imgMain})`,
                 }}
-            ></div>
+            />
             <div className="col-12 col-lg-10 offset-lg-3 home-details">
-                <Stack p={4} spacing={4}>
+                <Stack
+                    position="relative"
+                    top={{ xs: -40, sm: -20, md: 0 }}
+                    p={{ xs: 1, sm: 3, md: 1 }}
+                    spacing={{ xs: 6, sm: 4 }}
+                >
                     <Stack
-                        spacing={{ xs: 4, sm: 4, md: 0 }}
+                        spacing={{ xs: 5, sm: 3, md: 0 }}
                         alignItems="center"
                         justifyContent="flex-start"
                         direction={{ xs: "column", sm: "row" }}
@@ -31,7 +36,7 @@ export const Hero = ({ setIndex }: { setIndex: (x: number) => void }) => {
                         <Box
                             sx={{
                                 display: { xs: "flex", sm: "flex", md: "none" }, // Ensures complete hide on md and up
-                                width: { xs: 200, sm: "24%", md: 0 }, // Responsive width only for xs and sm
+                                width: { xs: 160, sm: "24%", md: 0 }, // Responsive width only for xs and sm
                                 position: { sm: "relative", md: "unset" },
                                 aspectRatio: "1 / 1",
                                 borderRadius: "50%",
@@ -81,6 +86,9 @@ export const Hero = ({ setIndex }: { setIndex: (x: number) => void }) => {
                                 className="typewriter"
                                 fontFamily="monospace"
                                 sx={{
+                                    fontSize: {
+                                        xs: "0.8rem",
+                                    },
                                     textAlign: {
                                         xs: "center",
                                         sm: "left",

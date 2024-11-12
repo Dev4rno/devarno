@@ -41,8 +41,6 @@ Version: 1.0
 /* [ GENERAL ] */
 /*================================================== */
 
-/*** Miscellaneous ***/
-
 html {
     overflow-x: hidden;
     height: 100%;
@@ -64,23 +62,20 @@ body {
     background-color: #111;
     padding: 0;
     margin: 0;
+    overflow-y: hidden;
+}
+body {
+    overflow-y: scroll; /* Ensure scrolling is possible */
 }
 
-::-webkit-scrollbar {
-    display: none;
-    // height: 5px;
-    // width: 5px;
-    // background: #fff3;
-    // -webkit-border-radius: 1ex;
+/* Hide scrollbar while keeping scrolling functional */
+body::-webkit-scrollbar {
+    width: 0; /* Chrome, Safari, Opera */
 }
 
-::-webkit-scrollbar-thumb {
-    background: var(--accent);
-    -webkit-border-radius: 1ex;
-}
-
-::-webkit-scrollbar-corner {
-    background: #fff3;
+body {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 }
 
 .poppins-font {

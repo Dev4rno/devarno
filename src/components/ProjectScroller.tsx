@@ -54,6 +54,7 @@ function Project({
                         : appColors.primaryLight
                     : appColors[!isDark ? "primaryPastel" : "textDark"],
                 cursor: href && "pointer",
+                fontFamily: "monospace",
                 justifyContent: "center",
             }}
         >
@@ -115,11 +116,11 @@ function Project({
                     flex: "1",
                     fontSize: "56px",
                     fontWeight: 700,
-                    letterSpacing: -1,
+                    // letterSpacing: -0.5,
                     lineHeight: 1.2,
                     maxWidth: "40%",
                     position: "relative",
-                    fontFamily: "monospace",
+                    // fontFamily: "monospace",
                     marginLeft: 20,
                 }}
             >
