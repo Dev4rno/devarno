@@ -326,7 +326,7 @@ To start contributing, check out the [GitHub repository](https://github.com/devA
 
 `pwplz` is an [open-source](https://opensource.com/resources/what-open-source) project, and [pwplz.com](http://pwplz.com) will remain free forever.
 
-However, if you're into the apps I code, the content I craft, or the Indie Hacker path I walk, consider supporting my journey with a donation through my [LemonSqueezy](https://devarno.lemonsqueezy.com/) store. Your support helps keep this Indie adventure alive.
+However, if you enjoy the apps I create, the content I share, or my Indie Hacker journey, consider [supporting my work](https://www.devarno.com/?tab=support) with a donation. Your support keeps this Indie adventure thriving.
 
 Also, please feel free to follow me on my upcoming digital adventures so you don’t miss out on some exclusive early-bird perks.
 
