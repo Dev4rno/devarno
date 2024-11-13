@@ -27,7 +27,7 @@ function Project({
     const [arrow, setArrow] = useState(false);
     const ref = useRef(null);
     const { scrollYProgress } = useScroll({ target: ref });
-    const y = useParallax(scrollYProgress, 200);
+    const y = useParallax(scrollYProgress, 300);
     const imageBlock = (
         <Image
             fill
