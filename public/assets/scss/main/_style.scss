@@ -62,10 +62,6 @@ body {
     background-color: #111;
     padding: 0;
     margin: 0;
-    overflow-y: hidden;
-}
-body {
-    overflow-y: scroll; /* Ensure scrolling is possible */
 }
 
 /* Hide scrollbar while keeping scrolling functional */
@@ -73,10 +69,10 @@ body::-webkit-scrollbar {
     width: 0; /* Chrome, Safari, Opera */
 }
 
-body {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
-}
+// body {
+//     -ms-overflow-style: none; /* IE and Edge */
+//     scrollbar-width: none; /* Firefox */
+// }
 
 .poppins-font {
     font-family: "Poppins", sans-serif;
