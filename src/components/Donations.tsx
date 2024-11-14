@@ -260,7 +260,7 @@ export const Donations = ({ isDark }: { isDark: boolean }) => {
                 handleClose={handleClose}
                 modalData={modalData}
             />
-            <Box px={{ xs: 2, sm: 3, md: 4 }} height="100%">
+            <Box px={{ xs: 2, sm: 3, md: 4 }} height="100%" pb={8}>
                 <div
                 // className="container"
                 // data-aos="fade-up"
