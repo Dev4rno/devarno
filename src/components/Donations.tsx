@@ -260,11 +260,11 @@ export const Donations = ({ isDark }: { isDark: boolean }) => {
                 handleClose={handleClose}
                 modalData={modalData}
             />
-            <Box px={{ xs: 1, sm: 3, md: 4 }} height="100vh" pb={12}>
+            <Box px={{ xs: 2, sm: 3, md: 4 }} height="100%">
                 <div
-                    className="container"
-                    data-aos="fade-up"
-                    data-aos-duration="1200"
+                // className="container"
+                // data-aos="fade-up"
+                // data-aos-duration="1200"
                 >
                     <Stack spacing={4} alignItems="center">
                         {dreamBuilderFundStrings.blocks.map((block, i) => (
