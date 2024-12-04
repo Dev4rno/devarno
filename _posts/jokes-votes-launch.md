@@ -15,7 +15,7 @@ author:
 
 This week, I was thrilled to gain an amazing following on [Bluesky](https://bsky.app/profile/devarno.com/), and as a token of appreciation for the incredible support, I decided to dive into a quick and fun [#buildinpublic](https://bsky.app/search?q=%23buildinpublic) project.
 
-In less than 24 hours, I brought [PunPal.net](http://punpal.net) to life 🎉
+Less than 24 hours later, I launched [PunPal.net](http://punpal.net) - a humour hub to pick your favourite puns, vote anonymously, and see which jokes top the charts!
 
 #### Goal
 
@@ -65,7 +65,7 @@ Building this app was both exciting and stressful. Here are the milestones and h
 
 ##### 1. Public debugging
 
-Debugging a [#buildinpublic](https://bsky.app/search?q=%23buildinpublic) with a 'time restriction' is no joke. I ran into several issues with the random joke fetcher and voting system, and debugging them with users watching was intense. But every issue was a learning experience.
+Debugging a [#buildinpublic](https://bsky.app/search?q=%23buildinpublic) project with a 'time restriction' is no joke. I ran into several issues with the random joke fetcher and voting system, and debugging them with users watching was intense. But every issue was a learning experience.
 
 ##### 2. Deployment disasters
 
