@@ -13,7 +13,7 @@ author:
     avatar: "/assets/img/hero/hero-lakes-headshot.png"
 ---
 
-This week, I was thrilled to gain an amazing following on [Bluesky](https://bsky.app/profile/devarno.com/), and as a token of appreciation for the incredible support, I decided to dive into quick and fun [#buildinpublic](https://bsky.app/search?q=%23buildinpublic) project.
+This week, I was thrilled to gain an amazing following on [Bluesky](https://bsky.app/profile/devarno.com/), and as a token of appreciation for the incredible support, I decided to dive into a quick and fun [#buildinpublic](https://bsky.app/search?q=%23buildinpublic) project.
 
 In less than 24 hours, I brought [PunPal.net](http://punpal.net) to life 🎉
 
