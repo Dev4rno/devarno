@@ -1223,6 +1223,25 @@ body.light .contact .custom-span-contact a {
     line-height: 1.6;
 }
 
+.blog-post-md table {
+    border-collapse: collapse;
+}
+
+.blog-post-md th,
+td {
+    padding: 6px 13px;
+    border: 1px solid #e5e5e5;
+}
+
+.blog-post-md.dark-mode th,
+.blog-post-md.dark-mode td {
+    border: 1px solid #333;
+}
+
+.blog-post-md p {
+    line-height: 1.5;
+}
+
 .blog-post-md.dark-mode h1,
 .blog-post-md.dark-mode h2,
 .blog-post-md.dark-mode h3,
@@ -1283,6 +1302,13 @@ body.light .contact .custom-span-contact a {
 .blog-post-md ul li,
 .blog-post-md ol li {
     margin-bottom: 0.5em;
+}
+
+.blog-post-md ul li,
+.blog-post-md ol li {
+    margin-bottom: 0.5em;
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
 .blog-post-md blockquote {

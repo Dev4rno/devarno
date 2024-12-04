@@ -29,6 +29,7 @@ export const Banner = ({
             >
                 {`<${text}/>`
                     .replaceAll(" ", "_")
+                    .replaceAll(",", "")
                     .split("")
                     .map((letter, index) => (
                         <motion.span

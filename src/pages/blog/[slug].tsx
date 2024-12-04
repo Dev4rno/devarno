@@ -1,3 +1,4 @@
+// import style from "@/public/assets/scss/MarkdownTable.module.css";
 import {
     HeaderBlock,
     PostBanner,
@@ -6,23 +7,23 @@ import {
     Wrapper,
 } from "@/src/components";
 import { useAppState } from "@/src/context";
+import { appColors } from "@/src/utils";
+import { Box, Stack, Typography } from "@mui/material";
 import fs from "fs";
 import matter from "gray-matter";
 import { GetStaticPaths, GetStaticProps } from "next";
-import { join } from "path";
-import ReactMarkdown from "react-markdown";
-import remarkHtml from "remark-html";
-import { BlogPost } from "../../types";
-
-import { appColors } from "@/src/utils";
-import { Box, Stack, Typography } from "@mui/material";
 import Image from "next/image";
+import { join } from "path";
 import React from "react";
+import ReactMarkdown from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import {
     oneLight,
     tomorrow,
 } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import remarkGfm from "remark-gfm";
+import remarkHtml from "remark-html";
+import { BlogPost } from "../../types";
 
 const POSTS_DIR = "_posts";
 
@@ -74,7 +75,7 @@ export default function Page({
                         coverImg={data.coverImg}
                     />
                     <ReactMarkdown
-                        remarkPlugins={[remarkHtml]}
+                        remarkPlugins={[remarkHtml, remarkGfm]}
                         components={{
                             p: ({ children }) => {
                                 if (
@@ -185,8 +186,12 @@ export default function Page({
                                     </code>
                                 );
                             },
+                            // table({ children, className, node, ...props }) {},
                         }}
-                        className={`blog-post-md${isDark ? " dark-mode" : ""}`}
+                        className={`blog-post-md${isDark ? " dark-mode" : ""} ${
+                            // style.markdowntable
+                            ""
+                        }`}
                     >
                         {content}
                     </ReactMarkdown>

@@ -246,7 +246,7 @@ export const Blog = ({
                                                     date,
                                                     new Date(),
                                                     { addSuffix: true }
-                                                )}
+                                                ).replace("about", "")}
                                             </Typography>
                                         </Stack>
                                     </Paper>
