@@ -41,31 +41,27 @@ const languages = (
 
 const content: ContentBlock[] = [
     { name: "name", value: "Alex Arno" },
-    { name: "age", value: "28 years old" },
+    { name: "age", value: "29 years old" },
+    { name: "typing from", value: "London, UK" },
+    { name: "email", value: "alex@devarno.com" },
+    { name: "availability", value: "Contract • PT", color: "#7FFF00" },
     {
         name: "nationalities",
         value: nationalities,
     },
-    { name: "availability", value: "Contract • PT", color: "#7FFF00" },
-    { name: "typing from", value: "London, UK" },
-    { name: "email", value: "alex@devarno.com" },
     {
         name: "languages",
         value: languages,
         color: "",
     },
-    { name: "reach", value: "30+ stakeholders" },
-    {
-        name: "stack",
-        value: "40+ libraries",
-    },
+    { name: "degree", value: "spacecraft engineering" },
     {
         name: "fav. languages",
         value: "Python • TypeScript • Go",
     },
     {
         name: "fav. libraries",
-        value: "pandas • scrapy • pyshark",
+        value: "fastapi • pandas • pyshark",
     },
     {
         name: "fav. FE frameworks",
@@ -86,6 +82,10 @@ const content: ContentBlock[] = [
     {
         name: "env",
         value: "macOS • VSCode • Jazz",
+    },
+    {
+        name: "height",
+        value: "193cm",
     },
     {
         name: "fastest swim",
@@ -177,6 +177,8 @@ export const PersonalInfo: FC<PropTypes> = ({ isDark }) => {
                                 fontFamily="monospace"
                                 textTransform="uppercase"
                                 letterSpacing={1.2}
+                                fontWeight={200}
+                                fontSize={{ xs: 14, sm: 13 }}
                                 style={{
                                     color: appColors[
                                         !isDark
@@ -199,7 +201,7 @@ export const PersonalInfo: FC<PropTypes> = ({ isDark }) => {
                                         color: isDark
                                             ? appColors.lightText
                                             : appColors.darkText,
-                                        fontSize: { xs: 17 },
+                                        fontSize: { xs: 17, sm: 15 },
                                     }}
                                 >
                                     {block.value}

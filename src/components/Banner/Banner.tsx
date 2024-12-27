@@ -56,7 +56,6 @@ export const BlurIn = ({ children }: { children: React.ReactNode }) => {
             transition={{ duration: 1.2 }}
             initial={{ filter: "blur(20px)", opacity: 0 }}
             animate={isInView ? { filter: "blur(0px)", opacity: 1 } : {}}
-            // className="text-xl text-center sm:text-4xl font-bold tracking-tighter md:text-6xl md:leading-[4rem]"
         >
             {children}
         </motion.h2>

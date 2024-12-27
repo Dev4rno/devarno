@@ -1,7 +1,7 @@
 ---
 titlePlain: "Jokes, Votes,"
 titleColor: "Launch"
-excerpt: "How I Shipped a Joke Rating App in Just 24 Hours"
+excerpt: "How I shipped a joke-rating app in just 24 hours"
 date: "2024-12-04T11:35:07.322Z"
 tags: ["jokes", "humour", "nextjs", "webdev", "public", "mvp"]
 intro: "Discover the challenges, lessons, and breakthroughs from my #buildinpublic journey to create a joke rating app within a single day."

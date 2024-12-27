@@ -1,4 +1,9 @@
-type ProficiencyType = "Language" | "Framework" | "Library" | "DevOps" | "Application";
+type ProficiencyType =
+    | "Language"
+    | "Framework"
+    | "Library"
+    | "DevOps"
+    | "Application";
 
 interface Proficiency {
     name: string | JSX.Element;
@@ -48,7 +53,7 @@ export const proficiencies: Proficiency[] = [
         href: "https://fastapi.tiangolo.com/lo/",
         type: "Framework",
         name: "FastAPI",
-        pct: 45,
+        pct: 65,
         img: "https://cdn.worldvectorlogo.com/logos/fastapi.svg",
     },
     {
@@ -135,13 +140,6 @@ export const proficiencies: Proficiency[] = [
         pct: 65,
         img: "https://mui.com/static/logo.png",
     },
-    // {
-    //     href: "https://getbootstrap.com/",
-    //     type: "Library",
-    //     name: "Bootstrap",
-    //     pct: 60,
-    //     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/1280px-Bootstrap_logo.svg.png",
-    // },
     {
         href: "https://chakra-ui.com/",
         type: "Library",
@@ -149,13 +147,6 @@ export const proficiencies: Proficiency[] = [
         pct: 65,
         img: "https://www.coffeeclass.io/logos/chakra-ui.png",
     },
-    // {
-    //     href: "https://www.framer.com/motion/",
-    //     type: "Library",
-    //     name: "Framer Motion",
-    //     pct: 40,
-    //     img: "https://seeklogo.com/images/F/framer-motion-logo-DA1E33CAA1-seeklogo.com.png",
-    // },
     {
         href: "https://matplotlib.org/",
         type: "Library",
@@ -175,7 +166,7 @@ export const proficiencies: Proficiency[] = [
         type: "Library",
         name: "Pandas",
         pct: 55,
-        img: "https://www.cilans.net/wp-content/uploads/2019/12/Python-Pandas-logo.png",
+        img: "https://cdn.worldvectorlogo.com/logos/pandas.svg",
     },
     {
         href: "https://developer.chrome.com/docs/devtools/",

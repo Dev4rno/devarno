@@ -24,7 +24,7 @@ export const Proficiencies: FC<PropTypes> = (props): ReactElement => (
             sx={{
                 justifyContent: "center",
                 alignItems: "center",
-                pt: 2,
+                py: 2,
             }}
         >
             {proficiencies

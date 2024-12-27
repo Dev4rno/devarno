@@ -56,7 +56,7 @@ export default function Page({
     return (
         <Wrapper>
             <SEO
-                pageTitle={`DevArno | ${data.titlePlain} ${data.titleColor}`}
+                pageTitle={`Devarno | ${data.titlePlain} ${data.titleColor}`}
             />
             <div className="yellow">
                 <SwitchDark />
@@ -186,12 +186,10 @@ export default function Page({
                                     </code>
                                 );
                             },
-                            // table({ children, className, node, ...props }) {},
                         }}
-                        className={`blog-post-md${isDark ? " dark-mode" : ""} ${
-                            // style.markdowntable
-                            ""
-                        }`}
+                        className={`blog-post-md${
+                            isDark ? " dark-mode" : ""
+                        } ${""}`}
                     >
                         {content}
                     </ReactMarkdown>

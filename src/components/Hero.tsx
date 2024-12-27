@@ -1,8 +1,64 @@
-import { Box, Stack, Typography } from "@mui/material";
+import { Box, Stack, Tooltip, Typography } from "@mui/material";
+import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import { useEffect } from "react";
 import { useAppState } from "../context";
 import { heroContent } from "../strings";
 import { appColors, startHeroTypewriter } from "../utils";
+
+interface SocialLink {
+    name: string;
+    url: string;
+    icon: string;
+}
+
+const socialLinks: SocialLink[] = [
+    {
+        name: "Bluesky",
+        url: "https://bsky.app/profile/devarno.com",
+        icon: "bluesky",
+    },
+    {
+        name: "X",
+        url: "https://x.com/Dev4rno",
+        icon: "x",
+    },
+    {
+        name: "GitHub",
+        url: "https://github.com/Dev4rno",
+        icon: "github",
+    },
+    {
+        name: "LinkedIn",
+        url: "https://www.linkedin.com/in/alex-arno-630584117/",
+        icon: "linkedin",
+    },
+    {
+        name: "Reddit",
+        url: "https://reddit.com/u/Dev4rno",
+        icon: "reddit",
+    },
+    // {
+    //     name: "HackerRank",
+    //     url: "https://www.hackerrank.com/profile/Devarno",
+    //     icon: "hackerrank",
+    // },
+    {
+        name: "CodeWars",
+        url: "https://www.codewars.com/users/Dev4rno",
+        icon: "codewars",
+    },
+    {
+        name: "Dev.to",
+        url: "https://dev.to/devarno",
+        icon: "dev",
+    },
+    {
+        name: "Discord",
+        url: "https://discordapp.com/users/1011575429284499521",
+        icon: "discord",
+    },
+];
 
 export const Hero = ({ setIndex }: { setIndex: (x: number) => void }) => {
     const { appState } = useAppState();
@@ -18,51 +74,56 @@ export const Hero = ({ setIndex }: { setIndex: (x: number) => void }) => {
                 style={{
                     backgroundImage: `linear-gradient(to bottom, rgba(255, 193, 7, 0.1), rgba(255, 193, 7, 0.15)), url(${heroContent.imgMain})`,
                 }}
-            />
+            ></div>
             <div className="col-12 col-lg-10 offset-lg-3 home-details">
                 <Stack
                     position="relative"
                     top={{ xs: -40, sm: -20, md: 0 }}
                     p={{ xs: 1, sm: 3, md: 1 }}
-                    spacing={{ xs: 6, sm: 4 }}
+                    spacing={{ xs: 4, sm: 3 }}
                 >
                     <Stack
-                        spacing={{ xs: 5, sm: 3, md: 0 }}
+                        gap={{ xs: 5, sm: 3 }}
                         alignItems="center"
                         justifyContent="flex-start"
                         direction={{ xs: "column", sm: "row" }}
                     >
-                        {/* IMAGE */}
                         <Box
                             sx={{
-                                display: { xs: "flex", sm: "flex", md: "none" }, // Ensures complete hide on md and up
-                                width: { xs: 160, sm: "24%", md: 0 }, // Responsive width only for xs and sm
-                                position: { sm: "relative", md: "unset" },
+                                display: {
+                                    xs: "flex",
+                                    sm: "flex",
+                                    md: "flex",
+                                    lg: "none",
+                                },
+                                width: { xs: "38%", sm: "24%" },
+                                position: "relative",
                                 aspectRatio: "1 / 1",
                                 borderRadius: "50%",
                                 boxShadow: isDark
                                     ? appColors.lightBoxShadow
                                     : appColors.darkBoxShadow,
                             }}
+                            className="d-lg-none"
                         >
                             <img
-                                // fill
                                 alt="Hero Mobile"
                                 src={heroContent.imgMobile.src}
                                 style={{
                                     borderRadius: "50%",
-                                    // objectFit: "contain",
-                                    // objectPosition: "center",
+                                    width: "100%",
+                                    height: "auto",
+                                    objectFit: "cover",
+                                    marginRight: 12,
                                 }}
                             />
                         </Box>
 
-                        {/* TITLE/TYPEWRITER */}
                         <Stack
                             spacing={1}
                             sx={{
-                                alignItems: { xs: "center", sm: "flex-start" }, // Directly aligns text
-                                width: "100%", // Ensures full width for alignment purposes
+                                width: "100%",
+                                alignItems: { xs: "center", sm: "flex-start" },
                             }}
                         >
                             <Typography
@@ -75,8 +136,7 @@ export const Hero = ({ setIndex }: { setIndex: (x: number) => void }) => {
                                     textAlign: {
                                         xs: "center",
                                         sm: "left",
-                                        md: "left",
-                                    }, // Forces left alignment on sm and up
+                                    },
                                 }}
                             >
                                 Hi, I{"'"}m {heroContent.name}.
@@ -124,10 +184,96 @@ export const Hero = ({ setIndex }: { setIndex: (x: number) => void }) => {
                         ))}
                     </Stack>
 
+                    {/* <Stack direction="row" spacing={2}>
+                        {socialLinks.map((x) => (
+                            <a
+                                key={x.icon}
+                                href={x.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Tooltip title={x.name}>
+                                    <motion.div
+                                        whileHover={{
+                                            scale: 1.15,
+                                            rotate: 6, // Optional: Add a small rotation effect
+                                            transition: {
+                                                type: "spring",
+                                                stiffness: 300,
+                                                damping: 10,
+                                            },
+                                        }}
+                                    >
+                                        <Image
+                                            src={`/assets/img/social/social-${x.icon}.png`}
+                                            height={28}
+                                            width={28}
+                                            alt={x.name}
+                                            style={{
+                                                filter: !isDark
+                                                    ? "invert(1)"
+                                                    : undefined,
+                                            }}
+                                        />
+                                    </motion.div>
+                                </Tooltip>
+                            </a>
+                        ))}
+                    </Stack> */}
+                    {/* <Stack direction="row" spacing={2}>
+                        {socialLinks.map((x, index) => (
+                            <a
+                                key={x.icon}
+                                href={x.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Tooltip title={x.name}>
+                                    <motion.div
+                                        initial={{ opacity: 0, scale: 0.8 }} // Start off with reduced opacity and scale
+                                        animate={{
+                                            opacity: 1,
+                                            scale: 1,
+                                        }}
+                                        transition={{
+                                            delay: index * 0.2, // Slight delay based on the index
+                                            type: "spring", // Use spring for smooth transitions
+                                            stiffness: 100,
+                                            damping: 15,
+                                        }}
+                                        whileHover={{
+                                            scale: 1.15,
+                                            rotate: 6, // Optional: Small rotation effect
+                                            transition: {
+                                                type: "spring",
+                                                stiffness: 300,
+                                                damping: 10,
+                                            },
+                                        }}
+                                    >
+                                        <Image
+                                            src={`/assets/img/social/social-${x.icon}.png`}
+                                            height={28}
+                                            width={28}
+                                            alt={x.name}
+                                            style={{
+                                                filter: !isDark
+                                                    ? "invert(1)"
+                                                    : undefined, // Handle dark mode inversion
+                                            }}
+                                        />
+                                    </motion.div>
+                                </Tooltip>
+                            </a>
+                        ))}
+                    </Stack>
                     <Box
-                        display="flex"
-                        alignItems="start"
-                        justifyContent={{ xs: "center", sm: "flex-start" }}
+                        sx={{
+                            width: "100%",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: { xs: "center", sm: "flex-start" },
+                        }}
                     >
                         <button
                             className="button"
@@ -139,7 +285,142 @@ export const Hero = ({ setIndex }: { setIndex: (x: number) => void }) => {
                             </span>
                             <span className="button-icon fa fa-arrow-right"></span>
                         </button>
-                    </Box>
+                    </Box> */}
+                    <Stack direction="row" spacing={2}>
+                        {socialLinks.map((x, index) => (
+                            // <a
+                            //     key={x.icon}
+                            //     href={x.url}
+                            //     target="_blank"
+                            //     rel="noopener noreferrer"
+                            // >
+                            //     <Tooltip title={x.name}>
+                            //         <motion.div
+                            //             initial={{
+                            //                 opacity: 0,
+                            //                 scale: 0.8,
+                            //                 rotate: 0,
+                            //             }} // Initial state
+                            //             animate={{
+                            //                 opacity: 1,
+                            //                 scale: 1,
+                            //                 rotate: 0, // Ensures rotation reset when hover ends
+                            //             }}
+                            //             transition={{
+                            //                 delay: index * 0.2, // Delayed based on index
+                            //                 type: "spring",
+                            //                 stiffness: 100,
+                            //                 damping: 25,
+                            //             }}
+                            //             whileHover={{
+                            //                 scale: 1.15,
+                            //                 rotate: 6, // Small rotation on hover
+                            //                 transition: {
+                            //                     type: "spring",
+                            //                     stiffness: 300,
+                            //                     damping: 10,
+                            //                     duration: "0.2s",
+                            //                     delay: 0,
+                            //                 },
+                            //             }}
+                            //         >
+                            //             <Image
+                            //                 src={`/assets/img/social/social-${x.icon}.png`}
+                            //                 height={28}
+                            //                 width={28}
+                            //                 alt={x.name}
+                            //                 style={{
+                            //                     filter: !isDark
+                            //                         ? "invert(1)"
+                            //                         : undefined, // Handle dark mode
+                            //                 }}
+                            //             />
+                            //         </motion.div>
+                            //     </Tooltip>
+                            // </a>
+                            <a
+                                key={x.icon}
+                                href={x.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-block"
+                            >
+                                <Tooltip title={x.name}>
+                                    <motion.div
+                                        initial={{ opacity: 0, scale: 0.8 }}
+                                        animate={{
+                                            opacity: 1,
+                                            scale: 1,
+                                            transition: {
+                                                delay: index * 0.2,
+                                            },
+                                        }}
+                                        whileHover={{
+                                            scale: 1.15,
+                                            rotate: 6,
+                                            transition: {
+                                                duration: 0.2,
+                                                ease: [0.25, 0.1, 0.25, 1],
+                                            },
+                                        }}
+                                    >
+                                        <Image
+                                            src={`/assets/img/social/social-${x.icon}.png`}
+                                            height={28}
+                                            width={28}
+                                            alt={x.name}
+                                            style={{
+                                                filter: !isDark
+                                                    ? "invert(1)"
+                                                    : undefined, // Handle dark mode
+                                            }}
+                                        />
+                                    </motion.div>
+                                </Tooltip>
+                            </a>
+                        ))}
+                    </Stack>
+
+                    <AnimatePresence>
+                        {/* Button appears after all social links are finished animating */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{
+                                opacity: 1,
+                                scale: 1,
+                                transition: {
+                                    delay: socialLinks.length * 0.2, // Delay the button until the last social icon finishes animating
+                                    type: "spring",
+                                    stiffness: 100,
+                                    damping: 25,
+                                },
+                            }}
+                            exit={{ opacity: 0 }}
+                        >
+                            <Box
+                                sx={{
+                                    width: "100%",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: {
+                                        xs: "center",
+                                        sm: "flex-start",
+                                    },
+                                }}
+                            >
+                                <button
+                                    className="button"
+                                    onClick={setAboutPage}
+                                    style={{ width: "fit-content" }}
+                                >
+                                    <span className="button-text">
+                                        {heroContent.button}
+                                    </span>
+                                    <span className="button-icon fa fa-arrow-right"></span>
+                                </button>
+                            </Box>
+                        </motion.div>
+                    </AnimatePresence>
                 </Stack>
             </div>
         </div>

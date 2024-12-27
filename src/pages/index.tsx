@@ -52,7 +52,7 @@ export default function Page({
     }, [router.query.tab]);
     return (
         <Wrapper>
-            <SEO pageTitle={`DevArno | ${navigationItems[tabIndex].name}`} />
+            <SEO pageTitle={`Devarno | ${navigationItems[tabIndex].name}`} />
             <div className="yellow">
                 <SwitchDark />
                 <Navbar

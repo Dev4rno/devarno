@@ -21,21 +21,22 @@ export const Projects = () => {
             >
                 {ProjectsContent.map((block, i) => {
                     const isHovering = hoveredIndex === i;
-                    // const bottomColor =
                     const projectHoverEffect = !isDark
                         ? `
-                        linear-gradient(to top, rgba(128, 128, 128, ${
-                            isHovering ? 0 : 0.1
-                        }) 1%, rgba(51, 51, 51, ${isHovering ? 0 : 0.9}) 100%),
-                        url('${block.image}')
-                    `
+                            linear-gradient(to top, rgba(128, 128, 128, ${
+                                isHovering ? 0 : 0.1
+                            }) 1%, rgba(51, 51, 51, ${
+                              isHovering ? 0 : 0.9
+                          }) 100%),
+                            url('${block.image}')
+                        `
                         : `
-    linear-gradient(
-        rgba(0, 0, 0, 0.2), 
-        rgba(0, 0, 0, 0.2)
-    ),
-    url('${block.image}')
-`;
+                            linear-gradient(
+                                rgba(0, 0, 0, 0.2), 
+                                rgba(0, 0, 0, 0.2)
+                            ),
+                            url('${block.image}')
+                        `;
                     return (
                         <Grid item xs={12} sm={10} md={6} key={block.name}>
                             <Paper
@@ -76,12 +77,12 @@ export const Projects = () => {
                                         right: 0,
                                         bottom: 0,
                                         backgroundImage: `
-                linear-gradient(
-                    rgba(0, 0, 0, 0.5), 
-                    rgba(0, 0, 0, 0.5)
-                ),
-                url('${block.image}')
-            `,
+                                            linear-gradient(
+                                                rgba(0, 0, 0, 0.5), 
+                                                rgba(0, 0, 0, 0.5)
+                                            ),
+                                            url('${block.image}')
+                                        `,
                                         backgroundSize: "cover",
                                         backgroundPosition: "center",
                                         filter: isHovering
