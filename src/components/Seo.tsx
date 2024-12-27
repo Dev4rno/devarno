@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Script from "next/script";
 export const SEO = ({ pageTitle }: { pageTitle: string }) => (
     <>
         <Head>
@@ -12,10 +11,6 @@ export const SEO = ({ pageTitle }: { pageTitle: string }) => (
                 content="width=device-width, initial-scale=1, shrink-to-fit=no"
             />
             <link rel="icon" href="/favicon.ico" />
-            <Script
-                src="https://kit.fontawesome.com/d5daa66661.js"
-                crossOrigin="anonymous"
-            />
         </Head>
     </>
 );
