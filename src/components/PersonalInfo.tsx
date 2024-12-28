@@ -40,7 +40,7 @@ const languages = (
 );
 
 const content: ContentBlock[] = [
-    { name: "name", value: "Alex Arno" },
+    { name: "name", value: "Alessandro (Alex) Arnò" },
     { name: "age", value: "29 years old" },
     { name: "typing from", value: "London, UK" },
     { name: "email", value: "alex@devarno.com" },

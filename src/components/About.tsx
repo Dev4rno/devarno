@@ -12,6 +12,7 @@ import { appColors } from "../utils";
 import { Banner } from "./Banner";
 import { ProjectScroller } from "./ProjectScroller";
 import { ProjectSwiper } from "./ProjectSwiper";
+import { ResumeButton } from "./ResumeButton";
 
 export const AboutMain = () => {
     const {
@@ -66,6 +67,8 @@ export const AboutMain = () => {
                         </Stack>
                     </Box>
 
+                    <ResumeButton />
+
                     <Box
                         alignItems="center"
                         justifyContent="center"
@@ -74,7 +77,6 @@ export const AboutMain = () => {
                     >
                         <PersonalInfo isDark={isDark} />
                     </Box>
-                    {/* <ResumeButton /> */}
 
                     <div className="row">
                         <HeaderBlock
