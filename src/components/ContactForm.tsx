@@ -1,3 +1,4 @@
+import { CircularProgress } from "@mui/material";
 import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -18,16 +19,23 @@ const initState: FormData = {
 };
 
 export const ContactForm = () => {
+    const [disabled, setDisabled] = useState<boolean>(false);
     const [formData, setFormData] = useState<FormData>(initState);
+    const [buttonText, setButtonText] = useState<JSX.Element>(
+        <>Send Message</>
+    );
     const { name, email, subject, message } = formData;
     const onChange = (e: any) =>
         setFormData((x) => ({ ...x, [e.target.name]: e.target.value }));
     const onSubmit = async (e: any) => {
         e.preventDefault();
 
+        setDisabled(true);
+        setButtonText(<CircularProgress size="small" />);
         const res = await sendEmail(formData);
 
         if (res?.err) {
+            setDisabled(false);
             toast.error(res.err, {
                 position: "top-right",
                 autoClose: 2000,
@@ -39,6 +47,7 @@ export const ContactForm = () => {
             });
         }
         if (res?.msg) {
+            setButtonText(<>Thanks For Your Message!</>);
             setFormData(initState);
             toast.success(res.msg, {
                 position: "top-right",
@@ -60,6 +69,7 @@ export const ContactForm = () => {
                         <div className="form-group">
                             <input
                                 value={name}
+                                disabled={disabled}
                                 onChange={onChange}
                                 type="text"
                                 name="name"
@@ -75,6 +85,7 @@ export const ContactForm = () => {
                             <input
                                 type="email"
                                 value={email}
+                                disabled={disabled}
                                 onChange={onChange}
                                 name="email"
                                 placeholder="YOUR EMAIL"
@@ -89,6 +100,7 @@ export const ContactForm = () => {
                             <input
                                 type="text"
                                 value={subject}
+                                disabled={disabled}
                                 onChange={onChange}
                                 name="subject"
                                 placeholder="YOUR SUBJECT"
@@ -103,6 +115,7 @@ export const ContactForm = () => {
                             <textarea
                                 name="message"
                                 value={message}
+                                disabled={disabled}
                                 onChange={onChange}
                                 placeholder="YOUR MESSAGE"
                                 required
@@ -112,8 +125,12 @@ export const ContactForm = () => {
                     {/* End .col */}
 
                     <div className="col-12">
-                        <button type="submit" className="button">
-                            <span className="button-text">Send Message</span>
+                        <button
+                            disabled={disabled}
+                            type="submit"
+                            className="button"
+                        >
+                            <span className="button-text">{buttonText}</span>
                             <span className="button-icon fa fa-send"></span>
                         </button>
                     </div>
