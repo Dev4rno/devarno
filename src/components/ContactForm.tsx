@@ -29,11 +29,9 @@ export const ContactForm = () => {
         setFormData((x) => ({ ...x, [e.target.name]: e.target.value }));
     const onSubmit = async (e: any) => {
         e.preventDefault();
-
         setDisabled(true);
         setButtonText(<CircularProgress size="small" />);
         const res = await sendEmail(formData);
-
         if (res?.err) {
             setDisabled(false);
             toast.error(res.err, {

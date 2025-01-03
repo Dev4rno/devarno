@@ -38,6 +38,11 @@ const socialLinks: SocialLink[] = [
         url: "https://reddit.com/u/Dev4rno",
         icon: "reddit",
     },
+    {
+        name: "ProductHunt",
+        url: "https://www.producthunt.com/@devarno",
+        icon: "producthunt",
+    },
     // {
     //     name: "HackerRank",
     //     url: "https://www.hackerrank.com/profile/Devarno",
