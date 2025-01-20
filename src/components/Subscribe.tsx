@@ -39,6 +39,7 @@ export const Subscribe = ({ isDark }: { isDark: boolean }) => {
             const data = await response.json();
 
             if (response.ok && data.message) {
+                setEmail("");
                 setSuccessMessage(data.message);
             } else {
                 setErrorMessage("Something went wrong, please try again.");
@@ -177,8 +178,7 @@ export const Subscribe = ({ isDark }: { isDark: boolean }) => {
                     label=""
                     sx={{
                         "& .MuiOutlinedInput-root": {
-                            // fontSize: 14,
-                            height: "52px", // Standard height
+                            height: "52px",
                             borderTopLeftRadius: "50px",
                             borderBottomLeftRadius: "50px",
                             borderTopRightRadius: 0,
@@ -195,11 +195,13 @@ export const Subscribe = ({ isDark }: { isDark: boolean }) => {
                             },
                             "& input": {
                                 paddingLeft: "34px",
+                                fontSize: 15,
+                                fontWeight: 600,
                             },
                         },
                         "& .MuiOutlinedInput-input::placeholder": {
-                            color: appColors[isDark ? "textDark" : "textLight"],
-                            opacity: 0.9,
+                            color: !isDark ? "#fff" : "#666",
+                            opacity: !isDark ? 0.95 : 0.9,
                         },
                     }}
                 />
@@ -217,7 +219,7 @@ export const Subscribe = ({ isDark }: { isDark: boolean }) => {
                         borderTopLeftRadius: 0,
                         borderBottomLeftRadius: 0,
                         backgroundColor: appColors.primary,
-                        color: isDark ? "#333" : "#f5f5f5",
+                        // color: isDark ? "#333" : "#f5f5f5",
                         boxShadow: "none",
                         "&:hover": {
                             backgroundColor: "#ffc700",
@@ -246,8 +248,6 @@ export const Subscribe = ({ isDark }: { isDark: boolean }) => {
                     severity="success"
                     sx={{
                         width: "100%",
-                        backgroundColor: "#ffb400",
-                        color: "#fff",
                     }}
                 >
                     {successMessage}

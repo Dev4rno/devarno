@@ -205,20 +205,20 @@ export const Hero = ({ setIndex }: { setIndex: (x: number) => void }) => {
                         >
                             Uncover my career path and the skills I’ve developed
                         </Typography>
-                        <Link
-                            href={"/?tab=about"}
-                            style={{ textDecoration: "none" }}
+                        <Box
+                            sx={{
+                                width: "100%",
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: {
+                                    xs: "center",
+                                    sm: "flex-start",
+                                },
+                            }}
                         >
-                            <Box
-                                sx={{
-                                    width: "100%",
-                                    display: "flex",
-                                    alignItems: "center",
-                                    justifyContent: {
-                                        xs: "center",
-                                        sm: "flex-start",
-                                    },
-                                }}
+                            <Link
+                                href={"/?tab=about"}
+                                style={{ textDecoration: "none" }}
                             >
                                 <button
                                     className="button"
@@ -230,8 +230,8 @@ export const Hero = ({ setIndex }: { setIndex: (x: number) => void }) => {
                                     </span>
                                     <span className="button-icon fa fa-arrow-right"></span>
                                 </button>
-                            </Box>
-                        </Link>
+                            </Link>
+                        </Box>
                     </Stack>
 
                     <Subscribe isDark={isDark} />
