@@ -28,13 +28,16 @@ export const Subscribe = ({ isDark }: { isDark: boolean }) => {
         setIsSubmitting(true);
 
         try {
-            const response = await fetch("https://reach.devarno.com/register", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ email, source: "devarno.com" }),
-            });
+            const response = await fetch(
+                "https://reach.devarno.com/register?source=devarno.com",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ email }),
+                }
+            );
 
             const data = await response.json();
 
