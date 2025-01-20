@@ -148,7 +148,7 @@ export const Unsubscribe = ({
                                     ],
                                 }}
                             >
-                                You're Unsubscribed
+                                You&apos;re Unsubscribed
                             </Typography>
                             <Typography
                                 variant="body1"
