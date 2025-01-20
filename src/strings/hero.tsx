@@ -32,5 +32,5 @@ export const heroContent: HeroData = {
                 "Outside of coding, I’m a competitive swimmer, a backyard astronomer, a tennis player, a student pilot and a pretty good chef. My energy fuels a passion for learning, exploring, and creating in all areas of life.",
         },
     ],
-    button: "more about me",
+    button: "explore my world",
 };

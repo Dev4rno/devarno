@@ -11,10 +11,7 @@ import { BlogPost } from "../types";
 import "/node_modules/flag-icons/css/flag-icons.min.css";
 
 export const getStaticProps: GetStaticProps = async () => {
-    // const baseUrl = process.env.BASE_URL || "http://localhost:3000";
     try {
-        // const res = await fetch(`${baseUrl}/api/posts`);
-        // const { posts } = await res.json();
         const dirPath = join(process.cwd(), "_posts");
         const filenames = fs.readdirSync(dirPath);
         const posts = filenames.map((filename) => {
