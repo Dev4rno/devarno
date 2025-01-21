@@ -1,6 +1,8 @@
+import BlockIcon from "@mui/icons-material/Block";
 import {
     Alert,
     Button,
+    CircularProgress,
     Snackbar,
     Stack,
     TextField,
@@ -8,7 +10,6 @@ import {
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { appColors, getRateLimitExceededMessage } from "../utils";
-
 export const Subscribe = ({ isDark }: { isDark: boolean }) => {
     const [email, setEmail] = useState("");
     const [loading, setLoading] = useState(false);
@@ -323,7 +324,13 @@ export const Subscribe = ({ isDark }: { isDark: boolean }) => {
                         },
                     }}
                 >
-                    Subscribe
+                    {loading ? (
+                        <CircularProgress />
+                    ) : isRateLimited ? (
+                        <BlockIcon />
+                    ) : (
+                        "Subscribe"
+                    )}
                 </Button>
             </Stack>
 
