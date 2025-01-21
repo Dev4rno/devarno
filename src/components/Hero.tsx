@@ -20,11 +20,11 @@ const socialLinks: SocialLink[] = [
         url: "https://bsky.app/profile/devarno.com",
         icon: "bluesky",
     },
-    {
-        name: "X",
-        url: "https://x.com/Dev4rno",
-        icon: "x",
-    },
+    // {
+    //     name: "X",
+    //     url: "https://x.com/Dev4rno",
+    //     icon: "x",
+    // },
     {
         name: "GitHub",
         url: "https://github.com/Dev4rno",
