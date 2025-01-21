@@ -6,51 +6,130 @@ import {
     TextField,
     Typography,
 } from "@mui/material";
-import { useState } from "react";
-import { appColors } from "../utils";
+import { useEffect, useState } from "react";
+import { appColors, getRateLimitExceededMessage } from "../utils";
 
 export const Subscribe = ({ isDark }: { isDark: boolean }) => {
     const [email, setEmail] = useState("");
-    const [successMessage, setSuccessMessage] = useState("");
-    const [errorMessage, setErrorMessage] = useState("");
-    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [loading, setLoading] = useState(false);
+
+    const [success, setSuccess] = useState<string | null>(null);
+    const [error, setError] = useState<string | null>(null);
+    // const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isRateLimited, setIsRateLimited] = useState<boolean>(false);
+
+    useEffect(() => {
+        // Clear success message after 5 seconds
+        if (success) {
+            const timeout = setTimeout(() => setSuccess(null), 5000);
+            return () => clearTimeout(timeout);
+        }
+
+        // Clear error message after 5 seconds
+        if (error) {
+            const timeout = setTimeout(() => setError(null), 5000);
+            return () => clearTimeout(timeout);
+        }
+    }, [success, error]);
 
     const handleEmailChange = (event: any) => {
         setEmail(event.target.value);
     };
 
-    const handleSubmit = async (event: any) => {
-        event.preventDefault();
-        if (!email) {
-            setErrorMessage("Email is required");
-            return;
-        }
-        setIsSubmitting(true);
+    // const handleSubmit = async (event: any) => {
+    //     event.preventDefault();
+    //     if (!email) {
+    //         setErrorMessage("Email is required");
+    //         return;
+    //     }
+    //     setIsSubmitting(true);
+
+    //     try {
+    //         const response = await fetch(
+    //             "https://reach.devarno.com/register?source=devarno.com",
+    //             {
+    //                 method: "POST",
+    //                 headers: {
+    //                     "Content-Type": "application/json",
+    //                 },
+    //                 body: JSON.stringify({ email }),
+    //             }
+    //         );
+
+    //         // const data = await
+
+    //         if (response.status === 429) {
+    //             setIsRateLimited(true);
+    //             setTimeout(() => setIsRateLimited(false), 60000); // Reset after 1 minute
+    //             // const errorData = await response.json();
+    //             const limitExceeded = getRateLimitExceededMessage();
+    //             setErrorMessage(limitExceeded);
+    //             throw new Error(limitExceeded);
+    //         }
+
+    //         if (!response.ok || response.status !== 200) {
+    //             // const errorData = await response.json();
+    //             setError("Unexpected error occurred. Try again later.");
+    //             // throw new Error(errorData.detail || "Unexpected error occurred");
+    //         }
+
+    //         const data = await response.json();
+
+    //         if (response.ok && data.message) {
+    //             setEmail("");
+    //             setSuccessMessage(data.message);
+    //         } else {
+    //             setErrorMessage("Something went wrong, please try again.");
+    //         }
+    //     } catch (error) {
+    //         setErrorMessage("Network error, please try again.");
+    //     } finally {
+    //         setIsSubmitting(false);
+    //     }
+    // };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+
+        const subscribeUrl =
+            "https://reach.devarno.com/register?source=devarno.com";
+
+        if (loading || isRateLimited) return;
+
+        setLoading(true);
+        setSuccess(null);
+        setError(null);
 
         try {
-            const response = await fetch(
-                "https://reach.devarno.com/register?source=devarno.com",
-                {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ email }),
-                }
-            );
+            const response = await fetch(subscribeUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email }),
+            });
+
+            if (response.status === 429) {
+                setIsRateLimited(true);
+                setTimeout(() => setIsRateLimited(false), 60000);
+                setError(getRateLimitExceededMessage());
+                return;
+            }
 
             const data = await response.json();
 
-            if (response.ok && data.message) {
-                setEmail("");
-                setSuccessMessage(data.message);
-            } else {
-                setErrorMessage("Something went wrong, please try again.");
+            if (!response.ok) {
+                setError(data.error || "An unexpected error occurred.");
+                return;
             }
-        } catch (error) {
-            setErrorMessage("Network error, please try again.");
+
+            setSuccess(data.message);
+            setEmail("");
+        } catch (err) {
+            setError("An unexpected error occurred. Please try again later.");
+            console.info("Error:", err);
         } finally {
-            setIsSubmitting(false);
+            setLoading(false);
         }
     };
 
@@ -177,7 +256,12 @@ export const Subscribe = ({ isDark }: { isDark: boolean }) => {
                     variant="outlined"
                     value={email}
                     onChange={handleEmailChange}
-                    disabled={isSubmitting}
+                    disabled={
+                        loading ||
+                        isRateLimited ||
+                        Boolean(success) ||
+                        Boolean(error)
+                    }
                     label=""
                     sx={{
                         "& .MuiOutlinedInput-root": {
@@ -211,7 +295,12 @@ export const Subscribe = ({ isDark }: { isDark: boolean }) => {
                 <Button
                     variant="contained"
                     onClick={handleSubmit}
-                    disabled={isSubmitting}
+                    disabled={
+                        loading ||
+                        isRateLimited ||
+                        Boolean(success) ||
+                        Boolean(error)
+                    }
                     sx={{
                         height: "52px", // Match TextField height
                         minWidth: "100px",
@@ -242,30 +331,30 @@ export const Subscribe = ({ isDark }: { isDark: boolean }) => {
             <Snackbar
                 sx={{ width: 300 }}
                 anchorOrigin={{ vertical: "top", horizontal: "center" }}
-                open={!!successMessage}
+                open={!!success}
                 autoHideDuration={6000}
-                onClose={() => setSuccessMessage("")}
+                onClose={() => setSuccess("")}
             >
                 <Alert
-                    onClose={() => setSuccessMessage("")}
+                    onClose={() => setSuccess("")}
                     severity="success"
                     sx={{
                         width: "100%",
                     }}
                 >
-                    {successMessage}
+                    {success}
                 </Alert>
             </Snackbar>
             {/* Error Alert */}
             <Snackbar
-                open={!!errorMessage}
+                open={!!error}
                 sx={{ width: 300 }}
                 autoHideDuration={6000}
-                onClose={() => setErrorMessage("")}
+                onClose={() => setError("")}
                 anchorOrigin={{ vertical: "top", horizontal: "center" }}
             >
                 <Alert
-                    onClose={() => setErrorMessage("")}
+                    onClose={() => setError("")}
                     severity="error"
                     sx={{
                         width: "100%",
@@ -273,7 +362,7 @@ export const Subscribe = ({ isDark }: { isDark: boolean }) => {
                         color: "#fff",
                     }}
                 >
-                    {errorMessage}
+                    {error}
                 </Alert>
             </Snackbar>
         </Stack>

@@ -53,3 +53,20 @@ export const truncateString = (str: string, num: number) =>
 export const alnumOnly = (str: string) => {
     return str.replace(/[^a-zA-Z0-9]/g, "");
 };
+
+export const getRateLimitExceededMessage = () => {
+    const messages = [
+        "Nice try, champ. Slow down.",
+        "Easy there, click warrior.",
+        "Rate limits > you.",
+        "Spam harder, I dare you.",
+        "Out of moves. Try again, genius.",
+        "Oops, you broke it. Happy now?",
+        "Cute. But no.",
+        "Denied. Keep dreaming.",
+        "Slow your roll, hotshot.",
+        "Not today, spamlord.",
+    ];
+
+    return messages[Math.floor(Math.random() * messages.length)];
+};
