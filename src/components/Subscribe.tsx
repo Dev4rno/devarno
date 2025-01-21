@@ -253,6 +253,8 @@ export const Subscribe = ({ isDark }: { isDark: boolean }) => {
             >
                 <TextField
                     fullWidth
+                    required
+                    type="email"
                     placeholder="EMAIL"
                     variant="outlined"
                     value={email}
