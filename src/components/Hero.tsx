@@ -32,7 +32,7 @@ const socialLinks: SocialLink[] = [
     },
     {
         name: "LinkedIn",
-        url: "https://www.linkedin.com/in/alex-arno-630584117/",
+        url: "https://www.linkedin.com/in/alessandro-arn%C3%B2-630584117/",
         icon: "linkedin",
     },
     {
