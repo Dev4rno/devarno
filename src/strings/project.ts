@@ -52,6 +52,12 @@ export const ProjectsContent: ProjectBlock[] = [
         image: "/assets/img/projects/projects-devarno.png",
     },
     {
+        name: "Skyflow",
+        info: "Free analytics tool to track your Bluesky network's real impact: who's driving conversations, which posts are breaking through, and how your own presence grows.",
+        icon: "code",
+        image: "/assets/img/projects/projects-skyflow-og.png",
+    },
+    {
         name: "Jumblr",
         info: "A portal exploring the link between language and cognition, using a jumble algorithm to scramble sentences, inspired by an Oxford study on how such scrambles affect reading speed and comprehension.",
         icon: "code",
