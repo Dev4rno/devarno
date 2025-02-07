@@ -57,6 +57,12 @@ export default function Page({
         <Wrapper>
             <SEO
                 pageTitle={`Devarno | ${data.titlePlain} ${data.titleColor}`}
+                keywords={data.keywords}
+                description={data.excerpt}
+                ogImage={data.cardImg}
+                author="Devarno"
+                publishDate={data.date}
+                isArticle={true}
             />
             <div className="yellow">
                 <SwitchDark />

@@ -23,6 +23,7 @@ export interface BlogPost {
     date: string;
     slug: string;
     tags: string[];
+    keywords: string[];
     date: string;
 }
 

@@ -5,7 +5,8 @@ excerpt: "Cooking up success in programming"
 cardImg: "/assets/img/blog/sicilian-bytes-bear.jpeg"
 coverImg: "/assets/img/blog/sicilian-bytes-olives.png"
 date: "2024-05-20T19:35:07.322Z"
-tags: ["programming", "cuisine", "coding", "cooking", "sicily"]
+tags: ["food", "programming", "web dev", "infrastructure"]
+keywords: ["programming", "cuisine", "coding", "cooking", "sicily"]
 intro: "Embarking on a coding journey is like entering a kitchen filled with diverse, endless ingredients."
 author:
     name: Alex Arno

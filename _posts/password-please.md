@@ -5,7 +5,8 @@ excerpt: "Simplifying security with FastAPI"
 cardImg: "/assets/img/blog/password-please-card.png"
 coverImg: "/assets/img/blog/password-please-cover.jpg"
 date: "2024-10-20T19:35:07.322Z"
-tags: ["password", "security", "fastapi", "python", "webdev"]
+tags: ["programming", "web dev", "testing"]
+keywords: ["password", "security", "fastapi", "python", "webdev"]
 intro: "As we navigate the challenges of 2024, one constant remains: the need for strong, reliable passwords."
 author:
     name: Alex Arno

@@ -5,7 +5,40 @@ excerpt: "Design Journal Entry #1: Take Off"
 cardImg: "/assets/img/projects/projects-skyflow-og.png"
 coverImg: "/assets/img/blog/skyflow-banner.jpg"
 date: "2025-02-05T19:35:07.322Z"
-tags: ["programming", "product", "coding", "marketing", "analytics"]
+tags: ["programming", "web dev", "devops", "infrastructure", "food"]
+keywords:
+    [
+        "skyflow",
+        "skyflow analytics",
+        "skyflow bluesky",
+        "bluesky analytics",
+        "bluesky network",
+        "bluesky impact",
+        "social media analytics",
+        "social media insights",
+        "AT protocol analytics",
+        "network engagement tracking",
+        "fastapi",
+        "fastapi development",
+        "python development",
+        "python server",
+        "asynchronous API",
+        "REST API design",
+        "web service layers",
+        "clout",
+        "clout analytics",
+        "kudos",
+        "kudos analytics",
+        "flow",
+        "flow engagement",
+        "flow engagement analytics",
+        "flow analytics",
+        "pulse",
+        "pulse analytics",
+        "buildinpublic",
+        "startup development",
+        "social media growth",
+    ]
 intro: "How I’m building a Bluesky analytics platform from the ground up, from technical deep dives to the pains of product marketing and SEO."
 author:
     name: Alex Arno
@@ -49,7 +82,7 @@ Building a social analytics platform isn't just about counting likes and replies
 3. Store and retrieve insights quickly.
 4. Present data in meaningful, modular ways.
 
-![sweating {400x400} {caption: Help}](/assets/img/blog/sweating.gif)
+![sweating {400x400} {caption: Help}](/assets/gif/sweating.gif)
 
 And all of this needs to happen in _near_ real-time.
 
@@ -57,7 +90,109 @@ While remaining scalable.
 
 ### Technical Architecture Decisions
 
-#### 1. Timeline Processing
+#### 1. Service Pattern
+
+One of the most important architectural decisions was implementing a clear service layer pattern.
+
+The choice of FastAPI wasn't just about speed (even though it's **_blazingly_** fast). It was about building a modern API that could handle asynchronous operations elegantly.
+
+Ever wondered how a great pizzeria runs smoothly? It's not just about throwing ingredients together—it's about having each team member know exactly what they're doing. Our API architecture is pretty much the same deal.
+
+Picture FastAPI as our state-of-the-art kitchen. It's not just fast—it's smart, efficient, and can handle a rush of orders without breaking a sweat:
+
+```python
+import asyncio
+from fastapi import Request, Body, Depends
+
+class PizzaService:
+    """The world's fastest pizza preparation service"""
+    @staticmethod
+    async def prepare_pizza(pizza_type: str) -> dict:
+        """Preparing your pizza at light speed"""
+        await asyncio.sleep(20) # Our 'magic' 20-second pizza
+        return {
+            "pizza": pizza_type,
+            "status": "Prepared",
+            "message": "Buon appetito 🤌"
+        }
+
+def new_pizza_service() -> PizzaService:
+    """Summoning a lightning-fast pizza wizard"""
+    return PizzaService()
+
+@app.post("/pizzaexpress")
+async def pizza_endpoint(
+    pizza_type: str = Body(...),
+    service: PizzaService = Depends(new_pizza_service)
+) -> JSONResponse:
+    """Where pizza dreams meet impossible timelines"""
+    pizza_result = await service.prepare_pizza(pizza_type)
+    return JSONResponse(content=pizza_result)
+```
+
+From the moment a pizza is requested to the perfectly crafted response that flies back, our API moves like a well-oiled Italian kitchen: every request is a hungry customer, every service is a chef, and every response is a piping hot pizza of pure data deliciousness.
+
+![delicious {400x400} {caption: Delicious}](/assets/gif/bean.gif)
+
+For those new to backend development, here is an overview of the various layers of logic that we need to consider:
+
+##### Repository Layer: The Ingredients Warehouse
+
+This is where we handle all interactions with the database. Each repository interacts with one or more database collections, and contains methods for performing CRUD (Create, Read, Update, Delete) operations. By abstracting database logic into repositories, we can easily change or update our database interactions without affecting the service or business logic.
+
+In the context of a Pizzeria, imagine a perfectly organised storage room where every ingredient is tracked, fresh, and ready to go.
+
+Need tomatoes? They're perfectly sorted. Want to swap out mozzarella for a new cheese? No problem—the rest of the kitchen doesn't even notice.
+
+The warehouse team (our repositories):
+
+-   Manage all our raw ingredients (data).
+-   Keep everything sorted and organised.
+-   Make sure we can grab exactly what we need, when we need it.
+
+##### Service Layer: The Head Chefs
+
+The service layer is where the business logic of the application lives. A service typically interacts with one or more repositories to perform operations and implement application workflows. The service layer does not directly access the database; instead, it calls the appropriate methods in the repository layer. This ensures the service layer focuses on higher-level application logic, such as validation, data transformation, and coordination between multiple repositories.
+
+In the context of a Pizzeria, the services are our culinary masterminds. They don't just grab ingredients—they transform them. A raw tomato becomes a perfect sauce. Plain dough becomes a crispy crust. Pineapple gets redirected to the bin (not sorry).
+
+In the world of 0s and 1s, this is where raw data becomes meaningful information.
+
+The head chefs (our services):
+
+-   Create recipes (business logic).
+-   Combine ingredients in unique ways.
+-   Ensure everything tastes amazing.
+-   Never touch the ingredient storage directly (that's the warehouse team's job).
+
+##### Router Layer: The Waitstaff
+
+This is where the application endpoints are defined. Each route handles incoming HTTP requests and forwards them to the appropriate service layer. The service layer processes the request and interacts with the repository as needed, and the result is returned to the client. By keeping the endpoints simple and delegating logic to the service layer, we maintain a clear separation of responsibilities.
+
+In the context of a Pizzeria, think of routers as the friendly staff who:
+
+-   Take your order (incoming request).
+-   Communicate it perfectly to the kitchen.
+-   Bring back exactly what you asked for.
+-   Make sure everything looks and tastes just right before it reaches you.
+
+For Skyflow, each feature (`Flow`, `Clout`, `Kudos` and `Pulse`) is like a different section of our menu. Different dishes, same amazing kitchen system. This separation of concerns makes the code far more maintainable and easily testable.
+
+The result? An API that doesn't just work—it _sings_. Clean, maintainable, and ready to scale faster than Domino's on a Friday night.
+
+The secret sauce? Treat code like a craft, not just a task. Every line is an ingredient, every function a carefully balanced recipe.
+
+##### Buon Appetito
+
+Beyond the comedy, this simplified example showcases our architectural principles:
+
+-   The repository layer represents our ingredients inventory.
+-   The service layer transforms a simple request into a magical pizza.
+-   The router ensures your impossible pizza dream becomes a reality.
+
+Would a real pizzeria work like this? **Of course not**. But in the world of software architecture, we're all about pushing boundaries—sometimes with a healthy dose of humor.
+
+#### 2. Timeline Processing
 
 One of the first major challenges was efficiently processing timeline data. The `BlueskyService` implements a thoughtful approach to this:
 
@@ -69,28 +204,6 @@ One of the first major challenges was efficiently processing timeline data. The 
 
 Remember, every great project starts with a simple problem and grows through iteration and learning. Keep building, keep learning, and most importantly, keep sharing what you learn with others.
 
-#### 2. Service Pattern
-
-One of the most important architectural decisions was implementing a clear service layer pattern.
-
-For those new to backend development, here’s a basic introduction of the application layers we need to consider:
-
-##### Repository Layer
-
-This is where we handle all interactions with the database. Each repository represents a specific collection and contains methods for performing CRUD (Create, Read, Update, Delete) operations. By abstracting database logic into repositories, we can easily change or update our database interactions without affecting the service or business logic.
-
-##### Service Layer
-
-This is where the business logic of the application lives. A service typically interacts with one or more repositories to perform operations and implement application workflows. The service layer does not directly access the database; instead, it calls the appropriate methods in the repository layer. This ensures the service layer focuses on higher-level application logic, such as validation, data transformation, and coordination between multiple repositories.
-
-##### Router Layer
-
-This is where the application endpoints are defined. Each route handles incoming HTTP requests and forwards them to the appropriate service layer. The service layer processes the request and interacts with the repository as needed, and the result is returned to the client. By keeping the endpoints simple and delegating logic to the service layer, we maintain a clear separation of responsibilities.
-
-Each major [Skyflow](https://skyflow.me) feature (`Flow`, `Clout`, `Kudos`, `Pulse`) has its own corresponding service, repository and database collection.
-
-This separation of concerns makes the code far more maintainable and easily testable.
-
 #### 3. Engagement Analysis
 
 While both `Clout` and `Kudos` dive deep into Bluesky's social fabric, they illuminate different aspects of network influence.
@@ -101,7 +214,7 @@ While both `Clout` and `Kudos` dive deep into Bluesky's social fabric, they illu
 
 Think of `Clout` as catching lightning, `Kudos` as tracking the storm's entire electrical pattern - now within your core network. Or in flow terms, `Clout` catches the viral waves, `Kudos` reveals who consistently creates them.
 
-![big_deal {400x400} {caption: Going Viral}](/assets/img/blog/making_waves.gif)
+![viral {400x400} {caption: Going Viral}](/assets/gif/making_waves.gif)
 
 The [mutual network filter](https://bsky.app/profile/daniloebs.bsky.social/post/3lgtlg4phxc2j) emerged from a suggestion from one of Skyflow's early adopters - a marketer with 15+ years experience who suggested focusing on accounts that follow you back. This transformed our analytics from broad network trends to your most engaged circle creating _"an entirely different ballgame for building a hype squad"_ (cred: [@daniloebs](https://bsky.app/profile/daniloebs.bsky.social/post/3lhfcfgf5e22a))
 
@@ -126,13 +239,13 @@ When working with time-series data, it’s often necessary to group events that 
 Imagine we have a dataset containing log entries with timestamps in ISO format:
 
 ```python
-    data = [
-        {"id": 1, "event": "login", "date": "2024-02-06T14:03:15"},
-        {"id": 2, "event": "view_page", "date": "2024-02-06T14:07:42"},
-        {"id": 3, "event": "purchase", "date": "2024-02-06T14:18:33"},
-        {"id": 4, "event": "logout", "date": "2024-02-06T14:59:50"},
-        {"id": 5, "event": "login", "date": "2024-02-06T15:02:10"},
-    ]
+data = [
+    {"id": 1, "event": "login", "date": "2024-02-06T14:03:15"},
+    {"id": 2, "event": "view_page", "date": "2024-02-06T14:07:42"},
+    {"id": 3, "event": "purchase", "date": "2024-02-06T14:18:33"},
+    {"id": 4, "event": "logout", "date": "2024-02-06T14:59:50"},
+    {"id": 5, "event": "login", "date": "2024-02-06T15:02:10"},
+]
 ```
 
 For this example, let’s assume that we want the events to be grouped into 10-minute intervals.
@@ -199,7 +312,7 @@ This allows us to:
 
 Imagine your network's energy as a [catchy disco song](https://www.youtube.com/watch?v=VbD_kBJc_gI/) - instead of counting every single note, Skyflow is finding the rhythm that makes people want to dance.
 
-![dance {400x400} {caption: POV: Your engagement trends}](/assets/img/blog/dance.gif)
+![dance {400x400} {caption: POV: Your engagement trends}](/assets/gif/dance.gif)
 
 ### Upcoming Features & Improvements
 

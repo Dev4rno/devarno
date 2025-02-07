@@ -49,7 +49,41 @@ export default function Page({
     }, [router.query.tab]);
     return (
         <Wrapper>
-            <SEO pageTitle={`Devarno | ${navigationItems[tabIndex].name}`} />
+            <SEO
+                pageTitle={`Devarno | ${navigationItems[tabIndex].name}`}
+                keywords={[
+                    "Devarno",
+                    "Devarno software",
+                    "Devarno software consultancy",
+                    "python consultant",
+                    "python consultancy",
+                    "python software consultant",
+                    "python software consultancy",
+                    "python software developer",
+                    "python software development",
+                    "fullstack software consultancy",
+                    "full stack software consultancy",
+                    "full-stack software consultancy",
+                    "fullstack software consultant",
+                    "full stack software consultant",
+                    "full-stack software consultant",
+                    "startup consultant",
+                    "python scripting",
+                    "python scripting consultant",
+                    "python testing",
+                    "python testing consultant",
+                    "API development",
+                    "API development and integration",
+                    "NoSQL developer",
+                    "NoSQL database developer",
+                    "scalable web applications",
+
+                    "DevOps automation & deployment",
+                ]}
+                description={
+                    "DevArno is a software consultancy built on extensive proficiency in Python and significant experience with frontend frameworks across multiple digital products."
+                }
+            />
             <div className="yellow">
                 <SwitchDark />
                 <Navbar
