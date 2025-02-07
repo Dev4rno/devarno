@@ -40,7 +40,6 @@ export const SEO = ({
     publishDate,
     isArticle = false,
 }: SEOProps) => {
-    const fullTitle = `${pageTitle} | Skyflow`;
     const fullUrl = `${canonicalUrl}${
         isArticle ? "/blog/" + pageTitle.toLowerCase().replace(/\s+/g, "-") : ""
     }`;
@@ -48,7 +47,7 @@ export const SEO = ({
     return (
         <Head>
             {/* Essential Meta Tags */}
-            <title>{fullTitle}</title>
+            <title>{pageTitle}</title>
             <meta name="description" content={description} />
             <meta name="keywords" content={keywords.join(", ")} />
             <meta name="author" content={author} />
@@ -58,7 +57,7 @@ export const SEO = ({
             <link rel="canonical" href={fullUrl} />
 
             {/* Open Graph */}
-            <meta property="og:title" content={fullTitle} />
+            <meta property="og:title" content={pageTitle} />
             <meta property="og:description" content={description} />
             <meta property="og:type" content={isArticle ? "article" : ogType} />
             <meta property="og:url" content={fullUrl} />
@@ -67,7 +66,7 @@ export const SEO = ({
 
             {/* Twitter Card */}
             <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:title" content={fullTitle} />
+            <meta name="twitter:title" content={pageTitle} />
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={ogImage} />
 
