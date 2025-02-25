@@ -72,17 +72,24 @@ export const ProjectsContent: ProjectBlock[] = [
         href: "https://pwplz.com/",
     },
     {
-        name: "PunPal",
-        info: "A joke-rating web app built in under 24 hours as a #buildinpublic experiment, using Next.js with features like random joke fetching, an anonymous voting system, and a leaderboard, all powered by a MongoDB backend and custom API endpoints for interactive user engagement.",
-        icon: "code",
-        image: "/assets/img/projects/projects-punpal.png",
-        href: "https://punpal.net/",
-    },
-    {
         name: "SDW Carpentry",
         info: "A landing page for SDW Carpentry LTD, offering custom woodworking and renovation services for residential and commercial properties in London. The business focuses on quality, consistency, and transparency, specializing in small-to-medium maintenance and repairs.",
         icon: "code",
         image: "/assets/img/projects/projects-sdw.png",
         href: "https://www.sdwcarpentry.com/",
+    },
+    {
+        name: "PunPal",
+        info: "A joke-rating app built in under 24 hours as a Bluesky experiment, using Next.js with features like random joke fetching, an anonymous voting system, and a leaderboard, all powered by a MongoDB backend and custom API endpoints for interactive user engagement.",
+        icon: "code",
+        image: "/assets/img/projects/projects-punpal.png",
+        href: "https://punpal.net/",
+    },
+    {
+        name: "Unrained",
+        info: "A real-time weather app built as a Django practice project, offering accurate forecasts and current conditions for any city, with an intuitive interface designed to help users stay informed and prepared for the weather.",
+        icon: "code",
+        image: "/assets/img/projects/projects-unrained.png",
+        href: "https://unrained.com/",
     },
 ];
