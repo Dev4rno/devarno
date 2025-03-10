@@ -154,7 +154,7 @@ export const Subscribe = ({ isDark }: { isDark: boolean }) => {
                 variant="body1"
                 sx={{
                     fontWeight: 400,
-                    textAlign: "left",
+                    textAlign: { xs: "center", sm: "left" },
                     color: appColors[isDark ? "textDark" : "textLight"],
                     opacity: 0.7,
                 }}

@@ -6,7 +6,7 @@ date: "2024-12-04T11:35:07.322Z"
 tags: ["programming", "web dev", "devops"]
 keywords: ["jokes", "humour", "nextjs", "webdev", "public", "mvp"]
 intro: "Discover the challenges, lessons, and breakthroughs from my #buildinpublic journey to create a joke rating app within a single day."
-cardImg: "/assets/img/blog/punpal-voter.png"
+cardImg: "/assets/img/projects/projects-punpal.png"
 coverImg: "/assets/img/blog/jokes-votes-launch-cover.jpg"
 
 author:

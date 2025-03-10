@@ -33,7 +33,7 @@ export const SEO = ({
     pageTitle,
     description = "Your Personal Bluesky Observatory: Track viral posts, measure creator impact, and unlock engagement insights.",
     canonicalUrl = "https://skyflow.me",
-    ogImage = "/og-image.png",
+    ogImage = "/assets/img/brand/og_image.png",
     ogType = "website",
     keywords,
     author,
@@ -69,6 +69,12 @@ export const SEO = ({
             <meta name="twitter:title" content={pageTitle} />
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={ogImage} />
+            <script
+                defer
+                data-website-id="67ceb659629d7407d30366e8"
+                data-domain="devarno.com"
+                src="https://datafa.st/js/script.js"
+            ></script>
 
             {/* Article-specific meta tags */}
             {isArticle && publishDate && (

@@ -1,6 +1,6 @@
 ---
 titlePlain: "Building"
-titleColor: "Skyflow"
+titleColor: "Skyflow 1.1"
 excerpt: "Design Journal Entry #1: Take Off"
 cardImg: "/assets/img/projects/projects-skyflow-og.png"
 coverImg: "/assets/img/blog/skyflow-banner.jpg"
