@@ -71,9 +71,8 @@ export const SEO = ({
             <meta name="twitter:image" content={ogImage} />
             <script
                 defer
-                data-website-id="67ceb659629d7407d30366e8"
                 data-domain="devarno.com"
-                src="https://datafa.st/js/script.js"
+                src="https://plausible.io/js/script.js"
             ></script>
 
             {/* Article-specific meta tags */}
