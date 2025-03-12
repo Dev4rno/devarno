@@ -9,6 +9,7 @@ const AnimatedCursor: any = dynamic(() => import("react-animated-cursor"), {
 });
 
 import { AppStateProvider } from "@/src/context";
+import PlausibleProvider from "next-plausible";
 import type { AppProps } from "next/app";
 
 export default function ApplicationPage({
@@ -19,20 +20,22 @@ export default function ApplicationPage({
         Aos.init({ duration: 1200 });
     }, []);
     return (
-        <div className="devarno-application">
-            <AnimatedCursor
-                innerSize={8}
-                outerSize={44}
-                outerAlpha={0.3}
-                innerScale={0.7}
-                outerScale={1.2}
-                color="255, 160, 1"
-            />
-            <AppStateProvider>
-                {/* <SmoothScroll /> */}
-                <Component {...pageProps} />
-                <Analytics />
-            </AppStateProvider>
-        </div>
+        <PlausibleProvider domain="devarno.com">
+            <div className="devarno-application">
+                <AnimatedCursor
+                    innerSize={8}
+                    outerSize={44}
+                    outerAlpha={0.3}
+                    innerScale={0.7}
+                    outerScale={1.2}
+                    color="255, 160, 1"
+                />
+                <AppStateProvider>
+                    {/* <SmoothScroll /> */}
+                    <Component {...pageProps} />
+                    <Analytics />
+                </AppStateProvider>
+            </div>
+        </PlausibleProvider>
     );
 }

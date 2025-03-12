@@ -69,11 +69,11 @@ export const SEO = ({
             <meta name="twitter:title" content={pageTitle} />
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={ogImage} />
-            <script
+            {/* <script
                 defer
                 data-domain="devarno.com"
                 src="https://plausible.io/js/script.js"
-            ></script>
+            ></script> */}
 
             {/* Article-specific meta tags */}
             {isArticle && publishDate && (

@@ -77,7 +77,6 @@ export default function Page({
                     "NoSQL developer",
                     "NoSQL database developer",
                     "scalable web applications",
-
                     "DevOps automation & deployment",
                 ]}
                 description={
